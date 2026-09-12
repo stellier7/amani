@@ -10,7 +10,9 @@ export function Header() {
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-baseline gap-2">
-          <span className="text-2xl font-semibold tracking-[0.2em]">PASKI</span>
+          <span className="text-2xl font-semibold tracking-[0.2em]">
+            PASKI&rsquo;S
+          </span>
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
             Fine Jewelry
           </span>

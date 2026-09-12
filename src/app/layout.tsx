@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paski — Fine Jewelry",
+  title: "Paski's — Fine Jewelry",
   description:
     "Paski Jewelry — modern heirlooms in gold, silver, and stone. Handcrafted pieces made to be worn every day.",
 };

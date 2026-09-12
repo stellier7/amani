@@ -66,7 +66,7 @@ export default async function Home() {
 
       <footer className="border-t border-black/5 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 text-sm text-black/40 sm:flex-row">
-          <span>© {new Date().getFullYear()} Paski Jewelry</span>
+          <span>© {new Date().getFullYear()} Paski&rsquo;s Jewelry</span>
           <span>Free shipping & 30-day returns</span>
         </div>
       </footer>
