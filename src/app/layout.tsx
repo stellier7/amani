@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amani — Joyería Fina",
+  title: "Amani — Joyería",
   description:
     "Amani Joyería — recuerdos modernos en oro, plata y piedra natural. Piezas terminadas a mano, hechas para usar cada día.",
 };

@@ -15,7 +15,7 @@ export function Header() {
             AMANI
           </span>
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
-            Joyería Fina
+            Joyería
           </span>
         </Link>
 
