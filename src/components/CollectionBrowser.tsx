@@ -67,7 +67,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
   return (
     <section id="collection" className="mx-auto max-w-6xl px-6 py-20">
       <div className="max-w-2xl">
-        <p className="text-xs uppercase tracking-[0.36em] text-[#9b713e]">
+        <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
           Combínalos a tu manera
         </p>
         <h2 className="mt-3 text-3xl font-medium sm:text-4xl">

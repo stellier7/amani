@@ -32,14 +32,14 @@ export default async function Home() {
 
       <main className="flex-1">
         <section className="mx-auto max-w-[1440px] px-3 pt-3 sm:px-6 sm:pt-6">
-          <div className="grid min-h-[650px] overflow-hidden rounded-[2rem] bg-[#e9dfcf] lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="grid min-h-[650px] overflow-hidden rounded-[2rem] bg-[#e4e3df] lg:grid-cols-[0.82fr_1.18fr]">
             <div className="relative z-10 flex flex-col justify-center px-7 py-14 sm:px-12 lg:px-16">
-              <p className="text-xs uppercase tracking-[0.4em] text-[#8b6537]">
+              <p className="text-xs uppercase tracking-[0.4em] text-[#687075]">
                 Nueva colección · Para compartir
               </p>
               <h1 className="mt-5 text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
                 Ella
-                <span className="block font-light italic text-[#9b713e]">
+                <span className="block font-light italic text-[#767e82]">
                   y Él
                 </span>
               </h1>
@@ -66,7 +66,7 @@ export default async function Home() {
             <div className="relative min-h-[380px] lg:min-h-full">
               <Image
                 src="/images/ella-y-el-hero.png"
-                alt="Dos collares y dos brazaletes cubanos dorados a juego sobre piedra y seda"
+                alt="Dos collares y dos brazaletes cubanos de plata a juego sobre piedra y seda"
                 fill
                 priority
                 sizes="(min-width: 1024px) 58vw, 100vw"
@@ -85,7 +85,7 @@ export default async function Home() {
           className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#9b713e]">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
               01 · Para dos
             </p>
             <h2 className="mt-3 text-2xl font-medium">El set completo</h2>
@@ -94,7 +94,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="border-t border-black/10 pt-8 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#9b713e]">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
               02 · Solo ustedes
             </p>
             <h2 className="mt-3 text-2xl font-medium">Dúos a juego</h2>
@@ -103,7 +103,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="border-t border-black/10 pt-8 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#9b713e]">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
               03 · Para ti
             </p>
             <h2 className="mt-3 text-2xl font-medium">Tu combinación</h2>
