@@ -19,8 +19,8 @@ export function Header() {
         </a>
 
         <nav className="hidden gap-8 text-sm text-black/60 md:flex">
-          <a className="transition-colors hover:text-black" href="#">
-            Ella y Él
+          <a className="transition-colors hover:text-black" href="#destacados">
+            Destacados
           </a>
           <a
             className="transition-colors hover:text-black"
