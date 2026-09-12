@@ -1,6 +1,6 @@
-# paski-jewelry
+# amani-jewelry
 
-A modern fine-jewelry storefront built with [Next.js](https://nextjs.org) (App Router), React 19, TypeScript, and Tailwind CSS v4.
+A Spanish-first fine-jewelry storefront for **Amani Joyería**, built with [Next.js](https://nextjs.org) (App Router), React 19, TypeScript, and Tailwind CSS v4.
 
 ## Getting started
 

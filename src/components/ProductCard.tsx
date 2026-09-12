@@ -50,7 +50,7 @@ export function ProductCard({ product }: { product: Product }) {
             data-testid={`add-${product.id}`}
             className="rounded-full bg-[#2a2520] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black disabled:opacity-70"
           >
-            {added ? "Added ✓" : "Add to bag"}
+            {added ? "Agregado ✓" : "Agregar"}
           </button>
         </div>
       </div>

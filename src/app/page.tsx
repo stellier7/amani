@@ -1,10 +1,9 @@
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductCard } from "@/components/ProductCard";
 import { getProducts, type Product } from "@/lib/products";
 
 async function loadProducts(): Promise<Product[]> {
-  // Demonstrate the end-to-end data flow through the internal API route when a
-  // base URL is available, falling back to the catalog module during build/SSG.
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   if (baseUrl) {
     try {
@@ -32,28 +31,28 @@ export default async function Home() {
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-6 pt-16 pb-12 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-black/40">
-            Handcrafted · Ethically sourced
+            Hecho a mano · Origen ético
           </p>
           <h1 className="mx-auto mt-4 max-w-3xl text-balance text-5xl font-semibold leading-tight sm:text-6xl">
-            Modern heirlooms, made to be worn every day.
+            Recuerdos modernos, hechos para usar cada día.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-balance text-black/60">
-            Paski designs fine jewelry in gold, silver, and natural stone —
-            timeless pieces finished by hand in small batches.
+            Amani diseña joyería fina en oro, plata y piedra natural — piezas
+            atemporales terminadas a mano en lotes pequeños.
           </p>
           <a
-            href="#collection"
+            href="#coleccion"
             className="mt-8 inline-block rounded-full bg-[#2a2520] px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-black"
           >
-            Shop the collection
+            Ver la colección
           </a>
         </section>
 
-        <section id="collection" className="mx-auto max-w-6xl px-6 pb-24">
+        <section id="coleccion" className="mx-auto max-w-6xl px-6 pb-24">
           <div className="mb-8 flex items-end justify-between">
-            <h2 className="text-2xl font-medium">The collection</h2>
+            <h2 className="text-2xl font-medium">La colección</h2>
             <span className="text-sm text-black/40">
-              {products.length} pieces
+              {products.length} piezas
             </span>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -64,12 +63,7 @@ export default async function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-black/5 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 text-sm text-black/40 sm:flex-row">
-          <span>© {new Date().getFullYear()} Paski&rsquo;s Jewelry</span>
-          <span>Free shipping & 30-day returns</span>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

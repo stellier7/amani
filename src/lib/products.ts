@@ -1,7 +1,7 @@
 export type Product = {
   id: string;
   name: string;
-  category: "Rings" | "Necklaces" | "Earrings" | "Bracelets";
+  category: "Anillos" | "Collares" | "Aretes" | "Pulseras";
   price: number;
   material: string;
   description: string;
@@ -12,62 +12,62 @@ export type Product = {
 export const products: Product[] = [
   {
     id: "aurora-solitaire",
-    name: "Aurora Solitaire Ring",
-    category: "Rings",
+    name: "Anillo Solitario Aurora",
+    category: "Anillos",
     price: 1290,
-    material: "18k Gold · 0.5ct Diamond",
+    material: "Oro 18k · Diamante 0.5 ct",
     description:
-      "A single brilliant-cut diamond held in a whisper-thin band. Understated, forever.",
+      "Un diamante de corte brillante en una banda delicadísima. Discreto, para siempre.",
     gradient: ["#f6d9c9", "#e8b4a0"],
   },
   {
     id: "luna-pendant",
-    name: "Luna Pendant Necklace",
-    category: "Necklaces",
+    name: "Collar con Dije Luna",
+    category: "Collares",
     price: 640,
-    material: "Sterling Silver · Moonstone",
+    material: "Plata esterlina · Piedra lunar",
     description:
-      "A softly glowing moonstone suspended on a delicate 45cm chain.",
+      "Una piedra lunar de brillo suave suspendida en una cadena delicada de 45 cm.",
     gradient: ["#d8e3f0", "#b6c7e0"],
   },
   {
     id: "sol-hoops",
-    name: "Sol Huggie Hoops",
-    category: "Earrings",
+    name: "Aretes Aro Sol",
+    category: "Aretes",
     price: 380,
-    material: "14k Gold Vermeil",
+    material: "Baño de oro 14k",
     description:
-      "Everyday hoops with a warm, hand-polished finish that catches the light.",
+      "Aros para el día a día con un acabado cálido pulido a mano que captura la luz.",
     gradient: ["#f7e6b8", "#e9c766"],
   },
   {
     id: "marea-bracelet",
-    name: "Marea Chain Bracelet",
-    category: "Bracelets",
+    name: "Pulsera Cadena Marea",
+    category: "Pulseras",
     price: 520,
-    material: "18k Gold · Adjustable",
+    material: "Oro 18k · Ajustable",
     description:
-      "A fluid curb chain that drapes beautifully and layers with anything.",
+      "Una cadena fluida que cae con gracia y se combina con cualquier look.",
     gradient: ["#e9d5f0", "#c9a8e0"],
   },
   {
     id: "vera-studs",
-    name: "Vera Pearl Studs",
-    category: "Earrings",
+    name: "Aretes de Perla Vera",
+    category: "Aretes",
     price: 295,
-    material: "Freshwater Pearl · Gold Posts",
+    material: "Perla de agua dulce · Poste de oro",
     description:
-      "Classic pearls reimagined with a modern, off-round silhouette.",
+      "Perlas clásicas reinterpretadas con una silueta moderna ligeramente irregular.",
     gradient: ["#f0e9e0", "#d6c7b8"],
   },
   {
     id: "esme-band",
-    name: "Esme Eternity Band",
-    category: "Rings",
+    name: "Anillo Eternidad Esme",
+    category: "Anillos",
     price: 980,
-    material: "Platinum · Pavé Diamonds",
+    material: "Platino · Diamantes pavé",
     description:
-      "A continuous line of pavé diamonds for the moments that never end.",
+      "Una línea continua de diamantes pavé para los momentos que no terminan.",
     gradient: ["#dce7e3", "#a8c4bc"],
   },
 ];
@@ -77,7 +77,7 @@ export function getProducts(): Product[] {
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("es-HN", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,

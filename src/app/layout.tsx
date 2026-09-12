@@ -14,15 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paski's — Fine Jewelry",
+  title: "Amani — Joyería Fina",
   description:
-    "Paski Jewelry — modern heirlooms in gold, silver, and stone. Handcrafted pieces made to be worn every day.",
+    "Amani Joyería — recuerdos modernos en oro, plata y piedra natural. Piezas terminadas a mano, hechas para usar cada día.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#faf7f2] text-[#2a2520]">
