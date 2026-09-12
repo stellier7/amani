@@ -20,7 +20,7 @@ const styles: Array<"Todos" | LinkStyle> = [
   "Todos",
   "Cubana",
   "Barbada",
-  "Eslabón Cartier",
+  "Figaro / Cartier",
 ];
 
 function FilterButton({

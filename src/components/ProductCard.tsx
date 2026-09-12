@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 import { formatPrice, type Product } from "@/lib/products";
@@ -7,8 +8,6 @@ import { formatPrice, type Product } from "@/lib/products";
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
-  const isCouple = product.category === "Para dos";
-  const isBraceletsOnly = product.category === "Solo brazaletes";
 
   function handleAdd() {
     addItem(product);
@@ -24,7 +23,14 @@ export function ProductCard({ product }: { product: Product }) {
           backgroundImage: `linear-gradient(135deg, ${product.gradient[0]}, ${product.gradient[1]})`,
         }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.8),transparent_38%)]" />
+        <Image
+          src={product.image}
+          alt={`${product.name}: ${product.pieces} de plata 925`}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/5" />
         <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
           <span className="rounded-full bg-white/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
             {product.style}
@@ -32,25 +38,6 @@ export function ProductCard({ product }: { product: Product }) {
           <span className="rounded-full bg-[#2a2520]/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white backdrop-blur">
             {product.category}
           </span>
-        </div>
-        <div
-          aria-hidden
-          className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-        >
-          {!isBraceletsOnly && (
-            <div className="absolute left-[16%] top-[24%] h-[52%] w-[52%] rotate-[-12deg] rounded-[50%] border-[5px] border-[#70777b] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.7),0_18px_30px_rgba(45,52,56,0.2)]" />
-          )}
-          {isCouple && (
-            <div className="absolute right-[8%] top-[29%] h-[47%] w-[44%] rotate-[15deg] rounded-[50%] border-[3px] border-[#aeb4b6] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.9),0_16px_25px_rgba(45,52,56,0.16)]" />
-          )}
-          {(isCouple ||
-            isBraceletsOnly ||
-            product.category === "Collar + brazalete") && (
-            <div className="absolute bottom-[15%] right-[12%] h-[24%] w-[31%] rotate-[-9deg] rounded-[50%] border-[5px] border-[#747c80] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.75),0_12px_20px_rgba(45,52,56,0.2)]" />
-          )}
-          {(isCouple || isBraceletsOnly) && (
-            <div className="absolute bottom-[9%] left-[14%] h-[20%] w-[27%] rotate-[18deg] rounded-[50%] border-[3px] border-[#b7bcbf] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.9),0_10px_18px_rgba(45,52,56,0.14)]" />
-          )}
         </div>
       </div>
 

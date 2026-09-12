@@ -34,7 +34,10 @@ export default async function Home() {
         <section className="mx-auto max-w-[1440px] px-3 pt-3 sm:px-6 sm:pt-6">
           <div className="grid min-h-[650px] overflow-hidden rounded-[2rem] bg-[#e4e3df] lg:grid-cols-[0.82fr_1.18fr]">
             <div className="relative z-10 flex flex-col justify-center px-7 py-14 sm:px-12 lg:px-16">
-              <p className="text-xs uppercase tracking-[0.4em] text-[#687075]">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-black">
+                Amani Joyería — Honduras
+              </p>
+              <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[#687075]">
                 Nueva colección · Para compartir
               </p>
               <h1 className="mt-5 text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
@@ -44,7 +47,7 @@ export default async function Home() {
                 </span>
               </h1>
               <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-black/60">
-                Dos estilos, un mismo vínculo. Collares y brazaletes a juego
+                Tres estilos, un mismo vínculo. Collares y brazaletes a juego
                 para llevar juntos, separados o completamente a su manera.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-5">
@@ -65,8 +68,8 @@ export default async function Home() {
 
             <div className="relative min-h-[380px] lg:min-h-full">
               <Image
-                src="/images/ella-y-el-hero.png"
-                alt="Dos collares y dos brazaletes cubanos de plata a juego sobre piedra y seda"
+                src="/images/amani/ella-y-el-hero.png"
+                alt="Pareja hondureña luciendo collares y brazaletes Figaro de plata a juego"
                 fill
                 priority
                 sizes="(min-width: 1024px) 58vw, 100vw"
@@ -74,7 +77,7 @@ export default async function Home() {
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent" />
               <p className="absolute bottom-7 right-7 rounded-full border border-white/30 bg-black/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white backdrop-blur-md">
-                Cubana · 4 piezas
+                Figaro · 4 piezas
               </p>
             </div>
           </div>
@@ -118,7 +121,7 @@ export default async function Home() {
 
       <footer className="border-t border-black/5 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 text-sm text-black/40 sm:flex-row">
-          <span>© {new Date().getFullYear()} Paski&rsquo;s Jewelry</span>
+          <span>© {new Date().getFullYear()} Amani Joyería · Honduras</span>
           <span>Envío gratis · Devoluciones en 30 días</span>
         </div>
       </footer>

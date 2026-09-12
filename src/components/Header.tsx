@@ -11,10 +11,10 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-baseline gap-2">
           <span className="text-2xl font-semibold tracking-[0.2em]">
-            PASKI&rsquo;S
+            AMANI
           </span>
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
-            Joyería fina
+            Joyería · Honduras
           </span>
         </a>
 

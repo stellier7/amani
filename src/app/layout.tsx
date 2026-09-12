@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ella y Él — Paski's Jewelry",
+  title: "Ella y Él — Amani Joyería Honduras",
   description:
-    "Sets de collares y brazaletes a juego para ella y él, en tejidos cubano, barbado y eslabón Cartier.",
+    "Sets de collares y brazaletes de plata 925 a juego para ella y él, en tejidos cubano, barbado y Figaro.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
