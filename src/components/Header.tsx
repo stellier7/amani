@@ -14,22 +14,22 @@ export function Header() {
             PASKI&rsquo;S
           </span>
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
-            Fine Jewelry
+            Joyería fina
           </span>
         </a>
 
         <nav className="hidden gap-8 text-sm text-black/60 md:flex">
-          <a className="transition-colors hover:text-black" href="#rings">
-            Rings
+          <a className="transition-colors hover:text-black" href="#">
+            Ella y Él
           </a>
-          <a className="transition-colors hover:text-black" href="#necklaces">
-            Necklaces
+          <a
+            className="transition-colors hover:text-black"
+            href="#como-combinar"
+          >
+            Combinaciones
           </a>
-          <a className="transition-colors hover:text-black" href="#earrings">
-            Earrings
-          </a>
-          <a className="transition-colors hover:text-black" href="#bracelets">
-            Bracelets
+          <a className="transition-colors hover:text-black" href="#collection">
+            Colección
           </a>
         </nav>
 
@@ -37,7 +37,7 @@ export function Header() {
           className="flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm shadow-sm"
           data-testid="cart-summary"
         >
-          <span aria-hidden>🛍️</span>
+          <span aria-hidden>Bolsa</span>
           <span data-testid="cart-count" className="font-medium">
             {count}
           </span>

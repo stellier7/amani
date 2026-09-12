@@ -1,74 +1,168 @@
+export type ProductCategory =
+  | "Para dos"
+  | "Solo collares"
+  | "Solo brazaletes"
+  | "Collar + brazalete";
+
+export type LinkStyle = "Cubana" | "Barbada" | "Eslabón Cartier";
+
 export type Product = {
   id: string;
   name: string;
-  category: "Rings" | "Necklaces" | "Earrings" | "Bracelets";
+  category: ProductCategory;
+  style: LinkStyle;
   price: number;
   material: string;
   description: string;
+  pieces: string;
   /** Two CSS colors used to render the product's gradient tile. */
   gradient: [string, string];
 };
 
 export const products: Product[] = [
   {
-    id: "aurora-solitaire",
-    name: "Aurora Solitaire Ring",
-    category: "Rings",
-    price: 1290,
-    material: "18k Gold · 0.5ct Diamond",
+    id: "cubana-para-dos",
+    name: "Cubana Nuestro Lazo",
+    category: "Para dos",
+    style: "Cubana",
+    price: 248,
+    material: "Baño de oro 18k · Acero 316L",
     description:
-      "A single brilliant-cut diamond held in a whisper-thin band. Understated, forever.",
-    gradient: ["#f6d9c9", "#e8b4a0"],
+      "El set completo para compartir: una versión firme para él y una más delicada para ella.",
+    pieces: "2 collares · 2 brazaletes",
+    gradient: ["#ead8b8", "#bf9558"],
   },
   {
-    id: "luna-pendant",
-    name: "Luna Pendant Necklace",
-    category: "Necklaces",
-    price: 640,
-    material: "Sterling Silver · Moonstone",
+    id: "cubana-collares",
+    name: "Dúo Cubana Esencia",
+    category: "Solo collares",
+    style: "Cubana",
+    price: 138,
+    material: "Baño de oro 18k · 5 y 8 mm",
     description:
-      "A softly glowing moonstone suspended on a delicate 45cm chain.",
-    gradient: ["#d8e3f0", "#b6c7e0"],
+      "Dos cadenas cubanas en anchos complementarios, pensadas para llevar el mismo brillo.",
+    pieces: "2 collares",
+    gradient: ["#efe2cb", "#c9a36b"],
   },
   {
-    id: "sol-hoops",
-    name: "Sol Huggie Hoops",
-    category: "Earrings",
-    price: 380,
-    material: "14k Gold Vermeil",
+    id: "cubana-brazaletes",
+    name: "Dúo Cubana Unión",
+    category: "Solo brazaletes",
+    style: "Cubana",
+    price: 98,
+    material: "Baño de oro 18k · Ajustables",
     description:
-      "Everyday hoops with a warm, hand-polished finish that catches the light.",
-    gradient: ["#f7e6b8", "#e9c766"],
+      "Brazaletes a juego con dos proporciones y un acabado pulido de alto brillo.",
+    pieces: "2 brazaletes",
+    gradient: ["#e8d4af", "#b98b47"],
   },
   {
-    id: "marea-bracelet",
-    name: "Marea Chain Bracelet",
-    category: "Bracelets",
-    price: 520,
-    material: "18k Gold · Adjustable",
+    id: "cubana-personal",
+    name: "Cubana Firma",
+    category: "Collar + brazalete",
+    style: "Cubana",
+    price: 128,
+    material: "Baño de oro 18k · 8 mm",
     description:
-      "A fluid curb chain that drapes beautifully and layers with anything.",
-    gradient: ["#e9d5f0", "#c9a8e0"],
+      "Cadena y brazalete del mismo calibre para un conjunto limpio y contundente.",
+    pieces: "1 collar · 1 brazalete",
+    gradient: ["#ead7b3", "#ad7c39"],
   },
   {
-    id: "vera-studs",
-    name: "Vera Pearl Studs",
-    category: "Earrings",
-    price: 295,
-    material: "Freshwater Pearl · Gold Posts",
+    id: "barbada-para-dos",
+    name: "Barbada Dos Almas",
+    category: "Para dos",
+    style: "Barbada",
+    price: 228,
+    material: "Oro laminado 18k · Acero 316L",
     description:
-      "Classic pearls reimagined with a modern, off-round silhouette.",
-    gradient: ["#f0e9e0", "#d6c7b8"],
+      "Cuatro piezas de eslabón plano que se sienten ligeras y se ven impecables juntas.",
+    pieces: "2 collares · 2 brazaletes",
+    gradient: ["#d9cfbd", "#aa9272"],
   },
   {
-    id: "esme-band",
-    name: "Esme Eternity Band",
-    category: "Rings",
-    price: 980,
-    material: "Platinum · Pavé Diamonds",
+    id: "barbada-collares",
+    name: "Dúo Barbada Encuentro",
+    category: "Solo collares",
+    style: "Barbada",
+    price: 128,
+    material: "Oro laminado 18k · 3 y 6 mm",
     description:
-      "A continuous line of pavé diamonds for the moments that never end.",
-    gradient: ["#dce7e3", "#a8c4bc"],
+      "Un par de collares de perfil suave, uno sutil y otro con más presencia.",
+    pieces: "2 collares",
+    gradient: ["#e8dfd0", "#b9a187"],
+  },
+  {
+    id: "barbada-brazaletes",
+    name: "Dúo Barbada Cerca",
+    category: "Solo brazaletes",
+    style: "Barbada",
+    price: 88,
+    material: "Oro laminado 18k · Ajustables",
+    description:
+      "Dos brazaletes planos y cómodos creados para acompañarse todos los días.",
+    pieces: "2 brazaletes",
+    gradient: ["#ddd2c0", "#aa9274"],
+  },
+  {
+    id: "barbada-personal",
+    name: "Barbada Línea",
+    category: "Collar + brazalete",
+    style: "Barbada",
+    price: 118,
+    material: "Oro laminado 18k · 6 mm",
+    description:
+      "Collar y brazalete barbados con una caída fluida y proporción perfectamente coordinada.",
+    pieces: "1 collar · 1 brazalete",
+    gradient: ["#dfd4c2", "#9f8564"],
+  },
+  {
+    id: "cartier-para-dos",
+    name: "Eslabón Éternité",
+    category: "Para dos",
+    style: "Eslabón Cartier",
+    price: 268,
+    material: "Baño de oro 18k · Acero 316L",
+    description:
+      "Nuestra propuesta más refinada: eslabones definidos en cuatro piezas para compartir.",
+    pieces: "2 collares · 2 brazaletes",
+    gradient: ["#efe0c4", "#c49a5b"],
+  },
+  {
+    id: "cartier-collares",
+    name: "Dúo Éternité",
+    category: "Solo collares",
+    style: "Eslabón Cartier",
+    price: 148,
+    material: "Baño de oro 18k · 4 y 7 mm",
+    description:
+      "Dos collares de eslabón alargado con acabados distintos y una misma intención.",
+    pieces: "2 collares",
+    gradient: ["#eee2cf", "#c5a576"],
+  },
+  {
+    id: "cartier-brazaletes",
+    name: "Dúo Éternité Cerca",
+    category: "Solo brazaletes",
+    style: "Eslabón Cartier",
+    price: 108,
+    material: "Baño de oro 18k · Ajustables",
+    description:
+      "Brazaletes de eslabón elegante para combinar entre sí o llevar por separado.",
+    pieces: "2 brazaletes",
+    gradient: ["#e6d9c5", "#b99564"],
+  },
+  {
+    id: "cartier-personal",
+    name: "Éternité Firma",
+    category: "Collar + brazalete",
+    style: "Eslabón Cartier",
+    price: 138,
+    material: "Baño de oro 18k · 7 mm",
+    description:
+      "Un collar y un brazalete coordinados por el ritmo de sus eslabones geométricos.",
+    pieces: "1 collar · 1 brazalete",
+    gradient: ["#e9dcc8", "#aa8555"],
   },
 ];
 
@@ -77,7 +171,7 @@ export function getProducts(): Product[] {
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("es-US", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
