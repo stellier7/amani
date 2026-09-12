@@ -73,7 +73,7 @@ export default async function Home() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 58vw, 100vw"
-                className="object-cover object-center"
+                className="object-cover object-right"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent" />
               <p className="absolute bottom-7 right-7 rounded-full border border-white/30 bg-black/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white backdrop-blur-md">
