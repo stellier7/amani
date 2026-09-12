@@ -26,7 +26,7 @@ export const products: Product[] = [
     name: "Cubana Nuestro Lazo",
     category: "Para dos",
     style: "Cubana",
-    price: 248,
+    price: 6650,
     material: "Plata 925 · Acabado pulido",
     description:
       "El set completo para compartir: una versión firme para él y una más delicada para ella.",
@@ -39,7 +39,7 @@ export const products: Product[] = [
     name: "Dúo Cubana Esencia",
     category: "Solo collares",
     style: "Cubana",
-    price: 138,
+    price: 3700,
     material: "Plata 925 · 5 y 8 mm",
     description:
       "Dos cadenas cubanas en anchos complementarios, pensadas para llevar el mismo brillo.",
@@ -52,7 +52,7 @@ export const products: Product[] = [
     name: "Dúo Cubana Unión",
     category: "Solo brazaletes",
     style: "Cubana",
-    price: 98,
+    price: 2650,
     material: "Plata 925 · Ajustables",
     description:
       "Brazaletes a juego con dos proporciones y un acabado pulido de alto brillo.",
@@ -65,7 +65,7 @@ export const products: Product[] = [
     name: "Cubana Firma",
     category: "Collar + brazalete",
     style: "Cubana",
-    price: 128,
+    price: 3450,
     material: "Plata 925 · 8 mm",
     description:
       "Cadena y brazalete del mismo calibre para un conjunto limpio y contundente.",
@@ -78,7 +78,7 @@ export const products: Product[] = [
     name: "Barbada Dos Almas",
     category: "Para dos",
     style: "Barbada",
-    price: 228,
+    price: 6100,
     material: "Plata 925 · Acabado espejo",
     description:
       "Cuatro piezas de eslabón plano que se sienten ligeras y se ven impecables juntas.",
@@ -91,7 +91,7 @@ export const products: Product[] = [
     name: "Dúo Barbada Encuentro",
     category: "Solo collares",
     style: "Barbada",
-    price: 128,
+    price: 3450,
     material: "Plata 925 · 3 y 6 mm",
     description:
       "Un par de collares de perfil suave, uno sutil y otro con más presencia.",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     name: "Dúo Barbada Cerca",
     category: "Solo brazaletes",
     style: "Barbada",
-    price: 88,
+    price: 2350,
     material: "Plata 925 · Ajustables",
     description:
       "Dos brazaletes planos y cómodos creados para acompañarse todos los días.",
@@ -117,7 +117,7 @@ export const products: Product[] = [
     name: "Barbada Línea",
     category: "Collar + brazalete",
     style: "Barbada",
-    price: 118,
+    price: 3200,
     material: "Plata 925 · 6 mm",
     description:
       "Collar y brazalete barbados con una caída fluida y proporción perfectamente coordinada.",
@@ -130,7 +130,7 @@ export const products: Product[] = [
     name: "Eslabón Éternité",
     category: "Para dos",
     style: "Figaro / Cartier",
-    price: 268,
+    price: 7200,
     material: "Plata 925 · Acabado pulido",
     description:
       "Nuestra propuesta más refinada: eslabones definidos en cuatro piezas para compartir.",
@@ -143,7 +143,7 @@ export const products: Product[] = [
     name: "Dúo Éternité",
     category: "Solo collares",
     style: "Figaro / Cartier",
-    price: 148,
+    price: 3950,
     material: "Plata 925 · 4 y 7 mm",
     description:
       "Dos collares de eslabón alargado con acabados distintos y una misma intención.",
@@ -156,7 +156,7 @@ export const products: Product[] = [
     name: "Dúo Éternité Cerca",
     category: "Solo brazaletes",
     style: "Figaro / Cartier",
-    price: 108,
+    price: 2900,
     material: "Plata 925 · Ajustables",
     description:
       "Brazaletes de eslabón elegante para combinar entre sí o llevar por separado.",
@@ -169,7 +169,7 @@ export const products: Product[] = [
     name: "Éternité Firma",
     category: "Collar + brazalete",
     style: "Figaro / Cartier",
-    price: 138,
+    price: 3700,
     material: "Plata 925 · 7 mm",
     description:
       "Un collar y un brazalete coordinados por el ritmo de sus eslabones geométricos.",
@@ -184,9 +184,9 @@ export function getProducts(): Product[] {
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("es-US", {
+  return new Intl.NumberFormat("es-HN", {
     style: "currency",
-    currency: "USD",
+    currency: "HNL",
     maximumFractionDigits: 0,
   }).format(price);
 }
