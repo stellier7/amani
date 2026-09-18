@@ -78,8 +78,8 @@ export function BagView() {
             </Link>
 
             <div className="flex flex-1 flex-col">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
                   <Link
                     href={productPath(product)}
                     className="text-base font-medium decoration-black/30 underline-offset-4 hover:underline"
@@ -92,7 +92,7 @@ export function BagView() {
                 </div>
                 <p
                   data-testid={`bag-line-${product.id}`}
-                  className="text-base font-semibold tabular-nums"
+                  className="shrink-0 text-base font-semibold tabular-nums"
                 >
                   {formatPrice(product.price * quantity)}
                 </p>
