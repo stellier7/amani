@@ -16,37 +16,19 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-@keyframes featured-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
+.featured-scroller {
+  /* The carousel is driven by scrollLeft, so hide the bar but keep it scrollable. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
-.featured-marquee-track {
-  animation: featured-marquee 55s linear infinite;
-  will-change: transform;
+.featured-scroller::-webkit-scrollbar {
+  display: none;
 }
 
-.featured-marquee:hover .featured-marquee-track,
-.featured-marquee:focus-within .featured-marquee-track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .featured-marquee {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .featured-marquee-track {
-    animation: none;
-  }
-
-  .featured-tile {
-    scroll-snap-align: start;
-  }
+.featured-scroller:focus-visible {
+  outline: 2px solid #2a2520;
+  outline-offset: 4px;
 }
