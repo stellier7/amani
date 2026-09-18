@@ -360,12 +360,12 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
       </div>
 
       <div className="mx-auto mt-8 max-w-6xl px-6">
-        <a
-          href="#collection"
+        <Link
+          href="/ella-y-el"
           className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
         >
           Ver toda la colección
-        </a>
+        </Link>
       </div>
     </section>
   );

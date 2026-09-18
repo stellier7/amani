@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CollectionBrowser } from "@/components/CollectionBrowser";
+import Link from "next/link";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
 import {
   getFeaturedProducts,
@@ -52,12 +52,12 @@ export default async function Home() {
               para llevar juntos, separados o completamente a su manera.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-5">
-              <a
-                href="#collection"
+              <Link
+                href="/ella-y-el"
                 className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
               >
-                Descubrir los sets
-              </a>
+                Ver la colección Ella y Él
+              </Link>
               <a
                 href="#como-combinar"
                 className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
@@ -117,9 +117,15 @@ export default async function Home() {
             Un collar y un brazalete coordinados para llevar como firma.
           </p>
         </div>
+        <div className="md:col-span-3">
+          <Link
+            href="/ella-y-el"
+            className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
+          >
+            Explorar los {products.length} diseños
+          </Link>
+        </div>
       </section>
-
-      <CollectionBrowser products={products} />
     </>
   );
 }

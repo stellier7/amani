@@ -21,10 +21,10 @@ export async function generateMetadata({
 }: PageProps<"/producto/[id]">): Promise<Metadata> {
   const { id } = await params;
   const product = getProduct(id);
-  if (!product) return { title: "Pieza no encontrada — Amani Joyería" };
+  if (!product) return { title: "Pieza no encontrada" };
 
   return {
-    title: `${product.name} — Amani Joyería`,
+    title: product.name,
     description: product.description,
     openGraph: {
       title: `${product.name} — Amani Joyería`,
@@ -62,10 +62,10 @@ export default async function ProductPage({
           </Link>
           <span aria-hidden>·</span>
           <Link
-            href="/#collection"
+            href="/ella-y-el"
             className="transition-colors hover:text-black"
           >
-            Colección
+            Ella y Él
           </Link>
           <span aria-hidden>·</span>
           <span className="text-black/70">{product.name}</span>
@@ -139,7 +139,7 @@ export default async function ProductPage({
               </h2>
             </div>
             <Link
-              href="/#collection"
+              href="/ella-y-el"
               className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
             >
               Ver toda la colección

@@ -23,7 +23,10 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ella y Él — Amani Joyería Honduras",
+  title: {
+    default: "Amani Joyería — Plata 925 en Honduras",
+    template: "%s — Amani Joyería",
+  },
   description:
     "Sets de collares y brazaletes de plata 925 a juego para ella y él, en tejidos cubano, barbado y Figaro.",
 };

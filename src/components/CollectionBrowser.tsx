@@ -67,22 +67,8 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
   );
 
   return (
-    <section id="collection" className="mx-auto max-w-6xl px-6 py-20">
-      <div className="max-w-2xl">
-        <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
-          Combínalos a tu manera
-        </p>
-        <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
-          La colección Ella y Él
-        </h2>
-        <p className="mt-4 leading-relaxed text-black/55">
-          Elige dos collares, dos brazaletes, el conjunto completo para ambos,
-          tu propio collar con brazalete o una pieza suelta de nuestra línea de
-          zirconias. Cada diseño comparte el mismo acabado en plata 925.
-        </p>
-      </div>
-
-      <div className="mt-9 space-y-4 border-y border-black/8 py-6">
+    <section id="collection" className="mx-auto max-w-6xl px-6 pb-20">
+      <div className="space-y-4 border-y border-black/8 py-6">
         <div className="flex items-center gap-4 overflow-x-auto pb-1">
           <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
             Set
