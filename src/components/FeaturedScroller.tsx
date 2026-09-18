@@ -78,13 +78,19 @@ function FeaturedTile({
 export function FeaturedScroller({ products }: { products: Product[] }) {
   if (products.length === 0) return null;
 
-  // Duplicate the list so the CSS loop can translate by -50% seamlessly.
-  const loop = [...products, ...products];
+  // The CSS loop translates by -50%, so each half has to stay wider than the
+  // viewport. Repeat short lists until a half covers an ultra-wide screen.
+  const tilesPerHalf = Math.max(12, products.length);
+  const half = Array.from(
+    { length: tilesPerHalf },
+    (_, index) => products[index % products.length],
+  );
+  const loop = [...half, ...half];
 
   return (
     <section
       id="destacados"
-      aria-label="Productos destacados"
+      aria-label="Recién llegados"
       className="overflow-hidden py-16 sm:py-20"
     >
       <div className="mx-auto max-w-6xl px-6">
@@ -92,12 +98,11 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
           Destacados
         </p>
         <h2 className="mt-3 max-w-xl text-3xl font-medium sm:text-4xl">
-          Piezas que se mueven contigo
+          Recién llegados
         </h2>
         <p className="mt-4 max-w-lg leading-relaxed text-black/55">
-          Un recorrido continuo por los sets Cubana, Barbada y Figaro, y por las
-          piezas nuevas de zirconias — listos para compartir o llevar a tu
-          manera.
+          Nuestras piezas más nuevas en plata 925: el set cubano italiano, el
+          tennis ajustable y los anillos de zirconias.
         </p>
       </div>
 

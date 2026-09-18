@@ -25,6 +25,8 @@ export type Product = {
   pieces: string;
   image: string;
   shot?: ShotType;
+  /** Highlighted in the "Destacados" marquee. */
+  featured?: boolean;
   /** Two CSS colors used to render the product's gradient tile. */
   gradient: [string, string];
 };
@@ -198,6 +200,7 @@ export const products: Product[] = [
     pieces: "1 collar · 1 brazalete",
     image: "/images/amani/cubana-italiana.jpg",
     shot: "packshot",
+    featured: true,
     gradient: ["#ffffff", "#e7e9ea"],
   },
   {
@@ -212,6 +215,7 @@ export const products: Product[] = [
     pieces: "1 brazalete",
     image: "/images/amani/tennis-brazalete.jpg",
     shot: "packshot",
+    featured: true,
     gradient: ["#ffffff", "#e9ebec"],
   },
   {
@@ -226,6 +230,7 @@ export const products: Product[] = [
     pieces: "1 anillo",
     image: "/images/amani/anillo-pave.jpg",
     shot: "packshot",
+    featured: true,
     gradient: ["#ffffff", "#eaecec"],
   },
   {
@@ -240,12 +245,17 @@ export const products: Product[] = [
     pieces: "1 anillo",
     image: "/images/amani/anillo-domo.jpg",
     shot: "packshot",
+    featured: true,
     gradient: ["#ffffff", "#e6e8e9"],
   },
 ];
 
 export function getProducts(): Product[] {
   return products;
+}
+
+export function getFeaturedProducts(list: Product[] = products): Product[] {
+  return list.filter((product) => product.featured);
 }
 
 export function formatPrice(price: number): string {

@@ -2,7 +2,11 @@ import Image from "next/image";
 import { CollectionBrowser } from "@/components/CollectionBrowser";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
 import { Header } from "@/components/Header";
-import { getProducts, type Product } from "@/lib/products";
+import {
+  getFeaturedProducts,
+  getProducts,
+  type Product,
+} from "@/lib/products";
 
 async function loadProducts(): Promise<Product[]> {
   // Demonstrate the end-to-end data flow through the internal API route when a
@@ -53,7 +57,7 @@ export default async function Home() {
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-5">
                 <a
-                  href="#destacados"
+                  href="#collection"
                   className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
                 >
                   Descubrir los sets
@@ -84,7 +88,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <FeaturedScroller products={products} />
+        <FeaturedScroller products={getFeaturedProducts(products)} />
 
         <section
           id="como-combinar"
