@@ -266,6 +266,25 @@ export function getFeaturedProducts(list: Product[] = products): Product[] {
   return list.filter((product) => product.featured);
 }
 
+export function getProduct(id: string): Product | undefined {
+  return products.find((product) => product.id === id);
+}
+
+export function productPath(product: Pick<Product, "id">): string {
+  return `/producto/${product.id}`;
+}
+
+/** Other pieces to show alongside one product, closest in style first. */
+export function getRelatedProducts(product: Product, limit = 3): Product[] {
+  const others = products.filter((item) => item.id !== product.id);
+  const score = (item: Product) =>
+    (item.style === product.style ? 2 : 0) +
+    (item.category === product.category ? 1 : 0);
+  return [...others]
+    .sort((a, b) => score(b) - score(a))
+    .slice(0, limit);
+}
+
 export function formatPrice(price: number): string {
   return new Intl.NumberFormat("es-HN", {
     style: "currency",

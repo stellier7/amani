@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCart } from "@/components/CartContext";
 import { formatPrice } from "@/lib/products";
 
@@ -9,28 +10,28 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-baseline gap-2">
+        <Link href="/" className="flex items-baseline gap-2">
           <span className="text-2xl font-semibold tracking-[0.2em]">
             AMANI
           </span>
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
             Joyería · Honduras
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden gap-8 text-sm text-black/60 md:flex">
-          <a className="transition-colors hover:text-black" href="#destacados">
+          <Link className="transition-colors hover:text-black" href="/#destacados">
             Destacados
-          </a>
-          <a
+          </Link>
+          <Link
             className="transition-colors hover:text-black"
-            href="#como-combinar"
+            href="/#como-combinar"
           >
             Combinaciones
-          </a>
-          <a className="transition-colors hover:text-black" href="#collection">
+          </Link>
+          <Link className="transition-colors hover:text-black" href="/#collection">
             Colección
-          </a>
+          </Link>
         </nav>
 
         <div
