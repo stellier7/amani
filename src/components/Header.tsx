@@ -45,8 +45,12 @@ export function Header() {
           </Link>
         </nav>
 
-        <div
-          className="flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm shadow-sm"
+        <Link
+          href="/bolsa"
+          aria-label={`Ver tu bolsa: ${count} ${
+            count === 1 ? "pieza" : "piezas"
+          }`}
+          className="flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm shadow-sm transition-colors hover:border-black/30"
           data-testid="cart-summary"
         >
           <span aria-hidden>Bolsa</span>
@@ -57,7 +61,7 @@ export function Header() {
           <span data-testid="cart-total" className="tabular-nums text-black/70">
             {formatPrice(total)}
           </span>
-        </div>
+        </Link>
       </div>
     </header>
   );

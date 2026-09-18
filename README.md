@@ -27,13 +27,18 @@ Then open [http://localhost:3000](http://localhost:3000).
 | `/`              | Hero, the "Recién llegados" carousel, and the combination guide      |
 | `/ella-y-el`     | The full collection with set and style filters                       |
 | `/producto/[id]` | One prerendered page per product, built from `generateStaticParams`  |
+| `/bolsa`         | The bag: quantities, subtotal, and checkout hand-off                 |
 | `/api/products`  | JSON catalog                                                         |
 
 ## Project structure
 
 - `src/app/layout.tsx` — root layout with the header, footer, and cart provider
 - `src/lib/products.ts` — product catalog and helpers
-- `src/components/` — cart context, header, carousel, and product card UI
+- `src/components/` — cart context, header, carousel, bag, and product card UI
+
+The bag is kept in `localStorage` under `amani-bolsa` (product ids and quantities only, so
+prices always come from the catalog) and read through `useSyncExternalStore`, which keeps the
+first client render in step with the empty server render.
 
 ## API
 
