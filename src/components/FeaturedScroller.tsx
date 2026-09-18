@@ -14,6 +14,7 @@ function FeaturedTile({
 }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const isPackshot = product.shot === "packshot";
 
   function handleAdd() {
     addItem(product);
@@ -34,9 +35,13 @@ function FeaturedTile({
           alt={`${product.name}: ${product.pieces} de plata 925`}
           fill
           sizes="300px"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          className={`transition-transform duration-700 group-hover:scale-[1.03] ${
+            isPackshot ? "object-contain p-3" : "object-cover"
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        {!isPackshot && (
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        )}
         <span className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
           {product.style}
         </span>
@@ -90,8 +95,9 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
           Piezas que se mueven contigo
         </h2>
         <p className="mt-4 max-w-lg leading-relaxed text-black/55">
-          Un recorrido continuo por los sets Cubana, Barbada y Figaro — listos
-          para compartir o llevar a tu manera.
+          Un recorrido continuo por los sets Cubana, Barbada y Figaro, y por las
+          piezas nuevas de zirconias — listos para compartir o llevar a tu
+          manera.
         </p>
       </div>
 
