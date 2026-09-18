@@ -1,22 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/CartContext";
 import { formatPrice, tileBackground, type Product } from "@/lib/products";
 
-/** Pixels per second, matching the pace of the previous CSS marquee. */
-const AUTO_SCROLL_SPEED = 70;
-/** How long the carousel stays still after someone interacts with it. */
-const RESUME_DELAY = 2500;
+/** Cruising speed of the strip, in pixels per second. */
+const AUTO_SPEED = 70;
+/** Seconds the cruising speed takes to ease in or out, so it never jolts. */
+const SPEED_EASE = 0.5;
+/** Seconds a flick takes to shed most of its speed. */
+const FLING_DECAY = 0.4;
+/** Below this speed (px/s) a flick is spent. */
+const FLING_FLOOR = 30;
+/** Milliseconds the strip rests after a gesture before cruising again. */
+const REST_AFTER_GESTURE = 1200;
 /** Pointer travel that turns a press into a drag instead of a click. */
 const DRAG_THRESHOLD = 6;
-/**
- * The track renders three copies of the list and the scroll position is kept in
- * the middle one, so a rewind of exactly one copy is always available in either
- * direction and never lands on the opposite rewind's trigger.
- */
-const TRACK_COPIES = 3;
+/** The track renders this many copies of the list end to end. */
+const TRACK_COPIES = 2;
+/** Gap kept between a keyboard-focused tile and the left edge. */
+const FOCUS_INSET = 24;
 
 function FeaturedTile({
   product,
@@ -38,7 +42,7 @@ function FeaturedTile({
   return (
     <article
       data-featured-tile
-      className="featured-tile group flex w-[260px] shrink-0 flex-col overflow-hidden rounded-2xl border border-black/5 bg-white sm:w-[300px]"
+      className="group flex w-[260px] shrink-0 flex-col overflow-hidden rounded-2xl border border-black/5 bg-white sm:w-[300px]"
     >
       <div
         className="relative aspect-[5/4] w-full overflow-hidden"
@@ -90,169 +94,164 @@ function FeaturedTile({
   );
 }
 
-function ControlButton({
-  label,
-  onClick,
-  children,
-}: {
-  label: string;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      title={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black/60 transition-colors hover:border-black/30 hover:text-black"
-    >
-      {children}
-    </button>
-  );
-}
-
 export function FeaturedScroller({ products }: { products: Product[] }) {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [autoScroll, setAutoScroll] = useState(true);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  // Interaction state lives in refs so the animation frame can read it without
-  // re-subscribing on every pointer move.
-  const holdUntilRef = useRef(0);
+  // The strip is positioned by transform rather than by scrolling, so it has no
+  // start or end for the browser to clamp against and momentum is never cut off
+  // at the seam.
+  const offsetRef = useRef(0);
+  const cruiseRef = useRef(0);
+  const flingRef = useRef(0);
+  const restUntilRef = useRef(0);
   const hoveringRef = useRef(false);
-  const focusedRef = useRef(false);
+  const focusHeldRef = useRef(false);
   const draggingRef = useRef(false);
   const draggedRef = useRef(false);
-  const dragOriginRef = useRef({ x: 0, scrollLeft: 0 });
-
-  const hold = useCallback(() => {
-    holdUntilRef.current = performance.now() + RESUME_DELAY;
-  }, []);
+  const dragRef = useRef({ startX: 0, startOffset: 0, lastX: 0, lastAt: 0 });
+  const velocityRef = useRef(0);
+  const reduceMotionRef = useRef(false);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduceMotion(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    const wrap = () => {
-      const copy = scroller.scrollWidth / TRACK_COPIES;
-      if (copy <= 0) return;
-      if (scroller.scrollLeft < copy) {
-        scroller.scrollLeft += copy;
-      } else if (scroller.scrollLeft >= copy * 2) {
-        scroller.scrollLeft -= copy;
-      }
+    const sync = () => {
+      reduceMotionRef.current = query.matches;
     };
-
-    scroller.scrollLeft = scroller.scrollWidth / TRACK_COPIES;
-    scroller.addEventListener("scroll", wrap, { passive: true });
-    return () => scroller.removeEventListener("scroll", wrap);
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
   }, []);
 
   useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller || !autoScroll || reduceMotion) return;
+    const track = trackRef.current;
+    if (!track) return;
+
+    const copyWidth = () => track.scrollWidth / TRACK_COPIES || 1;
+
+    const paint = () => {
+      const copy = copyWidth();
+      const wrapped = ((offsetRef.current % copy) + copy) % copy;
+      offsetRef.current = wrapped;
+      track.style.transform = `translate3d(${-wrapped}px, 0, 0)`;
+    };
 
     let frame = 0;
     let previous = performance.now();
 
-    const step = (now: number) => {
-      const elapsed = Math.min(now - previous, 100);
+    const tick = (now: number) => {
+      const elapsed = Math.min(now - previous, 100) / 1000;
       previous = now;
 
-      const idle =
-        !hoveringRef.current &&
-        !focusedRef.current &&
-        !draggingRef.current &&
-        now >= holdUntilRef.current;
+      if (!draggingRef.current) {
+        if (flingRef.current !== 0) {
+          offsetRef.current += flingRef.current * elapsed;
+          flingRef.current *= Math.exp(-elapsed / FLING_DECAY);
+          if (Math.abs(flingRef.current) < FLING_FLOOR) {
+            flingRef.current = 0;
+            restUntilRef.current = now + REST_AFTER_GESTURE;
+          }
+        }
 
-      if (idle) {
-        scroller.scrollLeft += (AUTO_SCROLL_SPEED * elapsed) / 1000;
+        const resting =
+          reduceMotionRef.current ||
+          hoveringRef.current ||
+          focusHeldRef.current ||
+          flingRef.current !== 0 ||
+          now < restUntilRef.current;
+
+        const target = resting ? 0 : AUTO_SPEED;
+        cruiseRef.current +=
+          (target - cruiseRef.current) * (1 - Math.exp(-elapsed / SPEED_EASE));
+        offsetRef.current += cruiseRef.current * elapsed;
+
+        paint();
       }
 
-      frame = requestAnimationFrame(step);
+      frame = requestAnimationFrame(tick);
     };
 
-    frame = requestAnimationFrame(step);
+    paint();
+    frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [autoScroll, reduceMotion]);
+  }, [products]);
 
-  const step = useCallback(
-    (direction: 1 | -1) => {
-      const scroller = scrollerRef.current;
-      if (!scroller) return;
-      const tile = scroller.querySelector<HTMLElement>("[data-featured-tile]");
-      const track = scroller.firstElementChild;
-      const gap = track
-        ? parseFloat(getComputedStyle(track).columnGap) || 0
-        : 0;
-      const distance = tile
-        ? tile.offsetWidth + gap
-        : scroller.clientWidth * 0.8;
+  // Horizontal trackpad and wheel gestures nudge the strip directly.
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track) return;
 
-      hold();
-      scroller.scrollBy({ left: direction * distance, behavior: "smooth" });
-    },
-    [hold],
-  );
+    const onWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+      event.preventDefault();
+      flingRef.current = 0;
+      offsetRef.current += event.deltaX;
+      restUntilRef.current = performance.now() + REST_AFTER_GESTURE;
+      const copy = track.scrollWidth / TRACK_COPIES || 1;
+      const wrapped = ((offsetRef.current % copy) + copy) % copy;
+      offsetRef.current = wrapped;
+      track.style.transform = `translate3d(${-wrapped}px, 0, 0)`;
+    };
+
+    viewport.addEventListener("wheel", onWheel, { passive: false });
+    return () => viewport.removeEventListener("wheel", onWheel);
+  }, []);
 
   function handlePointerDown(event: React.PointerEvent<HTMLDivElement>) {
-    hold();
-    // Touch and pen already pan the scroll container natively.
-    if (event.pointerType !== "mouse") return;
-
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+    const viewport = viewportRef.current;
+    if (!viewport) return;
 
     draggingRef.current = true;
     draggedRef.current = false;
-    dragOriginRef.current = {
-      x: event.clientX,
-      scrollLeft: scroller.scrollLeft,
+    flingRef.current = 0;
+    cruiseRef.current = 0;
+    velocityRef.current = 0;
+    dragRef.current = {
+      startX: event.clientX,
+      startOffset: offsetRef.current,
+      lastX: event.clientX,
+      lastAt: event.timeStamp,
     };
-    scroller.setPointerCapture(event.pointerId);
+    viewport.setPointerCapture(event.pointerId);
   }
 
   function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
     if (!draggingRef.current) return;
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-    const travel = event.clientX - dragOriginRef.current.x;
+    const travel = event.clientX - dragRef.current.startX;
     if (Math.abs(travel) > DRAG_THRESHOLD) draggedRef.current = true;
 
-    // Wrap the drag itself rather than letting the browser clamp at either
-    // end, so the strip keeps going in both directions.
-    const copy = scroller.scrollWidth / TRACK_COPIES;
-    let target = dragOriginRef.current.scrollLeft - travel;
-    while (copy > 0 && target < copy) {
-      target += copy;
-      dragOriginRef.current.scrollLeft += copy;
+    const sinceLast = event.timeStamp - dragRef.current.lastAt;
+    if (sinceLast > 0) {
+      const instant = ((event.clientX - dragRef.current.lastX) / sinceLast) * 1000;
+      velocityRef.current = velocityRef.current * 0.7 + instant * 0.3;
+      dragRef.current.lastX = event.clientX;
+      dragRef.current.lastAt = event.timeStamp;
     }
-    while (copy > 0 && target >= copy * 2) {
-      target -= copy;
-      dragOriginRef.current.scrollLeft -= copy;
-    }
-    scroller.scrollLeft = target;
+
+    const copy = track.scrollWidth / TRACK_COPIES || 1;
+    const next = dragRef.current.startOffset - travel;
+    const wrapped = ((next % copy) + copy) % copy;
+    offsetRef.current = wrapped;
+    track.style.transform = `translate3d(${-wrapped}px, 0, 0)`;
   }
 
   function handlePointerUp(event: React.PointerEvent<HTMLDivElement>) {
-    hold();
     if (!draggingRef.current) return;
-
     draggingRef.current = false;
-    const scroller = scrollerRef.current;
-    if (scroller?.hasPointerCapture(event.pointerId)) {
-      scroller.releasePointerCapture(event.pointerId);
+
+    const viewport = viewportRef.current;
+    if (viewport?.hasPointerCapture(event.pointerId)) {
+      viewport.releasePointerCapture(event.pointerId);
     }
+
+    // Dragging right (positive velocity) walks the strip backwards.
+    const fling = -velocityRef.current;
+    flingRef.current = Math.abs(fling) > FLING_FLOOR ? fling : 0;
+    restUntilRef.current = performance.now() + REST_AFTER_GESTURE;
   }
 
   // A drag that ends on top of a card must not also activate it.
@@ -263,16 +262,25 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
     event.stopPropagation();
   }
 
+  // Tabbing through the cards brings the focused one into view, since there is
+  // no scrollbar to follow focus on its own.
+  function handleFocusCapture(event: React.FocusEvent<HTMLDivElement>) {
+    if (!event.target.matches(":focus-visible")) return;
+    const tile = event.target.closest<HTMLElement>("[data-featured-tile]");
+    if (!tile) return;
+    focusHeldRef.current = true;
+    offsetRef.current = tile.offsetLeft - FOCUS_INSET;
+  }
+
   if (products.length === 0) return null;
 
-  // Each copy has to stay wider than the viewport, otherwise a rewind would
+  // Each copy has to stay wider than the viewport, otherwise wrapping it would
   // expose a gap on wide screens.
   const tilesPerCopy = Math.max(12, products.length);
   const loop = Array.from(
     { length: tilesPerCopy * TRACK_COPIES },
     (_, index) => products[index % products.length],
   );
-  const paused = !autoScroll || reduceMotion;
 
   return (
     <section
@@ -280,34 +288,17 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
       aria-label="Recién llegados"
       className="overflow-hidden py-16 sm:py-20"
     >
-      <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-6 px-6">
-        <div>
-          <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
-            Destacados
-          </p>
-          <h2 className="mt-3 max-w-xl text-3xl font-medium sm:text-4xl">
-            Recién llegados
-          </h2>
-          <p className="mt-4 max-w-lg leading-relaxed text-black/55">
-            Nuestras piezas más nuevas en plata 925: el set cubano italiano, el
-            tennis ajustable y los anillos de zirconias.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <ControlButton label="Ver anterior" onClick={() => step(-1)}>
-            <span aria-hidden>←</span>
-          </ControlButton>
-          <ControlButton
-            label={paused ? "Reanudar el carrusel" : "Pausar el carrusel"}
-            onClick={() => setAutoScroll((value) => !value)}
-          >
-            <span aria-hidden>{paused ? "▶" : "❚❚"}</span>
-          </ControlButton>
-          <ControlButton label="Ver siguiente" onClick={() => step(1)}>
-            <span aria-hidden>→</span>
-          </ControlButton>
-        </div>
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
+          Destacados
+        </p>
+        <h2 className="mt-3 max-w-xl text-3xl font-medium sm:text-4xl">
+          Recién llegados
+        </h2>
+        <p className="mt-4 max-w-lg leading-relaxed text-black/55">
+          Nuestras piezas más nuevas en plata 925: el set cubano italiano, el
+          tennis ajustable y los anillos de zirconias.
+        </p>
       </div>
 
       <div className="relative mt-10">
@@ -315,10 +306,9 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#faf7f2] to-transparent sm:w-16" />
 
         <div
-          ref={scrollerRef}
+          ref={viewportRef}
           role="region"
           aria-label="Carrusel de piezas recién llegadas"
-          tabIndex={0}
           data-testid="featured-scroller"
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -330,20 +320,18 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
           onPointerLeave={(event) => {
             if (event.pointerType === "mouse") hoveringRef.current = false;
           }}
-          onFocus={(event) => {
-            // Only keyboard focus should hold the carousel. A mouse press also
-            // focuses the scroll container, which would otherwise stop it for
-            // good instead of for the usual resume delay.
-            focusedRef.current = event.target.matches(":focus-visible");
+          onFocusCapture={handleFocusCapture}
+          onBlurCapture={() => {
+            focusHeldRef.current = false;
           }}
-          onBlur={() => {
-            focusedRef.current = false;
-          }}
-          onWheel={hold}
           onClickCapture={handleClickCapture}
-          className="featured-scroller cursor-grab overflow-x-auto active:cursor-grabbing"
+          className="featured-viewport cursor-grab overflow-hidden active:cursor-grabbing"
         >
-          <div className="flex w-max gap-5 px-6 py-1">
+          <div
+            ref={trackRef}
+            data-featured-track
+            className="flex w-max gap-5 px-6 py-1 will-change-transform"
+          >
             {loop.map((product, index) => (
               <FeaturedTile
                 key={`${product.id}-${index}`}

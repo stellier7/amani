@@ -16,19 +16,7 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-.featured-scroller {
-  /* The carousel is driven by scrollLeft, so hide the bar but keep it scrollable. */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-.featured-scroller::-webkit-scrollbar {
-  display: none;
-}
-
-.featured-scroller:focus-visible {
-  outline: 2px solid #2a2520;
-  outline-offset: 4px;
+.featured-viewport {
+  /* Vertical gestures still scroll the page; horizontal ones drive the strip. */
+  touch-action: pan-y;
 }
