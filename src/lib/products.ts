@@ -27,9 +27,21 @@ export type Product = {
   shot?: ShotType;
   /** Highlighted in the "Destacados" marquee. */
   featured?: boolean;
-  /** Two CSS colors used to render the product's gradient tile. */
-  gradient: [string, string];
+  /** Two CSS colors used to render the tile behind a lifestyle photo. */
+  gradient?: [string, string];
 };
+
+/** The studio sweep the packshots were shot on. */
+const PACKSHOT_BACKDROP = "#fefefe";
+
+const DEFAULT_GRADIENT: [string, string] = ["#e8e9e8", "#9fa5a8"];
+
+/** Background for a product's image tile, matched to the photo behind it. */
+export function tileBackground(product: Product): string {
+  if (product.shot === "packshot") return PACKSHOT_BACKDROP;
+  const [from, to] = product.gradient ?? DEFAULT_GRADIENT;
+  return `linear-gradient(135deg, ${from}, ${to})`;
+}
 
 export const products: Product[] = [
   {
@@ -201,7 +213,6 @@ export const products: Product[] = [
     image: "/images/amani/cubana-italiana.jpg",
     shot: "packshot",
     featured: true,
-    gradient: ["#ffffff", "#e7e9ea"],
   },
   {
     id: "tennis-brazalete",
@@ -216,7 +227,6 @@ export const products: Product[] = [
     image: "/images/amani/tennis-brazalete.jpg",
     shot: "packshot",
     featured: true,
-    gradient: ["#ffffff", "#e9ebec"],
   },
   {
     id: "anillo-pave",
@@ -231,7 +241,6 @@ export const products: Product[] = [
     image: "/images/amani/anillo-pave.jpg",
     shot: "packshot",
     featured: true,
-    gradient: ["#ffffff", "#eaecec"],
   },
   {
     id: "anillo-domo",
@@ -246,7 +255,6 @@ export const products: Product[] = [
     image: "/images/amani/anillo-domo.jpg",
     shot: "packshot",
     featured: true,
-    gradient: ["#ffffff", "#e6e8e9"],
   },
 ];
 

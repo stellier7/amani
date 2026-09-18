@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
-import { formatPrice, type Product } from "@/lib/products";
+import { formatPrice, tileBackground, type Product } from "@/lib/products";
 
 function FeaturedTile({
   product,
@@ -26,9 +26,7 @@ function FeaturedTile({
     <article className="featured-tile group flex w-[260px] shrink-0 flex-col overflow-hidden rounded-2xl border border-black/5 bg-white sm:w-[300px]">
       <div
         className="relative aspect-[5/4] w-full overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, ${product.gradient[0]}, ${product.gradient[1]})`,
-        }}
+        style={{ background: tileBackground(product) }}
       >
         <Image
           src={product.image}
@@ -36,7 +34,7 @@ function FeaturedTile({
           fill
           sizes="300px"
           className={`transition-transform duration-700 group-hover:scale-[1.03] ${
-            isPackshot ? "object-contain p-3" : "object-cover"
+            isPackshot ? "object-contain" : "object-cover"
           }`}
         />
         {!isPackshot && (

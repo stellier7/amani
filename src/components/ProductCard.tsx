@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
-import { formatPrice, type Product } from "@/lib/products";
+import { formatPrice, tileBackground, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
@@ -20,9 +20,7 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow hover:shadow-md">
       <div
         className="relative aspect-[4/5] w-full overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, ${product.gradient[0]}, ${product.gradient[1]})`,
-        }}
+        style={{ background: tileBackground(product) }}
       >
         <Image
           src={product.image}
