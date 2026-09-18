@@ -20,19 +20,27 @@ Then open [http://localhost:3000](http://localhost:3000).
 | `npm start`     | Serve the production build               |
 | `npm run lint`  | Run ESLint                               |
 
+## Routes
+
+| Route            | Contents                                                            |
+| ---------------- | ------------------------------------------------------------------- |
+| `/`              | Hero, the "Recién llegados" carousel, and the combination guide      |
+| `/ella-y-el`     | The full collection with set and style filters                       |
+| `/producto/[id]` | One prerendered page per product, built from `generateStaticParams`  |
+| `/api/products`  | JSON catalog                                                         |
+
 ## Project structure
 
-- `src/app/page.tsx` — storefront landing page and product grid
-- `src/app/api/products/route.ts` — JSON API that serves the product catalog
+- `src/app/layout.tsx` — root layout with the header, footer, and cart provider
 - `src/lib/products.ts` — product catalog and helpers
-- `src/components/` — cart context, header, and product card UI
+- `src/components/` — cart context, header, carousel, and product card UI
 
 ## API
 
 `GET /api/products` returns the catalog:
 
 ```json
-{ "count": 6, "products": [ { "id": "aurora-solitaire", "name": "Aurora Solitaire Ring", ... } ] }
+{ "count": 16, "products": [ { "id": "cubana-italiana", "name": "Cubana Italiana", ... } ] }
 ```
 
 ## Cloud Agent environment
