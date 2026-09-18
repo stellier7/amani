@@ -1,9 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/CartContext";
-import { formatPrice, tileBackground, type Product } from "@/lib/products";
+import {
+  formatPrice,
+  productPath,
+  tileBackground,
+  type Product,
+} from "@/lib/products";
 
 /** Cruising speed of the strip, in pixels per second. */
 const AUTO_SPEED = 70;
@@ -44,51 +50,56 @@ function FeaturedTile({
       data-featured-tile
       className="group flex w-[260px] shrink-0 flex-col overflow-hidden rounded-2xl border border-black/5 bg-white sm:w-[300px]"
     >
-      <div
-        className="relative aspect-[5/4] w-full overflow-hidden"
-        style={{ background: tileBackground(product) }}
+      <Link
+        href={productPath(product)}
+        draggable={false}
+        className="flex flex-1 flex-col"
       >
-        <Image
-          src={product.image}
-          alt={`${product.name}: ${product.pieces} de plata 925`}
-          fill
-          draggable={false}
-          sizes="300px"
-          className={`transition-transform duration-700 group-hover:scale-[1.03] ${
-            isPackshot ? "object-contain" : "object-cover"
-          }`}
-        />
-        {!isPackshot && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-        )}
-        <span className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
-          {product.style}
-        </span>
-      </div>
+        <div
+          className="relative aspect-[5/4] w-full overflow-hidden"
+          style={{ background: tileBackground(product) }}
+        >
+          <Image
+            src={product.image}
+            alt={`${product.name}: ${product.pieces} de plata 925`}
+            fill
+            draggable={false}
+            sizes="300px"
+            className={`transition-transform duration-700 group-hover:scale-[1.03] ${
+              isPackshot ? "object-contain" : "object-cover"
+            }`}
+          />
+          {!isPackshot && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          )}
+          <span className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
+            {product.style}
+          </span>
+        </div>
 
-      <div className="flex flex-1 flex-col gap-3 p-4">
-        <div>
+        <div className="flex flex-1 flex-col p-4 pb-0">
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#687075]">
             {product.category}
           </p>
-          <h3 className="mt-1 text-base font-medium leading-snug">
+          <h3 className="mt-1 text-base font-medium leading-snug decoration-black/30 underline-offset-4 group-hover:underline">
             {product.name}
           </h3>
           <p className="mt-1 text-xs text-black/40">{product.pieces}</p>
         </div>
-        <div className="mt-auto flex items-center justify-between gap-3 pt-1">
-          <span className="text-base font-semibold tabular-nums">
-            {formatPrice(product.price)}
-          </span>
-          <button
-            type="button"
-            onClick={handleAdd}
-            data-testid={`featured-add-${product.id}-${instance}`}
-            className="rounded-full bg-[#2a2520] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black"
-          >
-            {added ? "Agregado ✓" : "Agregar"}
-          </button>
-        </div>
+      </Link>
+
+      <div className="flex items-center justify-between gap-3 p-4 pt-3">
+        <span className="text-base font-semibold tabular-nums">
+          {formatPrice(product.price)}
+        </span>
+        <button
+          type="button"
+          onClick={handleAdd}
+          data-testid={`featured-add-${product.id}-${instance}`}
+          className="rounded-full bg-[#2a2520] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black"
+        >
+          {added ? "Agregado ✓" : "Agregar"}
+        </button>
       </div>
     </article>
   );
@@ -213,7 +224,6 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
       lastX: event.clientX,
       lastAt: event.timeStamp,
     };
-    viewport.setPointerCapture(event.pointerId);
   }
 
   function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
@@ -222,7 +232,13 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
     if (!track) return;
 
     const travel = event.clientX - dragRef.current.startX;
-    if (Math.abs(travel) > DRAG_THRESHOLD) draggedRef.current = true;
+    if (Math.abs(travel) > DRAG_THRESHOLD && !draggedRef.current) {
+      draggedRef.current = true;
+      // Capturing only once the press turns into a drag keeps a plain click on
+      // the card reaching its link: a captured pointer retargets the click to
+      // this container instead.
+      viewportRef.current?.setPointerCapture(event.pointerId);
+    }
 
     const sinceLast = event.timeStamp - dragRef.current.lastAt;
     if (sinceLast > 0) {
