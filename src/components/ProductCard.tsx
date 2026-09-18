@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
-import { formatPrice, type Product } from "@/lib/products";
+import { formatPrice, tileBackground, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const isPackshot = product.shot === "packshot";
 
   function handleAdd() {
     addItem(product);
@@ -19,18 +20,20 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow hover:shadow-md">
       <div
         className="relative aspect-[4/5] w-full overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, ${product.gradient[0]}, ${product.gradient[1]})`,
-        }}
+        style={{ background: tileBackground(product) }}
       >
         <Image
           src={product.image}
           alt={`${product.name}: ${product.pieces} de plata 925`}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          className={`transition-transform duration-700 group-hover:scale-[1.03] ${
+            isPackshot ? "object-contain" : "object-cover"
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/5" />
+        {!isPackshot && (
+          <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/5" />
+        )}
         <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
           <span className="rounded-full bg-white/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
             {product.style}

@@ -2,9 +2,17 @@ export type ProductCategory =
   | "Para dos"
   | "Solo collares"
   | "Solo brazaletes"
-  | "Collar + brazalete";
+  | "Collar + brazalete"
+  | "Pieza individual";
 
-export type LinkStyle = "Cubana" | "Barbada" | "Figaro / Cartier";
+export type LinkStyle =
+  | "Cubana"
+  | "Barbada"
+  | "Figaro / Cartier"
+  | "Zirconias";
+
+/** Studio shots sit on white, so they are letterboxed instead of cropped. */
+export type ShotType = "lifestyle" | "packshot";
 
 export type Product = {
   id: string;
@@ -16,9 +24,24 @@ export type Product = {
   description: string;
   pieces: string;
   image: string;
-  /** Two CSS colors used to render the product's gradient tile. */
-  gradient: [string, string];
+  shot?: ShotType;
+  /** Highlighted in the "Destacados" marquee. */
+  featured?: boolean;
+  /** Two CSS colors used to render the tile behind a lifestyle photo. */
+  gradient?: [string, string];
 };
+
+/** The studio sweep the packshots were shot on. */
+const PACKSHOT_BACKDROP = "#fefefe";
+
+const DEFAULT_GRADIENT: [string, string] = ["#e8e9e8", "#9fa5a8"];
+
+/** Background for a product's image tile, matched to the photo behind it. */
+export function tileBackground(product: Product): string {
+  if (product.shot === "packshot") return PACKSHOT_BACKDROP;
+  const [from, to] = product.gradient ?? DEFAULT_GRADIENT;
+  return `linear-gradient(135deg, ${from}, ${to})`;
+}
 
 export const products: Product[] = [
   {
@@ -177,10 +200,70 @@ export const products: Product[] = [
     image: "/images/amani/figaro-personal.png",
     gradient: ["#e4e5e3", "#8c9497"],
   },
+  {
+    id: "cubana-italiana",
+    name: "Cubana Italiana",
+    category: "Collar + brazalete",
+    style: "Cubana",
+    price: 4250,
+    material: "Plata 925 · Hecha en Italia · 9 mm",
+    description:
+      "Eslabón cubano ancho con cierre de mosquetón y sello italiano, en collar y brazalete a juego.",
+    pieces: "1 collar · 1 brazalete",
+    image: "/images/amani/cubana-italiana.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "tennis-brazalete",
+    name: "Tennis Lluvia",
+    category: "Pieza individual",
+    style: "Zirconias",
+    price: 3150,
+    material: "Plata 925 · Cierre ajustable",
+    description:
+      "Zirconias redondas en línea continua con cierre deslizante que se ajusta a cualquier muñeca.",
+    pieces: "1 brazalete",
+    image: "/images/amani/tennis-brazalete.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "anillo-pave",
+    name: "Anillo Pavé Destello",
+    category: "Pieza individual",
+    style: "Zirconias",
+    price: 1850,
+    material: "Plata 925 · Tres hileras de zirconias",
+    description:
+      "Una banda de perfil bajo con tres hileras engastadas al pavé para llevar sola o apilada.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-pave.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "anillo-domo",
+    name: "Anillo Domo Constelación",
+    category: "Pieza individual",
+    style: "Zirconias",
+    price: 2450,
+    material: "Plata 925 · Zirconias al ras",
+    description:
+      "Un domo pulido salpicado de zirconias engastadas al ras, como un cielo despejado.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-domo.jpg",
+    shot: "packshot",
+    featured: true,
+  },
 ];
 
 export function getProducts(): Product[] {
   return products;
+}
+
+export function getFeaturedProducts(list: Product[] = products): Product[] {
+  return list.filter((product) => product.featured);
 }
 
 export function formatPrice(price: number): string {

@@ -14,6 +14,7 @@ const categories: Array<"Todos" | ProductCategory> = [
   "Solo collares",
   "Solo brazaletes",
   "Collar + brazalete",
+  "Pieza individual",
 ];
 
 const styles: Array<"Todos" | LinkStyle> = [
@@ -21,6 +22,7 @@ const styles: Array<"Todos" | LinkStyle> = [
   "Cubana",
   "Barbada",
   "Figaro / Cartier",
+  "Zirconias",
 ];
 
 function FilterButton({
@@ -74,9 +76,9 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
           La colección Ella y Él
         </h2>
         <p className="mt-4 leading-relaxed text-black/55">
-          Elige dos collares, dos brazaletes, el conjunto completo para ambos o
-          tu propio collar con brazalete. Cada diseño comparte el mismo acabado
-          y lenguaje de eslabones.
+          Elige dos collares, dos brazaletes, el conjunto completo para ambos,
+          tu propio collar con brazalete o una pieza suelta de nuestra línea de
+          zirconias. Cada diseño comparte el mismo acabado en plata 925.
         </p>
       </div>
 
@@ -97,7 +99,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
         </div>
         <div className="flex items-center gap-4 overflow-x-auto pb-1">
           <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
-            Tejido
+            Estilo
           </span>
           {styles.map((option) => (
             <FilterButton
@@ -114,7 +116,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
       <div className="mb-7 mt-10 flex items-center justify-between">
         <p className="text-sm text-black/50" aria-live="polite">
           {visibleProducts.length}{" "}
-          {visibleProducts.length === 1 ? "conjunto" : "conjuntos"}
+          {visibleProducts.length === 1 ? "diseño" : "diseños"}
         </p>
         {(category !== "Todos" || style !== "Todos") && (
           <button

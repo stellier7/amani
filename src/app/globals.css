@@ -16,37 +16,7 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-@keyframes featured-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.featured-marquee-track {
-  animation: featured-marquee 55s linear infinite;
-  will-change: transform;
-}
-
-.featured-marquee:hover .featured-marquee-track,
-.featured-marquee:focus-within .featured-marquee-track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .featured-marquee {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .featured-marquee-track {
-    animation: none;
-  }
-
-  .featured-tile {
-    scroll-snap-align: start;
-  }
+.featured-viewport {
+  /* Vertical gestures still scroll the page; horizontal ones drive the strip. */
+  touch-action: pan-y;
 }
