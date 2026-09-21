@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
+import { ShopByCategory } from "@/components/ShopByCategory";
 import {
   getFeaturedProducts,
   getProducts,
@@ -85,6 +86,8 @@ export default async function Home() {
       </section>
 
       <FeaturedScroller products={getFeaturedProducts(products)} />
+
+      <ShopByCategory />
 
       <section
         id="como-combinar"

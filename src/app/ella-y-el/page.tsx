@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CollectionBrowser } from "@/components/CollectionBrowser";
+import { categoryFromShopQuery } from "@/lib/shop-categories";
 import { getProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -10,7 +11,11 @@ export const metadata: Metadata = {
     "La colección completa: collares y brazaletes de plata 925 a juego en tejido cubano, barbado y Figaro, más aretes, anillos y brazaletes de zirconias, perlas y amuletos.",
 };
 
-export default function CollectionPage() {
+export default async function CollectionPage({
+  searchParams,
+}: PageProps<"/ella-y-el">) {
+  const { categoria } = await searchParams;
+  const initialCategory = categoryFromShopQuery(categoria);
   const products = getProducts();
 
   return (
@@ -63,7 +68,11 @@ export default function CollectionPage() {
         </h2>
       </section>
 
-      <CollectionBrowser products={products} />
+      <CollectionBrowser
+        key={initialCategory}
+        products={products}
+        initialCategory={initialCategory}
+      />
     </>
   );
 }

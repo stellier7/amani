@@ -55,9 +55,15 @@ function FilterButton({
   );
 }
 
-export function CollectionBrowser({ products }: { products: Product[] }) {
+export function CollectionBrowser({
+  products,
+  initialCategory = "Todos",
+}: {
+  products: Product[];
+  initialCategory?: (typeof categories)[number];
+}) {
   const [category, setCategory] = useState<(typeof categories)[number]>(
-    "Todos",
+    initialCategory,
   );
   const [style, setStyle] = useState<(typeof styles)[number]>("Todos");
 
