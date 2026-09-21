@@ -357,11 +357,9 @@ export function getHomepageProducts(list: Product[] = products): Product[] {
   return list.filter((product) => !product.ellaYElOnly);
 }
 
-/** Ella y Él page: full catalog with matching sets kept at the end. */
+/** Ella y Él page: matching sets only. */
 export function getEllaYElProducts(list: Product[] = products): Product[] {
-  const main = list.filter((product) => !product.ellaYElOnly);
-  const matching = list.filter((product) => product.ellaYElOnly);
-  return [...main, ...matching];
+  return list.filter((product) => product.ellaYElOnly);
 }
 
 export function getFeaturedProducts(list: Product[] = products): Product[] {
