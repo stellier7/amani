@@ -1,13 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 import { formatPrice } from "@/lib/products";
 
 export function Header() {
   const { count, total } = useCart();
-  const onCollection = usePathname() === "/ella-y-el";
 
   return (
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
@@ -20,30 +18,6 @@ export function Header() {
             Joyería · Honduras
           </span>
         </Link>
-
-        <nav className="hidden gap-8 text-sm text-black/60 md:flex">
-          <Link
-            className="transition-colors hover:text-black"
-            href="/#destacados"
-          >
-            Recién llegados
-          </Link>
-          <Link
-            className="transition-colors hover:text-black"
-            href="/#como-combinar"
-          >
-            Combinaciones
-          </Link>
-          <Link
-            aria-current={onCollection ? "page" : undefined}
-            className={`transition-colors hover:text-black ${
-              onCollection ? "text-black underline underline-offset-4" : ""
-            }`}
-            href="/ella-y-el"
-          >
-            Ella y Él
-          </Link>
-        </nav>
 
         <Link
           href="/bolsa"
