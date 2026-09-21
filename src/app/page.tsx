@@ -79,45 +79,13 @@ export default async function Home() {
 
       <ShopByCategory />
 
-      <section
-        id="como-combinar"
-        className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3"
-      >
-        <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
-            01 · Para dos
-          </p>
-          <h2 className="mt-3 text-2xl font-medium">El set completo</h2>
-          <p className="mt-3 text-sm leading-relaxed text-black/55">
-            Dos collares y dos brazaletes en proporciones complementarias.
-          </p>
-        </div>
-        <div className="border-t border-black/10 pt-8 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
-            02 · Solo ustedes
-          </p>
-          <h2 className="mt-3 text-2xl font-medium">Dúos a juego</h2>
-          <p className="mt-3 text-sm leading-relaxed text-black/55">
-            Elige solo collares o solo brazaletes para compartir el diseño.
-          </p>
-        </div>
-        <div className="border-t border-black/10 pt-8 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#687075]">
-            03 · Para ti
-          </p>
-          <h2 className="mt-3 text-2xl font-medium">Tu combinación</h2>
-          <p className="mt-3 text-sm leading-relaxed text-black/55">
-            Un collar y un brazalete coordinados para llevar como firma.
-          </p>
-        </div>
-        <div className="md:col-span-3">
-          <Link
-            href="/ella-y-el"
-            className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
-          >
-            Explorar los {products.length} diseños
-          </Link>
-        </div>
+      <section className="mx-auto flex max-w-6xl justify-center px-6 py-16 sm:py-20">
+        <Link
+          href="/ella-y-el"
+          className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
+        >
+          Explorar los {products.length} diseños
+        </Link>
       </section>
     </>
   );
