@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CollectionBrowser } from "@/components/CollectionBrowser";
 import { categoryFromShopQuery } from "@/lib/shop-categories";
-import { getProducts } from "@/lib/products";
+import { getEllaYElProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Ella y Él",
@@ -16,7 +16,7 @@ export default async function CollectionPage({
 }: PageProps<"/ella-y-el">) {
   const { categoria } = await searchParams;
   const initialCategory = categoryFromShopQuery(categoria);
-  const products = getProducts();
+  const products = getEllaYElProducts();
 
   return (
     <>

@@ -23,13 +23,15 @@ export function ShopByCategory() {
               href={shopCategoryHref(category)}
               className="group block text-center"
             >
-              <div className="relative aspect-square overflow-hidden bg-[#e8e6e1]">
+              <div className="relative aspect-square overflow-hidden bg-white">
                 <Image
                   src={category.image}
                   alt={category.alt}
                   fill
                   sizes="50vw"
-                  className={`object-cover transition-transform duration-700 group-hover:scale-[1.03] ${category.imageClass}`}
+                  className={`${
+                    category.fit === "contain" ? "object-contain p-6" : "object-cover"
+                  } transition-transform duration-700 group-hover:scale-[1.03]`}
                 />
               </div>
               <span className="mt-4 block font-serif text-xl font-medium tracking-tight text-[#2a2520] sm:mt-5 sm:text-2xl">

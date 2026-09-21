@@ -5,49 +5,53 @@ export type ShopCategory = {
   name: string;
   image: string;
   alt: string;
-  /** Crop classes so each tile reads as that category. */
-  imageClass: string;
-  /** Catalog filter this tile opens. Ella and Él open the full collection. */
+  /** How the image fills the tile — packshots letterbox, lifestyle crops cover. */
+  fit: "contain" | "cover";
+  /** Catalog filter this tile opens. Ella and Él open the Ella y Él page. */
   filter?: ProductCategory;
+  /** When set, the tile links here instead of the homepage collection. */
+  href?: string;
 };
 
 export const shopCategories: ShopCategory[] = [
   {
     slug: "ella",
     name: "Ella",
-    image: "/images/amani/cubana-para-dos.png",
-    alt: "Ella con collar y brazalete cubanos de plata 925",
-    imageClass: "origin-[100%_28%] scale-[2.35]",
+    image: "/images/amani/anillo-gota-aurora.jpg",
+    alt: "Anillo de plata 925 con zirconia talla gota",
+    fit: "contain",
+    href: "/ella-y-el",
   },
   {
     slug: "el",
     name: "Él",
-    image: "/images/amani/figaro-para-dos.png",
-    alt: "Él con collar y brazalete Figaro de plata 925",
-    imageClass: "origin-[8%_16%] scale-[1.85]",
+    image: "/images/amani/marina-brazalete.jpg",
+    alt: "Brazalete marina de plata 925",
+    fit: "contain",
+    href: "/ella-y-el",
   },
   {
     slug: "collares",
     name: "Collares",
-    image: "/images/amani/figaro-collares.png",
-    alt: "Collares de eslabón Figaro en plata 925",
-    imageClass: "object-[50%_28%]",
+    image: "/images/amani/cubana-italiana.jpg",
+    alt: "Collar y brazalete cubanos italianos de plata 925",
+    fit: "contain",
     filter: "Collares",
   },
   {
     slug: "anillos",
     name: "Anillos",
-    image: "/images/amani/anillo-gota-aurora.jpg",
-    alt: "Anillo de plata 925 con zirconia talla gota",
-    imageClass: "object-center",
+    image: "/images/amani/anillo-pave.jpg",
+    alt: "Anillo de plata 925 con pavé de zirconias",
+    fit: "contain",
     filter: "Anillos",
   },
   {
     slug: "pulseras",
     name: "Pulseras",
-    image: "/images/amani/figaro-brazaletes.png",
-    alt: "Pulseras de eslabón Figaro en plata 925",
-    imageClass: "origin-[50%_78%] scale-[1.7]",
+    image: "/images/amani/tennis-brazalete.jpg",
+    alt: "Brazalete tennis de plata 925 con zirconias",
+    fit: "contain",
     filter: "Brazaletes",
   },
   {
@@ -55,12 +59,13 @@ export const shopCategories: ShopCategory[] = [
     name: "Aretes",
     image: "/images/amani/aretes-cascada.jpg",
     alt: "Aretes de plata 925 con zirconias en cascada",
-    imageClass: "object-center",
+    fit: "contain",
     filter: "Aretes",
   },
 ];
 
 export function shopCategoryHref(category: ShopCategory): string {
+  if (category.href) return category.href;
   if (!category.filter) return "/#collection";
   return `/?categoria=${category.slug}#collection`;
 }

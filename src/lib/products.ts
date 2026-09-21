@@ -32,6 +32,8 @@ export type Product = {
   shot?: ShotType;
   /** Highlighted in the "Destacados" marquee. */
   featured?: boolean;
+  /** Matching sets shown only on the Ella y Él page (not the homepage catalog). */
+  ellaYElOnly?: boolean;
   /** Two CSS colors used to render the tile behind a lifestyle photo. */
   gradient?: [string, string];
 };
@@ -49,97 +51,6 @@ export function tileBackground(product: Product): string {
 }
 
 export const products: Product[] = [
-  {
-    id: "cubana-collares",
-    name: "Dúo Cubana Esencia",
-    category: "Collares",
-    style: "Cubana",
-    price: 3700,
-    material: "Plata 925 · 5 y 8 mm",
-    description:
-      "Dos cadenas cubanas en anchos complementarios, pensadas para llevar el mismo brillo.",
-    pieces: "2 collares",
-    image: "/images/amani/cubana-collares.png",
-    gradient: ["#f0efeb", "#b3b8ba"],
-  },
-  {
-    id: "barbada-para-dos",
-    name: "Barbada Dos Almas",
-    category: "Para dos",
-    style: "Barbada",
-    price: 6100,
-    material: "Plata 925 · Acabado espejo",
-    description:
-      "Cuatro piezas de eslabón plano que se sienten ligeras y se ven impecables juntas.",
-    pieces: "2 collares · 2 brazaletes",
-    image: "/images/amani/barbada-para-dos.png",
-    gradient: ["#dfe1e1", "#959c9f"],
-  },
-  {
-    id: "barbada-collares",
-    name: "Dúo Barbada Encuentro",
-    category: "Collares",
-    style: "Barbada",
-    price: 3450,
-    material: "Plata 925 · 3 y 6 mm",
-    description:
-      "Un par de collares de perfil suave, uno sutil y otro con más presencia.",
-    pieces: "2 collares",
-    image: "/images/amani/barbada-collares.png",
-    gradient: ["#ececea", "#a9afb1"],
-  },
-  {
-    id: "barbada-brazaletes",
-    name: "Dúo Barbada Cerca",
-    category: "Brazaletes",
-    style: "Barbada",
-    price: 2350,
-    material: "Plata 925 · Ajustables",
-    description:
-      "Dos brazaletes planos y cómodos creados para acompañarse todos los días.",
-    pieces: "2 brazaletes",
-    image: "/images/amani/barbada-brazaletes.png",
-    gradient: ["#dfe1df", "#949b9e"],
-  },
-  {
-    id: "cartier-para-dos",
-    name: "Eslabón Éternité",
-    category: "Para dos",
-    style: "Figaro / Cartier",
-    price: 7200,
-    material: "Plata 925 · Acabado pulido",
-    description:
-      "Nuestra propuesta más refinada: eslabones definidos en cuatro piezas para compartir.",
-    pieces: "2 collares · 2 brazaletes",
-    image: "/images/amani/figaro-para-dos.png",
-    gradient: ["#e9eae8", "#a1a7aa"],
-  },
-  {
-    id: "cartier-collares",
-    name: "Dúo Éternité",
-    category: "Collares",
-    style: "Figaro / Cartier",
-    price: 3950,
-    material: "Plata 925 · 4 y 7 mm",
-    description:
-      "Dos collares de eslabón alargado con acabados distintos y una misma intención.",
-    pieces: "2 collares",
-    image: "/images/amani/figaro-collares.png",
-    gradient: ["#efefec", "#b1b6b8"],
-  },
-  {
-    id: "cartier-brazaletes",
-    name: "Dúo Éternité Cerca",
-    category: "Brazaletes",
-    style: "Figaro / Cartier",
-    price: 2900,
-    material: "Plata 925 · Ajustables",
-    description:
-      "Brazaletes de eslabón elegante para combinar entre sí o llevar por separado.",
-    pieces: "2 brazaletes",
-    image: "/images/amani/figaro-brazaletes.png",
-    gradient: ["#e3e4e2", "#989fa2"],
-  },
   {
     id: "cubana-italiana",
     name: "Cubana Italiana",
@@ -336,10 +247,121 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
   },
+  // Matching sets — Ella y Él page only, listed last.
+  {
+    id: "cubana-collares",
+    name: "Dúo Cubana Esencia",
+    category: "Collares",
+    style: "Cubana",
+    price: 3700,
+    material: "Plata 925 · 5 y 8 mm",
+    description:
+      "Dos cadenas cubanas en anchos complementarios, pensadas para llevar el mismo brillo.",
+    pieces: "2 collares",
+    image: "/images/amani/cubana-collares.png",
+    gradient: ["#f0efeb", "#b3b8ba"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "barbada-para-dos",
+    name: "Barbada Dos Almas",
+    category: "Para dos",
+    style: "Barbada",
+    price: 6100,
+    material: "Plata 925 · Acabado espejo",
+    description:
+      "Cuatro piezas de eslabón plano que se sienten ligeras y se ven impecables juntas.",
+    pieces: "2 collares · 2 brazaletes",
+    image: "/images/amani/barbada-para-dos.png",
+    gradient: ["#dfe1e1", "#959c9f"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "barbada-collares",
+    name: "Dúo Barbada Encuentro",
+    category: "Collares",
+    style: "Barbada",
+    price: 3450,
+    material: "Plata 925 · 3 y 6 mm",
+    description:
+      "Un par de collares de perfil suave, uno sutil y otro con más presencia.",
+    pieces: "2 collares",
+    image: "/images/amani/barbada-collares.png",
+    gradient: ["#ececea", "#a9afb1"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "barbada-brazaletes",
+    name: "Dúo Barbada Cerca",
+    category: "Brazaletes",
+    style: "Barbada",
+    price: 2350,
+    material: "Plata 925 · Ajustables",
+    description:
+      "Dos brazaletes planos y cómodos creados para acompañarse todos los días.",
+    pieces: "2 brazaletes",
+    image: "/images/amani/barbada-brazaletes.png",
+    gradient: ["#dfe1df", "#949b9e"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "cartier-para-dos",
+    name: "Eslabón Éternité",
+    category: "Para dos",
+    style: "Figaro / Cartier",
+    price: 7200,
+    material: "Plata 925 · Acabado pulido",
+    description:
+      "Nuestra propuesta más refinada: eslabones definidos en cuatro piezas para compartir.",
+    pieces: "2 collares · 2 brazaletes",
+    image: "/images/amani/figaro-para-dos.png",
+    gradient: ["#e9eae8", "#a1a7aa"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "cartier-collares",
+    name: "Dúo Éternité",
+    category: "Collares",
+    style: "Figaro / Cartier",
+    price: 3950,
+    material: "Plata 925 · 4 y 7 mm",
+    description:
+      "Dos collares de eslabón alargado con acabados distintos y una misma intención.",
+    pieces: "2 collares",
+    image: "/images/amani/figaro-collares.png",
+    gradient: ["#efefec", "#b1b6b8"],
+    ellaYElOnly: true,
+  },
+  {
+    id: "cartier-brazaletes",
+    name: "Dúo Éternité Cerca",
+    category: "Brazaletes",
+    style: "Figaro / Cartier",
+    price: 2900,
+    material: "Plata 925 · Ajustables",
+    description:
+      "Brazaletes de eslabón elegante para combinar entre sí o llevar por separado.",
+    pieces: "2 brazaletes",
+    image: "/images/amani/figaro-brazaletes.png",
+    gradient: ["#e3e4e2", "#989fa2"],
+    ellaYElOnly: true,
+  },
 ];
 
 export function getProducts(): Product[] {
   return products;
+}
+
+/** Homepage catalog: studio pieces only (excludes Ella y Él matching sets). */
+export function getHomepageProducts(list: Product[] = products): Product[] {
+  return list.filter((product) => !product.ellaYElOnly);
+}
+
+/** Ella y Él page: full catalog with matching sets kept at the end. */
+export function getEllaYElProducts(list: Product[] = products): Product[] {
+  const main = list.filter((product) => !product.ellaYElOnly);
+  const matching = list.filter((product) => product.ellaYElOnly);
+  return [...main, ...matching];
 }
 
 export function getFeaturedProducts(list: Product[] = products): Product[] {
