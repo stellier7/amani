@@ -4,7 +4,12 @@ import { BagView } from "@/components/BagView";
 
 export const metadata: Metadata = {
   title: "Tu bolsa",
-  description: "Revisa las piezas que quieres llevar antes de completar tu pedido.",
+  description:
+    "Revisa las piezas que quieres llevar antes de completar tu pedido.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function BagPage() {

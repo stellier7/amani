@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToBagButton } from "@/components/AddToBagButton";
+import { JsonLd } from "@/components/JsonLd";
 import { ProductCard } from "@/components/ProductCard";
+import { breadcrumbJsonLd, productJsonLd } from "@/lib/json-ld";
 import {
   formatPrice,
   getProduct,
@@ -11,6 +13,7 @@ import {
   getRelatedProducts,
   tileBackground,
 } from "@/lib/products";
+import { SITE_NAME } from "@/lib/site";
 
 export function generateStaticParams() {
   return getProducts().map((product) => ({ id: product.id }));
@@ -23,13 +26,25 @@ export async function generateMetadata({
   const product = getProduct(id);
   if (!product) return { title: "Pieza no encontrada" };
 
+  const title = `${product.name} — plata 925`;
+  const description = `${product.description} Joyería Amani en Honduras. ${product.material}.`;
+
   return {
-    title: product.name,
-    description: product.description,
+    title,
+    description,
+    alternates: { canonical: `/producto/${product.id}` },
     openGraph: {
-      title: `${product.name} — Amani Joyería`,
-      description: product.description,
-      images: [{ url: product.image }],
+      type: "website",
+      title: `${product.name} — ${SITE_NAME}`,
+      description,
+      url: `/producto/${product.id}`,
+      images: [{ url: product.image, alt: product.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} — ${SITE_NAME}`,
+      description,
+      images: [product.image],
     },
   };
 }
@@ -52,6 +67,14 @@ export default async function ProductPage({
 
   return (
     <>
+      <JsonLd data={productJsonLd(product)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", path: "/" },
+          { name: "Ella y Él", path: "/ella-y-el" },
+          { name: product.name, path: `/producto/${product.id}` },
+        ])}
+      />
       <section className="mx-auto max-w-6xl px-6 pt-8">
         <nav
           aria-label="Ruta de navegación"

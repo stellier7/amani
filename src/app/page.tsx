@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ExploreCollection } from "@/components/ExploreCollection";
@@ -10,6 +11,21 @@ import {
   getProducts,
   type Product,
 } from "@/lib/products";
+import { HERO_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${SITE_NAME} — Plata 925 en Honduras | Sets Ella y Él`,
+  },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${SITE_NAME} — Plata 925 en Honduras`,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    images: [{ url: HERO_OG_IMAGE }],
+  },
+};
 
 async function loadProducts(): Promise<Product[]> {
   // Demonstrate the end-to-end data flow through the internal API route when a
@@ -64,8 +80,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             </span>
           </h1>
           <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-black/60">
-            Tres estilos, un mismo vínculo. Collares y brazaletes a juego para
-            llevar juntos, separados o completamente a su manera.
+            Plata 925 hecha para compartir. Collares y brazaletes a juego, con
+            envío a Tegucigalpa, San Pedro Sula, Comayagua y todo Honduras.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <Link
