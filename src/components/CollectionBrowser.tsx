@@ -3,26 +3,31 @@
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/ProductCard";
 import {
-  type LinkStyle,
   type Product,
   type ProductCategory,
+  type ProductStyle,
 } from "@/lib/products";
 
 const categories: Array<"Todos" | ProductCategory> = [
   "Todos",
   "Para dos",
-  "Solo collares",
-  "Solo brazaletes",
   "Collar + brazalete",
-  "Pieza individual",
+  "Collares",
+  "Brazaletes",
+  "Aretes",
+  "Anillos",
 ];
 
-const styles: Array<"Todos" | LinkStyle> = [
+const styles: Array<"Todos" | ProductStyle> = [
   "Todos",
   "Cubana",
   "Barbada",
   "Figaro / Cartier",
+  "Marina",
   "Zirconias",
+  "Perlas",
+  "Amuletos",
+  "Cordón",
 ];
 
 function FilterButton({
@@ -71,7 +76,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
       <div className="space-y-4 border-y border-black/8 py-6">
         <div className="flex items-center gap-4 overflow-x-auto pb-1">
           <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
-            Set
+            Tipo
           </span>
           {categories.map((option) => (
             <FilterButton

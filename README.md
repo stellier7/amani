@@ -40,7 +40,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 `GET /api/products` returns the catalog:
 
 ```json
-{ "count": 16, "products": [ { "id": "cubana-italiana", "name": "Cubana Italiana", ... } ] }
+{ "count": 26, "products": [ { "id": "cubana-italiana", "name": "Cubana Italiana", ... } ] }
 ```
 
 ## Cloud Agent environment

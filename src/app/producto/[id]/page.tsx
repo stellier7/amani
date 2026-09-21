@@ -44,7 +44,7 @@ export default async function ProductPage({
   const related = getRelatedProducts(product);
   const isPackshot = product.shot === "packshot";
   const specs = [
-    { label: "Set", value: product.category },
+    { label: "Tipo", value: product.category },
     { label: "Estilo", value: product.style },
     { label: "Material", value: product.material },
     { label: "Incluye", value: product.pieces },

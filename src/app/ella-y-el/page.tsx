@@ -7,7 +7,7 @@ import { getProducts } from "@/lib/products";
 export const metadata: Metadata = {
   title: "Ella y Él",
   description:
-    "La colección completa: collares y brazaletes de plata 925 a juego en tejido cubano, barbado y Figaro, más nuestras piezas de zirconias.",
+    "La colección completa: collares y brazaletes de plata 925 a juego en tejido cubano, barbado y Figaro, más aretes, anillos y brazaletes de zirconias, perlas y amuletos.",
 };
 
 export default function CollectionPage() {
@@ -35,9 +35,9 @@ export default function CollectionPage() {
             </h1>
             <p className="mt-5 max-w-md text-balance leading-relaxed text-black/60">
               Elige dos collares, dos brazaletes, el conjunto completo para
-              ambos, tu propio collar con brazalete o una pieza suelta de
-              nuestra línea de zirconias. Cada diseño comparte el mismo acabado
-              en plata 925.
+              ambos, tu propio collar con brazalete, o una pieza suelta entre
+              nuestros aretes, anillos y brazaletes de amuletos, perlas y
+              cordón. Cada diseño comparte el mismo acabado en plata 925.
             </p>
           </div>
 

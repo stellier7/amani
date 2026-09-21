@@ -1,15 +1,20 @@
 export type ProductCategory =
   | "Para dos"
-  | "Solo collares"
-  | "Solo brazaletes"
   | "Collar + brazalete"
-  | "Pieza individual";
+  | "Collares"
+  | "Brazaletes"
+  | "Aretes"
+  | "Anillos";
 
-export type LinkStyle =
+export type ProductStyle =
   | "Cubana"
   | "Barbada"
   | "Figaro / Cartier"
-  | "Zirconias";
+  | "Marina"
+  | "Zirconias"
+  | "Perlas"
+  | "Amuletos"
+  | "Cordón";
 
 /** Studio shots sit on white, so they are letterboxed instead of cropped. */
 export type ShotType = "lifestyle" | "packshot";
@@ -18,7 +23,7 @@ export type Product = {
   id: string;
   name: string;
   category: ProductCategory;
-  style: LinkStyle;
+  style: ProductStyle;
   price: number;
   material: string;
   description: string;
@@ -60,7 +65,7 @@ export const products: Product[] = [
   {
     id: "cubana-collares",
     name: "Dúo Cubana Esencia",
-    category: "Solo collares",
+    category: "Collares",
     style: "Cubana",
     price: 3700,
     material: "Plata 925 · 5 y 8 mm",
@@ -73,7 +78,7 @@ export const products: Product[] = [
   {
     id: "cubana-brazaletes",
     name: "Dúo Cubana Unión",
-    category: "Solo brazaletes",
+    category: "Brazaletes",
     style: "Cubana",
     price: 2650,
     material: "Plata 925 · Ajustables",
@@ -112,7 +117,7 @@ export const products: Product[] = [
   {
     id: "barbada-collares",
     name: "Dúo Barbada Encuentro",
-    category: "Solo collares",
+    category: "Collares",
     style: "Barbada",
     price: 3450,
     material: "Plata 925 · 3 y 6 mm",
@@ -125,7 +130,7 @@ export const products: Product[] = [
   {
     id: "barbada-brazaletes",
     name: "Dúo Barbada Cerca",
-    category: "Solo brazaletes",
+    category: "Brazaletes",
     style: "Barbada",
     price: 2350,
     material: "Plata 925 · Ajustables",
@@ -164,7 +169,7 @@ export const products: Product[] = [
   {
     id: "cartier-collares",
     name: "Dúo Éternité",
-    category: "Solo collares",
+    category: "Collares",
     style: "Figaro / Cartier",
     price: 3950,
     material: "Plata 925 · 4 y 7 mm",
@@ -177,7 +182,7 @@ export const products: Product[] = [
   {
     id: "cartier-brazaletes",
     name: "Dúo Éternité Cerca",
-    category: "Solo brazaletes",
+    category: "Brazaletes",
     style: "Figaro / Cartier",
     price: 2900,
     material: "Plata 925 · Ajustables",
@@ -217,7 +222,7 @@ export const products: Product[] = [
   {
     id: "tennis-brazalete",
     name: "Tennis Lluvia",
-    category: "Pieza individual",
+    category: "Brazaletes",
     style: "Zirconias",
     price: 3150,
     material: "Plata 925 · Cierre ajustable",
@@ -231,7 +236,7 @@ export const products: Product[] = [
   {
     id: "anillo-pave",
     name: "Anillo Pavé Destello",
-    category: "Pieza individual",
+    category: "Anillos",
     style: "Zirconias",
     price: 1850,
     material: "Plata 925 · Tres hileras de zirconias",
@@ -245,7 +250,7 @@ export const products: Product[] = [
   {
     id: "anillo-domo",
     name: "Anillo Domo Constelación",
-    category: "Pieza individual",
+    category: "Anillos",
     style: "Zirconias",
     price: 2450,
     material: "Plata 925 · Zirconias al ras",
@@ -253,6 +258,146 @@ export const products: Product[] = [
       "Un domo pulido salpicado de zirconias engastadas al ras, como un cielo despejado.",
     pieces: "1 anillo",
     image: "/images/amani/anillo-domo.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "anillo-gota-aurora",
+    name: "Anillo Gota Aurora",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 2250,
+    material: "Plata 925 · Zirconia talla gota",
+    description:
+      "Una zirconia en talla gota rodeada por su halo, sostenida en una banda de pavé que la deja flotar.",
+    pieces: "1 anillo · Talla 6",
+    image: "/images/amani/anillo-gota-aurora.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "marina-brazalete",
+    name: "Marina Puerto",
+    category: "Brazaletes",
+    style: "Marina",
+    price: 3850,
+    material: "Plata 925 · Eslabón hueco · 8 mm",
+    description:
+      "Eslabón marina de volumen hueco: se ve contundente en la muñeca y casi no se siente.",
+    pieces: "1 brazalete",
+    image: "/images/amani/marina-brazalete.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "aretes-cascada",
+    name: "Aretes Cascada",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 2650,
+    material: "Plata 925 · Zirconia talla cojín",
+    description:
+      "Tres zirconias en descenso hasta una talla cojín que cierra la caída con todo el brillo.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-cascada.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "brazalete-devocion",
+    name: "Brazalete Devoción",
+    category: "Brazaletes",
+    style: "Amuletos",
+    price: 2950,
+    material: "Plata 925 · Cinco dijes",
+    description:
+      "Tres cruces y dos medallas milagrosas sobre una cadena que mezcla eslabón marina y rolo.",
+    pieces: "1 brazalete",
+    image: "/images/amani/brazalete-devocion.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "aretes-cuernito",
+    name: "Aretes Cuernito Fortuna",
+    category: "Aretes",
+    style: "Amuletos",
+    price: 1750,
+    material: "Plata 925 · Pavé de zirconias",
+    description:
+      "El cuernito italiano de la buena suerte, cubierto de pavé y colgado de un huggie que no estorba.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-cuernito.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "aretes-ojo",
+    name: "Aretes Ojo Protector",
+    category: "Aretes",
+    style: "Amuletos",
+    price: 1650,
+    material: "Plata 925 · Pavé de zirconias",
+    description:
+      "El ojo turco delineado en zirconias, en un huggie corto para llevar la protección puesta.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-ojo.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "brazalete-marquesa",
+    name: "Brazalete Marquesa Rocío",
+    category: "Brazaletes",
+    style: "Zirconias",
+    price: 2850,
+    material: "Plata 925 · Extensión ajustable",
+    description:
+      "Placas en talla marquesa cubiertas de pavé, unidas por tramos de zirconias redondas.",
+    pieces: "1 brazalete",
+    image: "/images/amani/brazalete-marquesa.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "cordon-cuatro-vientos",
+    name: "Cordón Cuatro Vientos",
+    category: "Brazaletes",
+    style: "Cordón",
+    price: 950,
+    material: "Plata 925 · Cordón trenzado ajustable",
+    description:
+      "Cuatro esferas de corte diamantado sobre cordón negro que se ajusta de un tirón.",
+    pieces: "1 brazalete",
+    image: "/images/amani/cordon-cuatro-vientos.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "cordon-perla-barroca",
+    name: "Cordón Perla Barroca",
+    category: "Brazaletes",
+    style: "Perlas",
+    price: 1350,
+    material: "Plata 925 · Perlas cultivadas barrocas",
+    description:
+      "Tres perlas barrocas, cada una con su propia forma, tejidas a mano sobre cordón negro.",
+    pieces: "1 brazalete",
+    image: "/images/amani/cordon-perla-barroca.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "cordon-tres-perlas",
+    name: "Cordón Tres Perlas",
+    category: "Brazaletes",
+    style: "Perlas",
+    price: 1150,
+    material: "Plata 925 · Perlas nacaradas",
+    description:
+      "Tres perlas redondas separadas por esferas diamantadas, en un cordón negro ajustable.",
+    pieces: "1 brazalete",
+    image: "/images/amani/cordon-tres-perlas.jpg",
     shot: "packshot",
     featured: true,
   },
