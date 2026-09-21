@@ -70,15 +70,13 @@ export function ExploreCollection({
             <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
               Toda la colección
             </p>
-            <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
-              {products.length} diseños en plata 925
-            </h2>
           </section>
 
           <CollectionBrowser
             key={initialCategory}
             products={products}
             initialCategory={initialCategory}
+            showFilters={false}
           />
         </div>
       )}

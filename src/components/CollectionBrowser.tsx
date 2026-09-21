@@ -58,9 +58,11 @@ function FilterButton({
 export function CollectionBrowser({
   products,
   initialCategory = "Todos",
+  showFilters = true,
 }: {
   products: Product[];
   initialCategory?: (typeof categories)[number];
+  showFilters?: boolean;
 }) {
   const [category, setCategory] = useState<(typeof categories)[number]>(
     initialCategory,
@@ -79,57 +81,65 @@ export function CollectionBrowser({
 
   return (
     <section id="collection" className="mx-auto max-w-6xl px-6 pb-20">
-      <div className="space-y-4 border-y border-black/8 py-6">
-        <div className="flex items-center gap-4 overflow-x-auto pb-1">
-          <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
-            Tipo
-          </span>
-          {categories.map((option) => (
-            <FilterButton
-              key={option}
-              active={category === option}
-              onClick={() => setCategory(option)}
-            >
-              {option}
-            </FilterButton>
-          ))}
-        </div>
-        <div className="flex items-center gap-4 overflow-x-auto pb-1">
-          <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
-            Estilo
-          </span>
-          {styles.map((option) => (
-            <FilterButton
-              key={option}
-              active={style === option}
-              onClick={() => setStyle(option)}
-            >
-              {option}
-            </FilterButton>
-          ))}
-        </div>
-      </div>
+      {showFilters && (
+        <>
+          <div className="space-y-4 border-y border-black/8 py-6">
+            <div className="flex items-center gap-4 overflow-x-auto pb-1">
+              <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
+                Tipo
+              </span>
+              {categories.map((option) => (
+                <FilterButton
+                  key={option}
+                  active={category === option}
+                  onClick={() => setCategory(option)}
+                >
+                  {option}
+                </FilterButton>
+              ))}
+            </div>
+            <div className="flex items-center gap-4 overflow-x-auto pb-1">
+              <span className="w-16 shrink-0 text-xs uppercase tracking-widest text-black/40">
+                Estilo
+              </span>
+              {styles.map((option) => (
+                <FilterButton
+                  key={option}
+                  active={style === option}
+                  onClick={() => setStyle(option)}
+                >
+                  {option}
+                </FilterButton>
+              ))}
+            </div>
+          </div>
 
-      <div className="mb-7 mt-10 flex items-center justify-between">
-        <p className="text-sm text-black/50" aria-live="polite">
-          {visibleProducts.length}{" "}
-          {visibleProducts.length === 1 ? "diseño" : "diseños"}
-        </p>
-        {(category !== "Todos" || style !== "Todos") && (
-          <button
-            type="button"
-            onClick={() => {
-              setCategory("Todos");
-              setStyle("Todos");
-            }}
-            className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
-          >
-            Limpiar filtros
-          </button>
-        )}
-      </div>
+          <div className="mb-7 mt-10 flex items-center justify-between">
+            <p className="text-sm text-black/50" aria-live="polite">
+              {visibleProducts.length}{" "}
+              {visibleProducts.length === 1 ? "diseño" : "diseños"}
+            </p>
+            {(category !== "Todos" || style !== "Todos") && (
+              <button
+                type="button"
+                onClick={() => {
+                  setCategory("Todos");
+                  setStyle("Todos");
+                }}
+                className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
+              >
+                Limpiar filtros
+              </button>
+            )}
+          </div>
+        </>
+      )}
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        className={`grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ${
+          showFilters ? "" : "pt-4"
+        }`}
+      >
         {visibleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
