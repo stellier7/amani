@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { CollectionBrowser } from "@/components/CollectionBrowser";
+import { ExploreCollection } from "@/components/ExploreCollection";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
 import { ShopByCategory } from "@/components/ShopByCategory";
 import { categoryFromShopQuery } from "@/lib/shop-categories";
@@ -34,6 +33,9 @@ export default async function Home({ searchParams }: PageProps<"/">) {
   const { categoria } = await searchParams;
   const initialCategory = categoryFromShopQuery(categoria);
   const products = await loadProducts();
+  const openFromQuery = Boolean(
+    Array.isArray(categoria) ? categoria[0] : categoria,
+  );
 
   return (
     <>
@@ -49,7 +51,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#faf7f2]/95 via-[#faf7f2]/55 to-transparent sm:via-[#faf7f2]/40 lg:from-[#faf7f2]/90 lg:via-[#faf7f2]/25 lg:to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-20">
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-black">
+          <p className="text-xs uppercase tracking-[0.32em] text-black">
             Amani Joyería — Honduras
           </p>
           <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
@@ -83,28 +85,10 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
       <ShopByCategory />
 
-      <section className="mx-auto flex max-w-6xl justify-center px-6 py-16 sm:py-20">
-        <a
-          href="#collection"
-          className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
-        >
-          Explorar los {products.length} diseños
-        </a>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-2 pt-4">
-        <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
-          Toda la colección
-        </p>
-        <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
-          {products.length} diseños en plata 925
-        </h2>
-      </section>
-
-      <CollectionBrowser
-        key={initialCategory}
+      <ExploreCollection
         products={products}
         initialCategory={initialCategory}
+        initialOpen={openFromQuery}
       />
     </>
   );
