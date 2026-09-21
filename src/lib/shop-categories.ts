@@ -61,8 +61,8 @@ export const shopCategories: ShopCategory[] = [
 ];
 
 export function shopCategoryHref(category: ShopCategory): string {
-  if (!category.filter) return "/ella-y-el#collection";
-  return `/ella-y-el?categoria=${category.slug}#collection`;
+  if (!category.filter) return "/#collection";
+  return `/?categoria=${category.slug}#collection`;
 }
 
 export function categoryFromShopQuery(

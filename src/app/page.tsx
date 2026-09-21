@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CollectionBrowser } from "@/components/CollectionBrowser";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
 import { ShopByCategory } from "@/components/ShopByCategory";
+import { categoryFromShopQuery } from "@/lib/shop-categories";
 import {
   getFeaturedProducts,
   getProducts,
@@ -28,7 +30,9 @@ async function loadProducts(): Promise<Product[]> {
   return getProducts();
 }
 
-export default async function Home() {
+export default async function Home({ searchParams }: PageProps<"/">) {
+  const { categoria } = await searchParams;
+  const initialCategory = categoryFromShopQuery(categoria);
   const products = await loadProducts();
 
   return (
@@ -59,12 +63,12 @@ export default async function Home() {
             llevar juntos, separados o completamente a su manera.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-5">
-            <Link
-              href="/ella-y-el"
+            <a
+              href="#collection"
               className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
             >
               Ver la colección Ella y Él
-            </Link>
+            </a>
             <a
               href="#categorias"
               className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
@@ -80,13 +84,28 @@ export default async function Home() {
       <ShopByCategory />
 
       <section className="mx-auto flex max-w-6xl justify-center px-6 py-16 sm:py-20">
-        <Link
-          href="/ella-y-el"
+        <a
+          href="#collection"
           className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
         >
           Explorar los {products.length} diseños
-        </Link>
+        </a>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-2 pt-4">
+        <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
+          Toda la colección
+        </p>
+        <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
+          {products.length} diseños en plata 925
+        </h2>
+      </section>
+
+      <CollectionBrowser
+        key={initialCategory}
+        products={products}
+        initialCategory={initialCategory}
+      />
     </>
   );
 }
