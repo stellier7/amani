@@ -33,54 +33,44 @@ export default async function Home() {
 
   return (
     <>
-      <section className="mx-auto max-w-[1440px] px-3 pt-3 sm:px-6 sm:pt-6">
-        <div className="grid min-h-[650px] overflow-hidden rounded-[2rem] bg-[#e4e3df] lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="relative z-10 flex flex-col justify-center px-7 py-14 sm:px-12 lg:px-16">
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-black">
-              Amani Joyería — Honduras
-            </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[#687075]">
-              Nueva colección · Para compartir
-            </p>
-            <h1 className="mt-5 text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
-              Ella
-              <span className="block font-light italic text-[#767e82]">
-                y Él
-              </span>
-            </h1>
-            <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-black/60">
-              Tres estilos, un mismo vínculo. Collares y brazaletes a juego
-              para llevar juntos, separados o completamente a su manera.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
-              <Link
-                href="/ella-y-el"
-                className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
-              >
-                Ver la colección Ella y Él
-              </Link>
-              <a
-                href="#como-combinar"
-                className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
-              >
-                Ver combinaciones
-              </a>
-            </div>
-          </div>
+      <section className="relative isolate min-h-[min(100svh,920px)] w-full overflow-hidden bg-[#e4e3df]">
+        <Image
+          src="/images/amani/ella-y-el-hero.png"
+          alt="Pareja hondureña luciendo collares y brazaletes Figaro de plata a juego"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[72%_center] sm:object-[68%_center] lg:object-right"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#faf7f2]/95 via-[#faf7f2]/55 to-transparent sm:via-[#faf7f2]/40 lg:from-[#faf7f2]/90 lg:via-[#faf7f2]/25 lg:to-transparent" />
 
-          <div className="relative min-h-[380px] lg:min-h-full">
-            <Image
-              src="/images/amani/ella-y-el-hero.png"
-              alt="Pareja hondureña luciendo collares y brazaletes Figaro de plata a juego"
-              fill
-              priority
-              sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover object-right"
-            />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent" />
-            <p className="absolute bottom-7 right-7 rounded-full border border-white/30 bg-black/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white backdrop-blur-md">
-              Figaro · 4 piezas
-            </p>
+        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-20">
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-black">
+            Amani Joyería — Honduras
+          </p>
+          <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
+            Ella
+            <span className="block font-light italic text-[#5c6569]">
+              y Él
+            </span>
+          </h1>
+          <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-black/60">
+            Tres estilos, un mismo vínculo. Collares y brazaletes a juego para
+            llevar juntos, separados o completamente a su manera.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-5">
+            <Link
+              href="/ella-y-el"
+              className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
+            >
+              Ver la colección Ella y Él
+            </Link>
+            <a
+              href="#categorias"
+              className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
+            >
+              Compra por categoría
+            </a>
           </div>
         </div>
       </section>
