@@ -44,8 +44,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
     <>
       <section className="relative isolate min-h-[min(100svh,920px)] w-full overflow-hidden bg-[#e4e3df]">
         <Image
-          src="/images/amani/ella-y-el-hero.png"
-          alt="Pareja hondureña luciendo collares y brazaletes Figaro de plata a juego"
+          src="/images/amani/barbada-collares.png"
+          alt="Pareja luciendo collares barbados de plata 925 a juego"
           fill
           priority
           sizes="100vw"
