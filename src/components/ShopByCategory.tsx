@@ -16,7 +16,7 @@ export function ShopByCategory() {
         Compra por categoría
       </h2>
 
-      <ul className="mt-12 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-8 sm:gap-y-16 lg:grid-cols-3 xl:grid-cols-6">
+      <ul className="mt-12 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-10 sm:gap-y-16">
         {shopCategories.map((category) => (
           <li key={category.slug}>
             <Link href={shopCategoryHref(category)} className="group block text-center">
