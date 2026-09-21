@@ -48,8 +48,8 @@ export default async function CollectionPage({
 
           <div className="relative min-h-[240px] lg:min-h-full">
             <Image
-              src="/images/amani/ella-y-el-hero.png"
-              alt="Pareja hondureña luciendo collares y brazaletes Figaro de plata a juego"
+              src="/images/amani/hero-barbada-collares.png"
+              alt="Pareja luciendo collares barbados de plata 925 a juego"
               fill
               priority
               sizes="(min-width: 1024px) 50vw, 100vw"
