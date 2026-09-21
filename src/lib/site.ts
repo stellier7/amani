@@ -21,11 +21,11 @@ export const WHATSAPP_URL = `https://wa.me/${PHONE_E164.replace(/\D/g, "")}`;
 
 export const HERO_OG_IMAGE = "/images/amani/hero-barbada-collares.png";
 
+/** Canonical production domain for SEO (sitemap, Open Graph, JSON-LD). */
+export const PRODUCTION_SITE_URL = "https://amanijoyeria.com";
+
 export function getSiteUrl(): string {
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "https://paski-jewelry.vercel.app")
-  );
+  // Prefer an explicit env override (e.g. local/preview); otherwise use the
+  // custom domain so canonicals never fall back to *.vercel.app.
+  return process.env.NEXT_PUBLIC_SITE_URL ?? PRODUCTION_SITE_URL;
 }
