@@ -50,19 +50,6 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
-    id: "cubana-para-dos",
-    name: "Cubana Nuestro Lazo",
-    category: "Para dos",
-    style: "Cubana",
-    price: 6650,
-    material: "Plata 925 · Acabado pulido",
-    description:
-      "El set completo para compartir: una versión firme para él y una más delicada para ella.",
-    pieces: "2 collares · 2 brazaletes",
-    image: "/images/amani/cubana-para-dos.png",
-    gradient: ["#e8e9e8", "#9fa5a8"],
-  },
-  {
     id: "cubana-collares",
     name: "Dúo Cubana Esencia",
     category: "Collares",
@@ -74,32 +61,6 @@ export const products: Product[] = [
     pieces: "2 collares",
     image: "/images/amani/cubana-collares.png",
     gradient: ["#f0efeb", "#b3b8ba"],
-  },
-  {
-    id: "cubana-brazaletes",
-    name: "Dúo Cubana Unión",
-    category: "Brazaletes",
-    style: "Cubana",
-    price: 2650,
-    material: "Plata 925 · Ajustables",
-    description:
-      "Brazaletes a juego con dos proporciones y un acabado pulido de alto brillo.",
-    pieces: "2 brazaletes",
-    image: "/images/amani/cubana-brazaletes.png",
-    gradient: ["#e3e5e4", "#979da0"],
-  },
-  {
-    id: "cubana-personal",
-    name: "Cubana Firma",
-    category: "Collar + brazalete",
-    style: "Cubana",
-    price: 3450,
-    material: "Plata 925 · 8 mm",
-    description:
-      "Cadena y brazalete del mismo calibre para un conjunto limpio y contundente.",
-    pieces: "1 collar · 1 brazalete",
-    image: "/images/amani/cubana-personal.png",
-    gradient: ["#e5e6e5", "#8d9498"],
   },
   {
     id: "barbada-para-dos",
@@ -141,19 +102,6 @@ export const products: Product[] = [
     gradient: ["#dfe1df", "#949b9e"],
   },
   {
-    id: "barbada-personal",
-    name: "Barbada Línea",
-    category: "Collar + brazalete",
-    style: "Barbada",
-    price: 3200,
-    material: "Plata 925 · 6 mm",
-    description:
-      "Collar y brazalete barbados con una caída fluida y proporción perfectamente coordinada.",
-    pieces: "1 collar · 1 brazalete",
-    image: "/images/amani/barbada-personal.png",
-    gradient: ["#e0e2e1", "#858d91"],
-  },
-  {
     id: "cartier-para-dos",
     name: "Eslabón Éternité",
     category: "Para dos",
@@ -191,19 +139,6 @@ export const products: Product[] = [
     pieces: "2 brazaletes",
     image: "/images/amani/figaro-brazaletes.png",
     gradient: ["#e3e4e2", "#989fa2"],
-  },
-  {
-    id: "cartier-personal",
-    name: "Éternité Firma",
-    category: "Collar + brazalete",
-    style: "Figaro / Cartier",
-    price: 3700,
-    material: "Plata 925 · 7 mm",
-    description:
-      "Un collar y un brazalete coordinados por el ritmo de sus eslabones geométricos.",
-    pieces: "1 collar · 1 brazalete",
-    image: "/images/amani/figaro-personal.png",
-    gradient: ["#e4e5e3", "#8c9497"],
   },
   {
     id: "cubana-italiana",
