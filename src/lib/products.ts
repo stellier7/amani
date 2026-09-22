@@ -401,6 +401,48 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
   },
+  {
+    id: "brazalete-grano-pave",
+    name: "Brazalete Grano Destello",
+    category: "Brazaletes",
+    style: "Zirconias",
+    price: 2950,
+    material: "Plata 925 · Pavé de zirconias",
+    description:
+      "Eslabones ovalados tipo grano de café cubiertos de pavé, unidos por zirconias en bisel.",
+    pieces: "1 brazalete",
+    image: "/images/amani/brazalete-grano-pave.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "figaro-collar",
+    name: "Collar Figaro Esencia",
+    category: "Collares",
+    style: "Figaro / Cartier",
+    price: 2450,
+    material: "Plata 925 · Eslabón Figaro",
+    description:
+      "Cadena Figaro en plata 925 con ritmo 3+1 y acabado pulido para el día a día.",
+    pieces: "1 collar",
+    image: "/images/amani/figaro-collar.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "cubana-collar",
+    name: "Collar Cubana Clásica",
+    category: "Collares",
+    style: "Cubana",
+    price: 2850,
+    material: "Plata 925 · Eslabón cubano",
+    description:
+      "Cadena de eslabón cubano en plata 925, sólida, plana y de alto brillo.",
+    pieces: "1 collar",
+    image: "/images/amani/cubana-collar.jpg",
+    shot: "packshot",
+    featured: true,
+  },
 ];
 
 export function getProducts(): Product[] {
