@@ -443,6 +443,34 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
   },
+  {
+    id: "figaro-placa",
+    name: "Brazalete Figaro Placa",
+    category: "Brazaletes",
+    style: "Figaro / Cartier",
+    price: 2650,
+    material: "Plata 925 · Placa para grabar",
+    description:
+      "Figaro con placa lisa lista para grabar, remates 925 y cierre de langosta.",
+    pieces: "1 brazalete",
+    image: "/images/amani/figaro-placa.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
+    id: "figaro-brazalete",
+    name: "Brazalete Figaro Ritmo",
+    category: "Brazaletes",
+    style: "Figaro / Cartier",
+    price: 2350,
+    material: "Plata 925 · Eslabón Figaro",
+    description:
+      "El ritmo 3+1 del Figaro en la muñeca, acabado pulido y cierre seguro.",
+    pieces: "1 brazalete",
+    image: "/images/amani/figaro-brazalete.jpg",
+    shot: "packshot",
+    featured: true,
+  },
 ];
 
 export function getProducts(): Product[] {
