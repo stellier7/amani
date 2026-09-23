@@ -78,7 +78,7 @@ export function HomeHero() {
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         <div
           ref={mediaRef}
-          className="absolute inset-x-0 -top-[14%] h-[128%] will-change-transform"
+          className="absolute inset-0 will-change-transform"
         >
           <Image
             src="/images/amani/hero-ella.jpg"
