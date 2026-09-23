@@ -13,7 +13,6 @@ export function Header() {
   const { count, total } = useCart();
   const [visible, setVisible] = useState(true);
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const lastScrollYRef = useRef(0);
 
@@ -29,18 +28,6 @@ export function Header() {
     const observer = new ResizeObserver(updateHeight);
     observer.observe(header);
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-
-    function onPreferenceChange() {
-      setReducedMotion(mediaQuery.matches);
-    }
-
-    mediaQuery.addEventListener("change", onPreferenceChange);
-    return () => mediaQuery.removeEventListener("change", onPreferenceChange);
   }, []);
 
   useEffect(() => {
@@ -76,9 +63,7 @@ export function Header() {
 
   const headerClassName = [
     "fixed top-0 inset-x-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur",
-    reducedMotion
-      ? "transition-none"
-      : "transition-transform duration-300 ease-in-out",
+    "transition-transform duration-300 ease-in-out motion-reduce:transition-none",
     !visible && "-translate-y-full",
   ]
     .filter(Boolean)
