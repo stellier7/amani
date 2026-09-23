@@ -150,7 +150,7 @@ export const products: Product[] = [
     name: "Aretes Cascada",
     category: "Aretes",
     style: "Zirconias",
-    price: 2650,
+    price: 1398,
     material: "Plata 925 · Zirconia talla cojín",
     description:
       "Tres zirconias en descenso hasta una talla cojín que cierra la caída con todo el brillo.",
