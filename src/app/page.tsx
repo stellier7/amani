@@ -64,18 +64,24 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             Joyería en plata 925 para ella y para él — collares, brazaletes,
             anillos y aretes con el mismo cuidado en cada pieza.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-5">
+          <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
-              href="/#collection"
+              href="/ella"
               className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
             >
-              Explorar la colección
+              Ella
+            </Link>
+            <Link
+              href="/el"
+              className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
+            >
+              Él
             </Link>
             <a
               href="#categorias"
-              className="text-sm text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+              className="rounded-full border border-white/45 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
             >
-              Compra por categoría
+              Comprar por categoría
             </a>
           </div>
         </div>
