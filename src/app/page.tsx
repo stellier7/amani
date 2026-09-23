@@ -42,41 +42,41 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
   return (
     <>
-      <section className="relative isolate min-h-[min(100svh,920px)] w-full overflow-hidden bg-[#e4e3df]">
+      <section className="relative isolate min-h-[min(100svh,920px)] w-full overflow-hidden bg-[#0c0c0c]">
         <Image
-          src="/images/amani/hero-barbada-collares.png"
-          alt="Pareja luciendo collares barbados de plata 925 a juego"
+          src="/images/amani/hero-ella.jpg"
+          alt="Modelo luciendo joyería de plata 925 Amani"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-right"
+          className="object-cover object-[72%_center] sm:object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#faf7f2]/95 via-[#faf7f2]/55 to-transparent sm:via-[#faf7f2]/40 lg:from-[#faf7f2]/90 lg:via-[#faf7f2]/25 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent sm:via-black/25 lg:from-black/70 lg:via-black/15 lg:to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-20">
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-black">
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-white/70">
             Amani Joyería — Honduras
           </p>
-          <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl xl:text-8xl">
+          <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] text-white sm:text-7xl xl:text-8xl">
             Ella
-            <span className="block font-light italic text-[#5c6569]">
+            <span className="block font-light italic text-white/65">
               y Él
             </span>
           </h1>
-          <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-black/60">
+          <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-white/65">
             Tres estilos, un mismo vínculo. Collares y brazaletes a juego para
             llevar juntos, separados o completamente a su manera.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <Link
               href="/ella-y-el"
-              className="rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-black"
+              className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
             >
               Ver la colección Ella y Él
             </Link>
             <a
               href="#categorias"
-              className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
+              className="text-sm text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
             >
               Compra por categoría
             </a>
