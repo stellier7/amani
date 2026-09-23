@@ -90,7 +90,7 @@ export const products: Product[] = [
     name: "Anillo Pavé Destello",
     category: "Anillos",
     style: "Zirconias",
-    price: 1850,
+    price: 750,
     material: "Plata 925 · Tres hileras de zirconias",
     description:
       "Una banda de perfil bajo con tres hileras engastadas al pavé para llevar sola o apilada.",
