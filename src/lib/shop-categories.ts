@@ -34,7 +34,7 @@ export const shopCategories: ShopCategory[] = [
     slug: "collares",
     name: "Collares",
     image: "/images/amani/cubana-italiana.jpg",
-    alt: "Collar y brazalete cubanos italianos de plata 925",
+    alt: "Collar cubano italiano de plata 925",
     fit: "contain",
     filter: "Collares",
   },

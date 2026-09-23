@@ -1,6 +1,5 @@
 export type ProductCategory =
   | "Para dos"
-  | "Collar + brazalete"
   | "Collares"
   | "Brazaletes"
   | "Aretes"
@@ -59,13 +58,13 @@ export const products: Product[] = [
   {
     id: "cubana-italiana",
     name: "Cubana Italiana",
-    category: "Collar + brazalete",
+    category: "Collares",
     style: "Cubana",
-    price: 4250,
-    material: "Plata 925 · Hecha en Italia · 9 mm",
+    price: 7500,
+    material: "Plata 925 · Hecha en Italia",
     description:
-      "Eslabón cubano ancho con cierre de mosquetón y sello italiano, en collar y brazalete a juego.",
-    pieces: "1 collar · 1 brazalete",
+      "Cadena de eslabón cubano ancho con cierre de mosquetón y sello italiano.",
+    pieces: "1 collar",
     image: "/images/amani/cubana-italiana.jpg",
     shot: "packshot",
     featured: true,
