@@ -34,7 +34,7 @@ export function BagView() {
   const { items, count, total, setQuantity, removeItem } = useCart();
 
   function handleWhatsAppOrder() {
-    const url = buildWhatsAppOrderUrl(items, window.location.origin);
+    const url = buildWhatsAppOrderUrl(items);
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
