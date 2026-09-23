@@ -17,7 +17,9 @@ export function ExploreCollection({
   initialOpen?: boolean;
 }) {
   const [open, setOpen] = useState(initialOpen);
+  const [bounceIn, setBounceIn] = useState(false);
   const collectionRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (initialOpen) setOpen(true);
@@ -40,6 +42,29 @@ export function ExploreCollection({
     collectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [open]);
 
+  useEffect(() => {
+    if (open) return;
+    const button = ctaRef.current;
+    if (!button) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setBounceIn(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setBounceIn(true);
+        observer.disconnect();
+      },
+      { threshold: 0.55 },
+    );
+
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, [open]);
+
   function handleExplore() {
     setOpen(true);
     window.requestAnimationFrame(() => {
@@ -55,9 +80,12 @@ export function ExploreCollection({
       {!open && (
         <section className="mx-auto flex max-w-6xl justify-center px-6 py-16 sm:py-20">
           <button
+            ref={ctaRef}
             type="button"
             onClick={handleExplore}
-            className="inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white"
+            className={`explore-cta inline-flex rounded-full border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:border-black hover:bg-[#2a2520] hover:text-white ${
+              bounceIn ? "explore-cta-in" : ""
+            }`}
           >
             Explorar todos los diseños
           </button>
