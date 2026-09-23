@@ -44,3 +44,40 @@ body {
     transition: none;
   }
 }
+
+/* Homepage “Explorar todos los diseños” — bounce in when it enters view. */
+.explore-cta {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.explore-cta-in {
+  animation: explore-bounce-in 0.85s cubic-bezier(0.22, 1.4, 0.36, 1) forwards;
+}
+
+@keyframes explore-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.94);
+  }
+  55% {
+    opacity: 1;
+    transform: translate3d(0, -10px, 0) scale(1.03);
+  }
+  75% {
+    transform: translate3d(0, 4px, 0) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explore-cta,
+  .explore-cta-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
