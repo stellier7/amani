@@ -72,10 +72,10 @@ export const products: Product[] = [
   },
   {
     id: "tennis-brazalete",
-    name: "Tennis Lluvia",
+    name: "Pulsera Tenis Ajustable",
     category: "Brazaletes",
     style: "Zirconias",
-    price: 3150,
+    price: 1499,
     material: "Plata 925 · Cierre ajustable",
     description:
       "Zirconias redondas en línea continua con cierre deslizante que se ajusta a cualquier muñeca.",
