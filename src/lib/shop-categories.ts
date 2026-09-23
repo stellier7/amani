@@ -25,8 +25,8 @@ export const shopCategories: ShopCategory[] = [
   {
     slug: "el",
     name: "Él",
-    image: "/images/amani/marina-brazalete.jpg",
-    alt: "Brazalete marina de plata 925",
+    image: "/images/amani/cubana-collar.jpg",
+    alt: "Collar Cubana Clásica de plata 925",
     fit: "contain",
     href: "/el",
   },
