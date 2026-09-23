@@ -211,7 +211,7 @@ export const products: Product[] = [
     name: "Brazalete Marquesa Rocío",
     category: "Brazaletes",
     style: "Zirconias",
-    price: 2850,
+    price: 1150,
     material: "Plata 925 · Extensión ajustable",
     description:
       "Placas en talla marquesa cubiertas de pavé, unidas por tramos de zirconias redondas.",
