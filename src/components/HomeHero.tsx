@@ -47,8 +47,8 @@ export function HomeHero() {
       // 0 at the top of the page, 1 once the hero has scrolled fully away.
       const progress = Math.min(Math.max(-rect.top / height, 0), 1);
 
-      media.style.transform = `translate3d(0, ${progress * 22}%, 0) scale(${1 + progress * 0.06})`;
-      content.style.transform = `translate3d(0, ${progress * -56}px, 0)`;
+      media.style.transform = `translate3d(0, ${progress * 14}%, 0)`;
+      content.style.transform = `translate3d(0, ${progress * -48}px, 0)`;
       content.style.opacity = String(1 - progress * 0.85);
     }
 
