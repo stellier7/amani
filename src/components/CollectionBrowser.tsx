@@ -13,7 +13,6 @@ const categories: Array<"Todos" | ProductCategory> = [
   "Para dos",
   "Collares",
   "Brazaletes",
-  "Pulseras de hilo 925",
   "Aretes",
   "Anillos",
 ];

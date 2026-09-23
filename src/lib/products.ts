@@ -2,7 +2,6 @@ export type ProductCategory =
   | "Para dos"
   | "Collares"
   | "Brazaletes"
-  | "Pulseras de hilo 925"
   | "Aretes"
   | "Anillos";
 
@@ -225,7 +224,7 @@ export const products: Product[] = [
   {
     id: "cordon-cuatro-vientos",
     name: "Cuarto Vientos",
-    category: "Pulseras de hilo 925",
+    category: "Brazaletes",
     style: "Cordón",
     price: 450,
     material: "Plata 925 · Macramé 925",
@@ -240,7 +239,7 @@ export const products: Product[] = [
   {
     id: "cordon-perla-barroca",
     name: "Trilogía Fluvial 925",
-    category: "Pulseras de hilo 925",
+    category: "Brazaletes",
     style: "Perlas",
     price: 650,
     material: "Plata 925 · Perlas de río naturales",
@@ -254,13 +253,13 @@ export const products: Product[] = [
   },
   {
     id: "cordon-tres-perlas",
-    name: "Trilogía Mediterránea",
-    category: "Pulseras de hilo 925",
+    name: "Trilogía Mediterránea 925",
+    category: "Brazaletes",
     style: "Perlas",
     price: 550,
-    material: "Plata 925 · Perlas Majorica",
+    material: "Plata 925 · Perlas Majorica naturales",
     description:
-      "Tres perlas Majorica redondas separadas por esferas diamantadas, en un cordón negro ajustable.",
+      "Tres perlas Majorica naturales redondas separadas por esferas diamantadas, en un cordón negro ajustable.",
     pieces: "1 brazalete",
     image: "/images/amani/cordon-tres-perlas.jpg",
     shot: "packshot",
