@@ -33,7 +33,7 @@ export function buildWhatsAppOrderMessage(
     return `*${label}*\n${url}`;
   });
 
-  return ["Hola! Quiero comprar", "", ...blocks].join("\n");
+  return ["Hola! Quiero comprar", ...blocks].join("\n\n");
 }
 
 export function buildWhatsAppOrderUrl(
