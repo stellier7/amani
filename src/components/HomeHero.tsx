@@ -149,7 +149,7 @@ export function HomeHero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[72%_center] sm:object-right"
+            className="object-cover object-[90%_center] sm:object-right"
           />
         </div>
       </div>
