@@ -313,10 +313,10 @@ export const products: Product[] = [
   },
   {
     id: "figaro-placa",
-    name: "Brazalete Figaro Placa",
+    name: "Brazalete Fígaro con Placa",
     category: "Brazaletes",
     style: "Figaro / Cartier",
-    price: 2650,
+    price: 3795,
     material: "Plata 925 · Placa para grabar",
     description:
       "Figaro con placa lisa lista para grabar, remates 925 y cierre de langosta.",
