@@ -21,7 +21,8 @@ export function Header() {
     if (!header) return;
 
     function updateHeight() {
-      setHeaderHeight(header.offsetHeight);
+      const el = headerRef.current;
+      if (el) setHeaderHeight(el.offsetHeight);
     }
 
     updateHeight();
