@@ -19,8 +19,8 @@ export default async function ElPage({ searchParams }: PageProps<"/el">) {
       title="Él"
       eyebrow="Colección para él"
       description="Cadenas y brazaletes de presencia — cubana, Figaro y marina en plata 925."
-      image="/images/amani/marina-brazalete.jpg"
-      imageAlt="Brazalete marina de plata 925"
+      image="/images/amani/cubana-collar.jpg"
+      imageAlt="Collar Cubana Clásica de plata 925"
       products={products}
       initialCategory={initialCategory}
     />
