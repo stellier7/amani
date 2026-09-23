@@ -2,6 +2,7 @@ export type ProductCategory =
   | "Para dos"
   | "Collares"
   | "Brazaletes"
+  | "Pulseras de hilo 925"
   | "Aretes"
   | "Anillos";
 
@@ -224,9 +225,9 @@ export const products: Product[] = [
   {
     id: "cordon-cuatro-vientos",
     name: "Cordón Cuatro Vientos",
-    category: "Brazaletes",
+    category: "Pulseras de hilo 925",
     style: "Cordón",
-    price: 950,
+    price: 450,
     material: "Plata 925 · Cordón trenzado ajustable",
     description:
       "Cuatro esferas de corte diamantado sobre cordón negro que se ajusta de un tirón.",
@@ -239,7 +240,7 @@ export const products: Product[] = [
   {
     id: "cordon-perla-barroca",
     name: "Cordón Perla Barroca",
-    category: "Brazaletes",
+    category: "Pulseras de hilo 925",
     style: "Perlas",
     price: 1350,
     material: "Plata 925 · Perlas cultivadas barrocas",
@@ -254,7 +255,7 @@ export const products: Product[] = [
   {
     id: "cordon-tres-perlas",
     name: "Cordón Tres Perlas",
-    category: "Brazaletes",
+    category: "Pulseras de hilo 925",
     style: "Perlas",
     price: 1150,
     material: "Plata 925 · Perlas nacaradas",
