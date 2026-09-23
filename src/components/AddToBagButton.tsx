@@ -23,7 +23,7 @@ export function AddToBagButton({ product }: { product: Product }) {
         data-testid={`detail-add-${product.id}`}
         className="w-full cursor-not-allowed rounded-full bg-black/25 px-7 py-4 text-sm font-medium text-white sm:w-auto sm:px-12"
       >
-        Vendido
+        Agotado
       </button>
     );
   }

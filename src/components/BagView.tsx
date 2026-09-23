@@ -97,7 +97,7 @@ export function BagView() {
                   </p>
                   {product.soldOut && (
                     <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-[#8a4b3a]">
-                      Vendido
+                      Agotado
                     </p>
                   )}
                 </div>

@@ -76,7 +76,7 @@ function FeaturedTile({
           {product.soldOut && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/35">
               <span className="rounded-full bg-white/95 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em] text-[#2a2520]">
-                Vendido
+                Agotado
               </span>
             </div>
           )}
@@ -104,7 +104,7 @@ function FeaturedTile({
           data-testid={`featured-add-${product.id}-${instance}`}
           className="rounded-full bg-[#2a2520] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25"
         >
-          {product.soldOut ? "Vendido" : added ? "Agregado ✓" : "Agregar"}
+          {product.soldOut ? "Agotado" : added ? "Agregado ✓" : "Agregar"}
         </button>
       </div>
     </article>

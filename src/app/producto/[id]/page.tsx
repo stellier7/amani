@@ -88,7 +88,7 @@ export default async function ProductPage({
           {product.soldOut && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/35">
               <span className="rounded-full bg-white/95 px-6 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-[#2a2520]">
-                Vendido
+                Agotado
               </span>
             </div>
           )}

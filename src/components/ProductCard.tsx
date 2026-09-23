@@ -50,7 +50,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.soldOut && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/35">
               <span className="rounded-full bg-white/95 px-5 py-2 text-xs font-medium uppercase tracking-[0.22em] text-[#2a2520]">
-                Vendido
+                Agotado
               </span>
             </div>
           )}
@@ -85,7 +85,7 @@ export function ProductCard({ product }: { product: Product }) {
           data-testid={`add-${product.id}`}
           className="rounded-full bg-[#2a2520] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25 disabled:opacity-100"
         >
-          {product.soldOut ? "Vendido" : added ? "Agregado ✓" : "Agregar"}
+          {product.soldOut ? "Agotado" : added ? "Agregado ✓" : "Agregar"}
         </button>
       </div>
     </article>
