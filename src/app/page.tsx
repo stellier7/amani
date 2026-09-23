@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ExploreCollection } from "@/components/ExploreCollection";
 import { FeaturedScroller } from "@/components/FeaturedScroller";
+import { HomeHero } from "@/components/HomeHero";
 import { ShopByCategory } from "@/components/ShopByCategory";
 import { categoryFromShopQuery } from "@/lib/shop-categories";
 import {
@@ -42,50 +41,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
   return (
     <>
-      <section className="relative isolate min-h-[min(100svh,920px)] w-full overflow-hidden bg-[#0c0c0c]">
-        <Image
-          src="/images/amani/hero-ella.jpg"
-          alt="Modelo luciendo joyería de plata 925 Amani"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[72%_center] sm:object-right"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent sm:via-black/25 lg:from-black/70 lg:via-black/15 lg:to-transparent" />
-
-        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-20">
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-white/70">
-            Plata 925 · Honduras
-          </p>
-          <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] text-white sm:text-7xl xl:text-8xl">
-            Amani
-          </h1>
-          <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-white/65">
-            Joyería en plata 925 para ella y para él — collares, brazaletes,
-            anillos y aretes con el mismo cuidado en cada pieza.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link
-              href="/ella"
-              className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
-            >
-              Ella
-            </Link>
-            <Link
-              href="/el"
-              className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
-            >
-              Él
-            </Link>
-            <a
-              href="#categorias"
-              className="rounded-full border border-white/45 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
-            >
-              Comprar por categoría
-            </a>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       <FeaturedScroller products={getFeaturedProducts(products)} />
 
