@@ -19,7 +19,7 @@ export type ProductStyle =
 /** Studio shots sit on white, so they are letterboxed instead of cropped. */
 export type ShotType = "lifestyle" | "packshot";
 
-/** Who a solo piece is merchandised for. Matching sets use ellaYElOnly instead. */
+/** Who a solo piece is merchandised for on /ella and /el. */
 export type ProductAudience = "mujer" | "hombre" | "unisex";
 
 export type Product = {
@@ -37,8 +37,6 @@ export type Product = {
   featured?: boolean;
   /** Solo-piece audience for /ella and /el. Omit on matching sets. */
   audience?: ProductAudience;
-  /** Matching sets shown only on the Ella y Él page (not the homepage catalog). */
-  ellaYElOnly?: boolean;
   /** When true, the piece stays listed but cannot be added to the bag. */
   soldOut?: boolean;
   /** Two CSS colors used to render the tile behind a lifestyle photo. */
@@ -344,7 +342,7 @@ export const products: Product[] = [
     featured: true,
     audience: "hombre",
   },
-  // Matching sets — Ella y Él page only, listed last.
+  // Matching sets (dúos y para dos).
   {
     id: "cubana-collares",
     name: "Dúo Cubana Esencia",
@@ -357,7 +355,6 @@ export const products: Product[] = [
     pieces: "2 collares",
     image: "/images/amani/cubana-collares.png",
     gradient: ["#f0efeb", "#b3b8ba"],
-    ellaYElOnly: true,
   },
   {
     id: "barbada-para-dos",
@@ -371,7 +368,6 @@ export const products: Product[] = [
     pieces: "2 collares · 2 brazaletes",
     image: "/images/amani/barbada-para-dos.png",
     gradient: ["#dfe1e1", "#959c9f"],
-    ellaYElOnly: true,
   },
   {
     id: "barbada-collares",
@@ -385,7 +381,6 @@ export const products: Product[] = [
     pieces: "2 collares",
     image: "/images/amani/barbada-collares.png",
     gradient: ["#ececea", "#a9afb1"],
-    ellaYElOnly: true,
   },
   {
     id: "barbada-brazaletes",
@@ -399,7 +394,6 @@ export const products: Product[] = [
     pieces: "2 brazaletes",
     image: "/images/amani/barbada-brazaletes.png",
     gradient: ["#dfe1df", "#949b9e"],
-    ellaYElOnly: true,
   },
   {
     id: "cartier-para-dos",
@@ -413,7 +407,6 @@ export const products: Product[] = [
     pieces: "2 collares · 2 brazaletes",
     image: "/images/amani/figaro-para-dos.png",
     gradient: ["#e9eae8", "#a1a7aa"],
-    ellaYElOnly: true,
   },
   {
     id: "cartier-collares",
@@ -427,7 +420,6 @@ export const products: Product[] = [
     pieces: "2 collares",
     image: "/images/amani/figaro-collares.png",
     gradient: ["#efefec", "#b1b6b8"],
-    ellaYElOnly: true,
   },
   {
     id: "cartier-brazaletes",
@@ -441,7 +433,6 @@ export const products: Product[] = [
     pieces: "2 brazaletes",
     image: "/images/amani/figaro-brazaletes.png",
     gradient: ["#e3e4e2", "#989fa2"],
-    ellaYElOnly: true,
   },
 ];
 
@@ -449,9 +440,9 @@ export function getProducts(): Product[] {
   return products;
 }
 
-/** Homepage catalog: studio pieces only (excludes Ella y Él matching sets). */
+/** Full store catalog shown on the homepage. */
 export function getHomepageProducts(list: Product[] = products): Product[] {
-  return list.filter((product) => !product.ellaYElOnly);
+  return list;
 }
 
 /** Solo pieces for /ella or /el. Unisex pieces appear in both. */
@@ -463,11 +454,6 @@ export function getAudienceProducts(
     (product) =>
       product.audience === audience || product.audience === "unisex",
   );
-}
-
-/** Ella y Él page: matching sets only. */
-export function getEllaYElProducts(list: Product[] = products): Product[] {
-  return list.filter((product) => product.ellaYElOnly);
 }
 
 export function getFeaturedProducts(list: Product[] = products): Product[] {

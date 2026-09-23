@@ -55,24 +55,21 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
         <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-20">
           <p className="text-xs font-medium uppercase tracking-[0.32em] text-white/70">
-            Amani Joyería — Honduras
+            Plata 925 · Honduras
           </p>
           <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] text-white sm:text-7xl xl:text-8xl">
-            Ella
-            <span className="block font-light italic text-white/65">
-              y Él
-            </span>
+            Amani
           </h1>
           <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-white/65">
-            Tres estilos, un mismo vínculo. Collares y brazaletes a juego para
-            llevar juntos, separados o completamente a su manera.
+            Joyería en plata 925 para ella y para él — collares, brazaletes,
+            anillos y aretes con el mismo cuidado en cada pieza.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <Link
-              href="/ella-y-el"
+              href="/#collection"
               className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
             >
-              Ver la colección Ella y Él
+              Explorar la colección
             </Link>
             <a
               href="#categorias"

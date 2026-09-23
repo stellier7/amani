@@ -62,10 +62,10 @@ export default async function ProductPage({
           </Link>
           <span aria-hidden>·</span>
           <Link
-            href="/ella-y-el"
+            href="/#collection"
             className="transition-colors hover:text-black"
           >
-            Ella y Él
+            Colección
           </Link>
           <span aria-hidden>·</span>
           <span className="text-black/70">{product.name}</span>
@@ -146,7 +146,7 @@ export default async function ProductPage({
               </h2>
             </div>
             <Link
-              href="/ella-y-el"
+              href="/#collection"
               className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
             >
               Ver toda la colección

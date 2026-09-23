@@ -40,12 +40,12 @@ export function BagView() {
           Explora la colección y agrega las piezas que quieras llevar. Tu bolsa
           se guarda en este dispositivo.
         </p>
-        <Link
-          href="/ella-y-el"
-          className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
-        >
-          Ver la colección
-        </Link>
+          <Link
+            href="/#collection"
+            className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
+          >
+            Ver la colección
+          </Link>
       </div>
     );
   }
@@ -180,7 +180,7 @@ export function BagView() {
         </p>
 
         <Link
-          href="/ella-y-el"
+          href="/#collection"
           className="mt-6 block text-center text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
         >
           Seguir comprando
