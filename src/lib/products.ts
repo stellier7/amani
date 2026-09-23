@@ -163,13 +163,13 @@ export const products: Product[] = [
   },
   {
     id: "brazalete-devocion",
-    name: "Brazalete Devoción",
+    name: "Brazalete con Charms Religiosos",
     category: "Brazaletes",
     style: "Amuletos",
-    price: 2950,
+    price: 1150,
     material: "Plata 925 · Cinco dijes",
     description:
-      "Tres cruces y dos medallas milagrosas sobre una cadena que mezcla eslabón marina y rolo.",
+      "Tejido Gucci con cinco dijes: tres cruces y dos medallas milagrosas.",
     pieces: "1 brazalete",
     image: "/images/amani/brazalete-devocion.jpg",
     shot: "packshot",
