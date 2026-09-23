@@ -128,9 +128,6 @@ export default async function ProductPage({
           <div className="mt-8">
             <AddToBagButton product={product} />
           </div>
-          <p className="mt-4 text-xs uppercase tracking-[0.18em] text-black/40">
-            Envío gratis · Devoluciones en 30 días
-          </p>
         </div>
       </section>
 
