@@ -19,6 +19,9 @@ export type ProductStyle =
 /** Studio shots sit on white, so they are letterboxed instead of cropped. */
 export type ShotType = "lifestyle" | "packshot";
 
+/** Who a solo piece is merchandised for. Matching sets use ellaYElOnly instead. */
+export type ProductAudience = "mujer" | "hombre" | "unisex";
+
 export type Product = {
   id: string;
   name: string;
@@ -32,6 +35,8 @@ export type Product = {
   shot?: ShotType;
   /** Highlighted in the "Destacados" marquee. */
   featured?: boolean;
+  /** Solo-piece audience for /ella and /el. Omit on matching sets. */
+  audience?: ProductAudience;
   /** Matching sets shown only on the Ella y Él page (not the homepage catalog). */
   ellaYElOnly?: boolean;
   /** Two CSS colors used to render the tile behind a lifestyle photo. */
@@ -64,6 +69,7 @@ export const products: Product[] = [
     image: "/images/amani/cubana-italiana.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   {
     id: "tennis-brazalete",
@@ -78,6 +84,7 @@ export const products: Product[] = [
     image: "/images/amani/tennis-brazalete.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "anillo-pave",
@@ -92,6 +99,7 @@ export const products: Product[] = [
     image: "/images/amani/anillo-pave.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "anillo-domo",
@@ -106,6 +114,7 @@ export const products: Product[] = [
     image: "/images/amani/anillo-domo.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "anillo-gota-aurora",
@@ -120,6 +129,7 @@ export const products: Product[] = [
     image: "/images/amani/anillo-gota-aurora.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "marina-brazalete",
@@ -134,6 +144,7 @@ export const products: Product[] = [
     image: "/images/amani/marina-brazalete.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   {
     id: "aretes-cascada",
@@ -148,6 +159,7 @@ export const products: Product[] = [
     image: "/images/amani/aretes-cascada.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "brazalete-devocion",
@@ -162,6 +174,7 @@ export const products: Product[] = [
     image: "/images/amani/brazalete-devocion.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "aretes-cuernito",
@@ -176,6 +189,7 @@ export const products: Product[] = [
     image: "/images/amani/aretes-cuernito.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "aretes-ojo",
@@ -190,6 +204,7 @@ export const products: Product[] = [
     image: "/images/amani/aretes-ojo.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "brazalete-marquesa",
@@ -204,6 +219,7 @@ export const products: Product[] = [
     image: "/images/amani/brazalete-marquesa.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "cordon-cuatro-vientos",
@@ -218,6 +234,7 @@ export const products: Product[] = [
     image: "/images/amani/cordon-cuatro-vientos.jpg",
     shot: "packshot",
     featured: true,
+    audience: "unisex",
   },
   {
     id: "cordon-perla-barroca",
@@ -232,6 +249,7 @@ export const products: Product[] = [
     image: "/images/amani/cordon-perla-barroca.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "cordon-tres-perlas",
@@ -246,6 +264,7 @@ export const products: Product[] = [
     image: "/images/amani/cordon-tres-perlas.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "brazalete-grano-pave",
@@ -260,6 +279,7 @@ export const products: Product[] = [
     image: "/images/amani/brazalete-grano-pave.jpg",
     shot: "packshot",
     featured: true,
+    audience: "mujer",
   },
   {
     id: "figaro-collar",
@@ -274,6 +294,7 @@ export const products: Product[] = [
     image: "/images/amani/figaro-collar.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   {
     id: "cubana-collar",
@@ -288,6 +309,7 @@ export const products: Product[] = [
     image: "/images/amani/cubana-collar.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   {
     id: "figaro-placa",
@@ -302,6 +324,7 @@ export const products: Product[] = [
     image: "/images/amani/figaro-placa.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   {
     id: "figaro-brazalete",
@@ -316,6 +339,7 @@ export const products: Product[] = [
     image: "/images/amani/figaro-brazalete.jpg",
     shot: "packshot",
     featured: true,
+    audience: "hombre",
   },
   // Matching sets — Ella y Él page only, listed last.
   {
@@ -425,6 +449,17 @@ export function getProducts(): Product[] {
 /** Homepage catalog: studio pieces only (excludes Ella y Él matching sets). */
 export function getHomepageProducts(list: Product[] = products): Product[] {
   return list.filter((product) => !product.ellaYElOnly);
+}
+
+/** Solo pieces for /ella or /el. Unisex pieces appear in both. */
+export function getAudienceProducts(
+  audience: Exclude<ProductAudience, "unisex">,
+  list: Product[] = products,
+): Product[] {
+  return getHomepageProducts(list).filter(
+    (product) =>
+      product.audience === audience || product.audience === "unisex",
+  );
 }
 
 /** Ella y Él page: matching sets only. */
