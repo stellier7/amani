@@ -101,31 +101,35 @@ export function HomeHero() {
           Plata 925 · Honduras
         </p>
         <h1 className="mt-5 max-w-xl text-balance text-6xl font-medium leading-[0.9] tracking-[-0.055em] text-white sm:text-7xl xl:text-8xl">
-          Amani
+          Hecha para brillar
         </h1>
         <p className="mt-7 max-w-md text-balance text-lg leading-relaxed text-white/65">
-          Joyería en plata 925 para ella y para él — collares, brazaletes,
-          anillos y aretes con el mismo cuidado en cada pieza.
+          Joyería fina para el día a día y para los momentos que importan.
         </p>
-        <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+        <div className="mt-9 flex flex-wrap items-center gap-5">
           <Link
-            href="/ella"
+            href="/#collection"
             className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
           >
-            Ella
+            Descubrir la colección
           </Link>
-          <Link
-            href="/el"
-            className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-[#2a2520] transition-transform hover:-translate-y-0.5 hover:bg-white/90"
-          >
-            Él
-          </Link>
-          <a
-            href="#categorias"
-            className="rounded-full border border-white/45 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
-          >
-            Comprar por categoría
-          </a>
+          <p className="flex items-center gap-3 text-sm text-white/80">
+            <Link
+              href="/ella"
+              className="underline decoration-white/35 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+            >
+              Para ella
+            </Link>
+            <span aria-hidden className="text-white/35">
+              ·
+            </span>
+            <Link
+              href="/el"
+              className="underline decoration-white/35 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+            >
+              Para él
+            </Link>
+          </p>
         </div>
       </div>
     </section>
