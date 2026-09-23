@@ -39,6 +39,8 @@ export type Product = {
   audience?: ProductAudience;
   /** Matching sets shown only on the Ella y Él page (not the homepage catalog). */
   ellaYElOnly?: boolean;
+  /** When true, the piece stays listed but cannot be added to the bag. */
+  soldOut?: boolean;
   /** Two CSS colors used to render the tile behind a lifestyle photo. */
   gradient?: [string, string];
 };
@@ -160,6 +162,7 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
     audience: "mujer",
+    soldOut: true,
   },
   {
     id: "brazalete-devocion",

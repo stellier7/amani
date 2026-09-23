@@ -100,6 +100,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const addItem = useCallback((product: Product) => {
+    if (product.soldOut) return;
     const existing = snapshot.find((item) => item.id === product.id);
     write(
       existing
@@ -113,7 +114,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const setQuantity = useCallback((productId: string, quantity: number) => {
+    const product = getProduct(productId);
     const next = Math.min(Math.round(quantity), MAX_QUANTITY);
+    // Sold-out pieces can only be reduced or removed from an old bag.
+    if (product?.soldOut && next > (snapshot.find((i) => i.id === productId)?.quantity ?? 0)) {
+      return;
+    }
     write(
       snapshot.flatMap((item) => {
         if (item.id !== productId) return [item];

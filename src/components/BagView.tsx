@@ -89,6 +89,11 @@ export function BagView() {
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-black/40">
                     {product.style} · {product.pieces}
                   </p>
+                  {product.soldOut && (
+                    <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-[#8a4b3a]">
+                      Vendido
+                    </p>
+                  )}
                 </div>
                 <p
                   data-testid={`bag-line-${product.id}`}
@@ -115,7 +120,7 @@ export function BagView() {
                   <QuantityButton
                     label={`Agregar una unidad de ${product.name}`}
                     onClick={() => setQuantity(product.id, quantity + 1)}
-                    disabled={quantity >= 99}
+                    disabled={product.soldOut || quantity >= 99}
                   >
                     <span aria-hidden>+</span>
                   </QuantityButton>

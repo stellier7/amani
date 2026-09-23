@@ -17,6 +17,7 @@ export function ProductCard({ product }: { product: Product }) {
   const isPackshot = product.shot === "packshot";
 
   function handleAdd() {
+    if (product.soldOut) return;
     addItem(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1200);
@@ -45,6 +46,13 @@ export function ProductCard({ product }: { product: Product }) {
           />
           {!isPackshot && (
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/5" />
+          )}
+          {product.soldOut && (
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/35">
+              <span className="rounded-full bg-white/95 px-5 py-2 text-xs font-medium uppercase tracking-[0.22em] text-[#2a2520]">
+                Vendido
+              </span>
+            </div>
           )}
           <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
             <span className="rounded-full bg-white/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
@@ -81,10 +89,11 @@ export function ProductCard({ product }: { product: Product }) {
         <button
           type="button"
           onClick={handleAdd}
+          disabled={product.soldOut || added}
           data-testid={`add-${product.id}`}
-          className="rounded-full bg-[#2a2520] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black disabled:opacity-70"
+          className="rounded-full bg-[#2a2520] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25 disabled:opacity-100"
         >
-          {added ? "Agregado ✓" : "Agregar"}
+          {product.soldOut ? "Vendido" : added ? "Agregado ✓" : "Agregar"}
         </button>
       </div>
     </article>
