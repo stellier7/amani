@@ -102,10 +102,10 @@ export const products: Product[] = [
   },
   {
     id: "anillo-domo",
-    name: "Anillo Domo Constelación",
+    name: "Anillo de Lunares de Zirconia",
     category: "Anillos",
     style: "Zirconias",
-    price: 2450,
+    price: 995,
     material: "Plata 925 · Zirconias al ras",
     description:
       "Un domo pulido salpicado de zirconias engastadas al ras, como un cielo despejado.",
