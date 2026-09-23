@@ -254,13 +254,13 @@ export const products: Product[] = [
   },
   {
     id: "cordon-tres-perlas",
-    name: "Cordón Tres Perlas",
+    name: "Trilogía Mediterránea",
     category: "Pulseras de hilo 925",
     style: "Perlas",
-    price: 1150,
-    material: "Plata 925 · Perlas nacaradas",
+    price: 550,
+    material: "Plata 925 · Perlas Majorica",
     description:
-      "Tres perlas redondas separadas por esferas diamantadas, en un cordón negro ajustable.",
+      "Tres perlas Majorica redondas separadas por esferas diamantadas, en un cordón negro ajustable.",
     pieces: "1 brazalete",
     image: "/images/amani/cordon-tres-perlas.jpg",
     shot: "packshot",
