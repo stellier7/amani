@@ -196,7 +196,7 @@ export const products: Product[] = [
     name: "Aretes Ojo Protector",
     category: "Aretes",
     style: "Amuletos",
-    price: 1650,
+    price: 650,
     material: "Plata 925 · Pavé de zirconias",
     description:
       "El ojo turco delineado en zirconias, en un huggie corto para llevar la protección puesta.",
