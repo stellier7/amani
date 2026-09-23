@@ -331,7 +331,7 @@ export const products: Product[] = [
     name: "Brazalete Figaro Ritmo",
     category: "Brazaletes",
     style: "Figaro / Cartier",
-    price: 2350,
+    price: 1395,
     material: "Plata 925 · Eslabón Figaro",
     description:
       "El ritmo 3+1 del Figaro en la muñeca, acabado pulido y cierre seguro.",
