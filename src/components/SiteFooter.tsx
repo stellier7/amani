@@ -3,7 +3,7 @@ const IAGO_DIGITAL_URL = "https://iagodigital.vercel.app";
 export function SiteFooter() {
   return (
     <footer className="border-t border-black/5 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 text-sm text-black/40 sm:flex-row sm:justify-between sm:gap-4">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 text-center text-sm text-black/40">
         <span>© {new Date().getFullYear()} Amani Joyería · Honduras</span>
         <p className="text-[10.5px] text-black/35">
           Desarrollado por{" "}
