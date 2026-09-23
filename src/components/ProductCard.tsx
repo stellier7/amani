@@ -54,14 +54,6 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             </div>
           )}
-          <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
-            <span className="rounded-full bg-white/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
-              {product.style}
-            </span>
-            <span className="rounded-full bg-[#2a2520]/75 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white backdrop-blur">
-              {product.category}
-            </span>
-          </div>
         </div>
 
         <div className="flex flex-1 flex-col gap-3 p-5 pb-0">

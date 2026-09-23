@@ -80,9 +80,6 @@ function FeaturedTile({
               </span>
             </div>
           )}
-          <span className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-black/60 backdrop-blur">
-            {product.style}
-          </span>
         </div>
 
         <div className="flex flex-1 flex-col p-4 pb-0">
