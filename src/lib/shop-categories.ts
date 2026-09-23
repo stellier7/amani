@@ -58,7 +58,7 @@ export const shopCategories: ShopCategory[] = [
     slug: "hilo-925",
     name: "Pulseras de hilo 925",
     image: "/images/amani/cordon-cuatro-vientos.jpg",
-    alt: "Pulsera de hilo con plata 925 — Cordón Cuatro Vientos",
+    alt: "Pulsera de hilo con plata 925 — Cuarto Vientos",
     fit: "contain",
     filter: "Pulseras de hilo 925",
   },

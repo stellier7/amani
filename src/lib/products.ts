@@ -224,11 +224,11 @@ export const products: Product[] = [
   },
   {
     id: "cordon-cuatro-vientos",
-    name: "Cordón Cuatro Vientos",
+    name: "Cuarto Vientos",
     category: "Pulseras de hilo 925",
     style: "Cordón",
     price: 450,
-    material: "Plata 925 · Cordón trenzado ajustable",
+    material: "Plata 925 · Macramé 925",
     description:
       "Cuatro esferas de corte diamantado sobre cordón negro que se ajusta de un tirón.",
     pieces: "1 brazalete",
