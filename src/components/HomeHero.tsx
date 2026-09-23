@@ -113,23 +113,6 @@ export function HomeHero() {
           >
             Descubrir la colección
           </Link>
-          <p className="flex items-center gap-3 text-sm text-white/80">
-            <Link
-              href="/ella"
-              className="underline decoration-white/35 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
-            >
-              Para ella
-            </Link>
-            <span aria-hidden className="text-white/35">
-              ·
-            </span>
-            <Link
-              href="/el"
-              className="underline decoration-white/35 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
-            >
-              Para él
-            </Link>
-          </p>
         </div>
       </div>
     </section>
