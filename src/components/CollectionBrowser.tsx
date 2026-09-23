@@ -137,7 +137,7 @@ export function CollectionBrowser({
 
       <div
         className={`grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ${
-          showFilters ? "" : "pt-4"
+          showFilters ? "" : "pt-10 sm:pt-14"
         }`}
       >
         {visibleProducts.map((product) => (
