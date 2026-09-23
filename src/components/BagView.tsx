@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/components/CartContext";
 import { formatPrice, productPath, tileBackground } from "@/lib/products";
+import { buildWhatsAppOrderUrl } from "@/lib/whatsapp";
 
 function QuantityButton({
   label,
@@ -32,6 +33,11 @@ function QuantityButton({
 export function BagView() {
   const { items, count, total, setQuantity, removeItem } = useCart();
 
+  function handleWhatsAppOrder() {
+    const url = buildWhatsAppOrderUrl(items, window.location.origin);
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
   if (items.length === 0) {
     return (
       <div className="rounded-[1.75rem] border border-black/8 bg-white px-8 py-16 text-center">
@@ -40,12 +46,12 @@ export function BagView() {
           Explora la colección y agrega las piezas que quieras llevar. Tu bolsa
           se guarda en este dispositivo.
         </p>
-          <Link
-            href="/#collection"
-            className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
-          >
-            Ver la colección
-          </Link>
+        <Link
+          href="/#collection"
+          className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
+        >
+          Ver la colección
+        </Link>
       </div>
     );
   }
@@ -152,12 +158,6 @@ export function BagView() {
               {formatPrice(total)}
             </dd>
           </div>
-          <div className="flex items-center justify-between">
-            <dt className="text-black/55">Envío</dt>
-            <dd className="uppercase tracking-[0.18em] text-black/40">
-              Gratis
-            </dd>
-          </div>
           <div className="flex items-center justify-between border-t border-black/8 pt-4 text-base font-semibold">
             <dt>Total</dt>
             <dd data-testid="bag-total" className="tabular-nums">
@@ -168,15 +168,14 @@ export function BagView() {
 
         <button
           type="button"
-          disabled
+          onClick={handleWhatsAppOrder}
           data-testid="bag-checkout"
-          className="mt-7 w-full cursor-not-allowed rounded-full bg-[#2a2520] px-7 py-4 text-sm font-medium text-white opacity-40"
+          className="mt-7 w-full rounded-full bg-[#25D366] px-7 py-4 text-sm font-medium text-white transition-colors hover:bg-[#1ebe57]"
         >
-          Finalizar compra
+          Pedir por WhatsApp
         </button>
         <p className="mt-3 text-center text-xs leading-relaxed text-black/45">
-          El pago en línea aún no está disponible. Escríbenos para completar tu
-          pedido.
+          Te abrimos un chat con tu pedido listo para enviar.
         </p>
 
         <Link
