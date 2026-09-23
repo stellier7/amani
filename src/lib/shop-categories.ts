@@ -26,7 +26,7 @@ export const shopCategories: ShopCategory[] = [
     slug: "el",
     name: "Él",
     image: "/images/amani/cubana-collar.jpg",
-    alt: "Collar Cubana Clásica de plata 925",
+    alt: "Cadena Barbada Magna de plata 925",
     fit: "contain",
     href: "/el",
   },

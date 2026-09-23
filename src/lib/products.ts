@@ -298,10 +298,10 @@ export const products: Product[] = [
   },
   {
     id: "cubana-collar",
-    name: "Collar Cubana Clásica",
+    name: "Cadena Barbada Magna",
     category: "Collares",
     style: "Cubana",
-    price: 2850,
+    price: 18595,
     material: "Plata 925 · Eslabón cubano",
     description:
       "Cadena de eslabón cubano en plata 925, sólida, plana y de alto brillo.",
