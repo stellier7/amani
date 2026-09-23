@@ -268,10 +268,10 @@ export const products: Product[] = [
   },
   {
     id: "brazalete-grano-pave",
-    name: "Brazalete Grano Destello",
+    name: "Brazalete Gucci de Zirconias",
     category: "Brazaletes",
     style: "Zirconias",
-    price: 2950,
+    price: 1795,
     material: "Plata 925 · Pavé de zirconias",
     description:
       "Eslabones ovalados tipo grano de café cubiertos de pavé, unidos por zirconias en bisel.",
