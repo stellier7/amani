@@ -239,10 +239,10 @@ export const products: Product[] = [
   },
   {
     id: "cordon-perla-barroca",
-    name: "Cordón Perla Barroca",
+    name: "Trilogía Fluvial 925",
     category: "Pulseras de hilo 925",
     style: "Perlas",
-    price: 1350,
+    price: 650,
     material: "Plata 925 · Perlas cultivadas barrocas",
     description:
       "Tres perlas barrocas, cada una con su propia forma, tejidas a mano sobre cordón negro.",
