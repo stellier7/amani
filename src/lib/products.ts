@@ -120,7 +120,7 @@ export const products: Product[] = [
     name: "Anillo Gota Aurora",
     category: "Anillos",
     style: "Zirconias",
-    price: 2250,
+    price: 795,
     material: "Plata 925 · Zirconia talla gota",
     description:
       "Una zirconia en talla gota rodeada por su halo, sostenida en una banda de pavé que la deja flotar.",
