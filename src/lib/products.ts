@@ -243,9 +243,9 @@ export const products: Product[] = [
     category: "Pulseras de hilo 925",
     style: "Perlas",
     price: 650,
-    material: "Plata 925 · Perlas cultivadas barrocas",
+    material: "Plata 925 · Perlas de río naturales",
     description:
-      "Tres perlas barrocas, cada una con su propia forma, tejidas a mano sobre cordón negro.",
+      "Tres perlas de río naturales, cada una con su propia forma, tejidas a mano sobre cordón negro.",
     pieces: "1 brazalete",
     image: "/images/amani/cordon-perla-barroca.jpg",
     shot: "packshot",
