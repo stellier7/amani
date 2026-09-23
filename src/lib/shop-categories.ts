@@ -7,7 +7,7 @@ export type ShopCategory = {
   alt: string;
   /** How the image fills the tile — packshots letterbox, lifestyle crops cover. */
   fit: "contain" | "cover";
-  /** Catalog filter this tile opens. Ella and Él open the Ella y Él page. */
+  /** Catalog filter this tile opens on the homepage collection. */
   filter?: ProductCategory;
   /** When set, the tile links here instead of the homepage collection. */
   href?: string;
@@ -20,15 +20,15 @@ export const shopCategories: ShopCategory[] = [
     image: "/images/amani/anillo-gota-aurora.jpg",
     alt: "Anillo de plata 925 con zirconia talla gota",
     fit: "contain",
-    href: "/ella-y-el",
+    href: "/ella",
   },
   {
     slug: "el",
     name: "Él",
-    image: "/images/amani/marina-brazalete.jpg",
-    alt: "Brazalete marina de plata 925",
+    image: "/images/amani/cubana-collar.jpg",
+    alt: "Collar Cubana Clásica de plata 925",
     fit: "contain",
-    href: "/ella-y-el",
+    href: "/el",
   },
   {
     slug: "collares",

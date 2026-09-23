@@ -62,10 +62,10 @@ export default async function ProductPage({
           </Link>
           <span aria-hidden>·</span>
           <Link
-            href="/ella-y-el"
+            href="/#collection"
             className="transition-colors hover:text-black"
           >
-            Ella y Él
+            Colección
           </Link>
           <span aria-hidden>·</span>
           <span className="text-black/70">{product.name}</span>
@@ -85,6 +85,13 @@ export default async function ProductPage({
             sizes="(min-width: 1024px) 50vw, 100vw"
             className={isPackshot ? "object-contain" : "object-cover"}
           />
+          {product.soldOut && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/35">
+              <span className="rounded-full bg-white/95 px-6 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-[#2a2520]">
+                Vendido
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col justify-center">
@@ -139,7 +146,7 @@ export default async function ProductPage({
               </h2>
             </div>
             <Link
-              href="/ella-y-el"
+              href="/#collection"
               className="text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
             >
               Ver toda la colección

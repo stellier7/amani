@@ -40,12 +40,12 @@ export function BagView() {
           Explora la colección y agrega las piezas que quieras llevar. Tu bolsa
           se guarda en este dispositivo.
         </p>
-        <Link
-          href="/ella-y-el"
-          className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
-        >
-          Ver la colección
-        </Link>
+          <Link
+            href="/#collection"
+            className="mt-8 inline-flex rounded-full bg-[#2a2520] px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
+          >
+            Ver la colección
+          </Link>
       </div>
     );
   }
@@ -89,6 +89,11 @@ export function BagView() {
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-black/40">
                     {product.style} · {product.pieces}
                   </p>
+                  {product.soldOut && (
+                    <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-[#8a4b3a]">
+                      Vendido
+                    </p>
+                  )}
                 </div>
                 <p
                   data-testid={`bag-line-${product.id}`}
@@ -115,7 +120,7 @@ export function BagView() {
                   <QuantityButton
                     label={`Agregar una unidad de ${product.name}`}
                     onClick={() => setQuantity(product.id, quantity + 1)}
-                    disabled={quantity >= 99}
+                    disabled={product.soldOut || quantity >= 99}
                   >
                     <span aria-hidden>+</span>
                   </QuantityButton>
@@ -175,7 +180,7 @@ export function BagView() {
         </p>
 
         <Link
-          href="/ella-y-el"
+          href="/#collection"
           className="mt-6 block text-center text-sm underline decoration-black/20 underline-offset-4 transition-colors hover:decoration-black"
         >
           Seguir comprando

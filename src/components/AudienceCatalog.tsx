@@ -1,23 +1,25 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CollectionBrowser } from "@/components/CollectionBrowser";
-import { categoryFromShopQuery } from "@/lib/shop-categories";
-import { getEllaYElProducts } from "@/lib/products";
+import type { Product } from "@/lib/products";
 
-export const metadata: Metadata = {
-  title: "Ella y Él",
-  description:
-    "La colección completa: collares y brazaletes de plata 925 a juego en tejido cubano, barbado y Figaro, más aretes, anillos y brazaletes de zirconias, perlas y amuletos.",
-};
-
-export default async function CollectionPage({
-  searchParams,
-}: PageProps<"/ella-y-el">) {
-  const { categoria } = await searchParams;
-  const initialCategory = categoryFromShopQuery(categoria);
-  const products = getEllaYElProducts();
-
+export function AudienceCatalog({
+  title,
+  eyebrow,
+  description,
+  image,
+  imageAlt,
+  products,
+  initialCategory = "Todos",
+}: {
+  title: string;
+  eyebrow: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  products: Product[];
+  initialCategory?: "Todos" | Product["category"];
+}) {
   return (
     <>
       <section className="mx-auto max-w-[1440px] px-3 pt-3 sm:px-6 sm:pt-6">
@@ -31,29 +33,28 @@ export default async function CollectionPage({
                 Inicio
               </Link>
               <span aria-hidden>·</span>
-              <span className="text-black/70">Ella y Él</span>
+              <span className="text-black/70">{title}</span>
             </nav>
 
-            <h1 className="mt-6 text-balance text-5xl font-medium leading-[0.95] tracking-[-0.045em] sm:text-6xl">
-              Ella
-              <span className="font-light italic text-[#767e82]"> y Él</span>
+            <p className="mt-6 text-xs uppercase tracking-[0.36em] text-[#687075]">
+              {eyebrow}
+            </p>
+            <h1 className="mt-3 text-balance text-5xl font-medium leading-[0.95] tracking-[-0.045em] sm:text-6xl">
+              {title}
             </h1>
             <p className="mt-5 max-w-md text-balance leading-relaxed text-black/60">
-              Elige dos collares, dos brazaletes, el conjunto completo para
-              ambos, tu propio collar con brazalete, o una pieza suelta entre
-              nuestros aretes, anillos y brazaletes de amuletos, perlas y
-              cordón. Cada diseño comparte el mismo acabado en plata 925.
+              {description}
             </p>
           </div>
 
-          <div className="relative min-h-[240px] lg:min-h-full">
+          <div className="relative min-h-[240px] bg-white lg:min-h-full">
             <Image
-              src="/images/amani/hero-barbada-collares.png"
-              alt="Pareja luciendo collares barbados de plata 925 a juego"
+              src={image}
+              alt={imageAlt}
               fill
               priority
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-right"
+              className="object-contain p-10 sm:p-14"
             />
           </div>
         </div>
@@ -61,7 +62,7 @@ export default async function CollectionPage({
 
       <section className="mx-auto max-w-6xl px-6 pb-2 pt-14">
         <p className="text-xs uppercase tracking-[0.36em] text-[#687075]">
-          Combínalos a tu manera
+          Piezas seleccionadas
         </p>
         <h2 className="mt-3 text-3xl font-medium sm:text-4xl">
           {products.length} diseños en plata 925
