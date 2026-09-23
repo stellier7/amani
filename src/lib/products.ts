@@ -132,11 +132,11 @@ export const products: Product[] = [
   },
   {
     id: "marina-brazalete",
-    name: "Marina Puerto",
+    name: "Pulsera Gucci Inflada",
     category: "Brazaletes",
     style: "Marina",
-    price: 3850,
-    material: "Plata 925 · Eslabón hueco · 8 mm",
+    price: 2295,
+    material: "Plata 925 · Eslabón hueco",
     description:
       "Eslabón marina de volumen hueco: se ve contundente en la muñeca y casi no se siente.",
     pieces: "1 brazalete",
