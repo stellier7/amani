@@ -286,7 +286,7 @@ export const products: Product[] = [
     name: "Collar Figaro Esencia",
     category: "Collares",
     style: "Figaro / Cartier",
-    price: 2450,
+    price: 3750,
     material: "Plata 925 · Eslabón Figaro",
     description:
       "Cadena Figaro en plata 925 con ritmo 3+1 y acabado pulido para el día a día.",
