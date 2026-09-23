@@ -181,7 +181,7 @@ export const products: Product[] = [
     name: "Aretes Cuernito Fortuna",
     category: "Aretes",
     style: "Amuletos",
-    price: 1750,
+    price: 650,
     material: "Plata 925 · Pavé de zirconias",
     description:
       "El cuernito italiano de la buena suerte, cubierto de pavé y colgado de un huggie que no estorba.",
