@@ -58,7 +58,7 @@ function FilterButton({
 export function CollectionBrowser({
   products,
   initialCategory = "Todos",
-  showFilters = true,
+  showFilters = false,
 }: {
   products: Product[];
   initialCategory?: (typeof categories)[number];
