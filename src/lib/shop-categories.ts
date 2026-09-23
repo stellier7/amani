@@ -17,8 +17,8 @@ export const shopCategories: ShopCategory[] = [
   {
     slug: "ella",
     name: "Ella",
-    image: "/images/amani/anillo-gota-aurora.jpg",
-    alt: "Anillo de plata 925 con zirconia talla gota",
+    image: "/images/amani/tennis-brazalete.jpg",
+    alt: "Brazalete Tennis Lluvia de plata 925 con zirconias",
     fit: "contain",
     href: "/ella",
   },
