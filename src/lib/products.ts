@@ -69,6 +69,7 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
     audience: "hombre",
+    soldOut: true,
   },
   {
     id: "tennis-brazalete",
