@@ -236,6 +236,21 @@ export const products: Product[] = [
     audience: "unisex",
   },
   {
+    id: "anillo-bombe-espejo",
+    name: "Anillo Bombé Espejo",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 1690,
+    material: "Plata 925 · Diseño abombado",
+    description:
+      "Cúpula maciza de perfil redondo que crece sobre la banda: volumen suave, brillo espejo y presencia sin piedras.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-bombe-espejo.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "marina-brazalete",
     name: "Pulsera Gucci Inflada",
     category: "Brazaletes",
