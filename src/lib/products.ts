@@ -421,7 +421,7 @@ export const products: Product[] = [
     name: "Cadena Tejido Cartier",
     category: "Collares",
     style: "Figaro / Cartier",
-    price: 2490,
+    price: 1490,
     material: "Plata 925 · 3 mm de ancho",
     description:
       "Ochenta centímetros de ritmo 3+1 en perfil fino: cae largo sobre la camisa, lista para dije o capas.",
