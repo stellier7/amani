@@ -191,6 +191,21 @@ export const products: Product[] = [
     audience: "mujer",
   },
   {
+    id: "anillo-cupula-espejo",
+    name: "Anillo Cúpula Espejo",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 1525,
+    material: "Plata 925 · Acabado espejo",
+    description:
+      "Media esfera pulida en plata maciza, elevada sobre una shank partida que deja un arco de aire y volumen escultórico.",
+    pieces: "1 anillo · Talla 8",
+    image: "/images/amani/anillo-cupula-espejo.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "marina-brazalete",
     name: "Pulsera Gucci Inflada",
     category: "Brazaletes",
