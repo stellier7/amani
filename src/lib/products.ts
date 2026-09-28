@@ -342,6 +342,21 @@ export const products: Product[] = [
     audience: "hombre",
   },
   {
+    id: "cadena-tejido-cartier-3mm",
+    name: "Cadena Tejido Cartier",
+    category: "Collares",
+    style: "Figaro / Cartier",
+    price: 2490,
+    material: "Plata 925 · 3 mm de ancho",
+    description:
+      "Ochenta centímetros de ritmo 3+1 en perfil fino: cae largo sobre la camisa, lista para dije o capas.",
+    pieces: "1 collar · 80 cm",
+    image: "/images/amani/cadena-tejido-cartier-3mm.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "unisex",
+  },
+  {
     id: "cubana-collar",
     name: "Cadena Barbada Magna",
     category: "Collares",
