@@ -72,6 +72,21 @@ export const products: Product[] = [
     soldOut: true,
   },
   {
+    id: "cadena-cubana-6mm",
+    name: "Cadena Cubana",
+    category: "Collares",
+    style: "Cubana",
+    price: 6990,
+    material: "Plata 925 · 6 mm de ancho",
+    description:
+      "Eslabón cubano plano y pulido que cae con peso y brillo uniforme, cerrado con langosta para el día a día o capas.",
+    pieces: "1 collar · 55,5 cm",
+    image: "/images/amani/cadena-cubana-6mm.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "hombre",
+  },
+  {
     id: "tennis-brazalete",
     name: "Pulsera Tenis Ajustable",
     category: "Brazaletes",
