@@ -221,6 +221,21 @@ export const products: Product[] = [
     audience: "mujer",
   },
   {
+    id: "anillo-llama-calado",
+    name: "Anillo Llama Calada",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 1490,
+    material: "Plata 925 · Calado pulido",
+    description:
+      "Frente ancho con cinco lenguas de plata en calado ondulado: brillo espejo y silueta de llama congelada en la mano.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-llama-calado.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "unisex",
+  },
+  {
     id: "marina-brazalete",
     name: "Pulsera Gucci Inflada",
     category: "Brazaletes",
