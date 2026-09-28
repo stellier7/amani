@@ -76,7 +76,7 @@ export const products: Product[] = [
     name: "Cadena Cubana",
     category: "Collares",
     style: "Cubana",
-    price: 6990,
+    price: 5709,
     material: "Plata 925 · 6 mm de ancho",
     description:
       "Eslabón cubano plano y pulido que cae con peso y brillo uniforme, cerrado con langosta para el día a día o capas.",
