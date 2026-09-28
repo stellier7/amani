@@ -87,6 +87,21 @@ export const products: Product[] = [
     audience: "hombre",
   },
   {
+    id: "cadena-tejido-gucci",
+    name: "Cadena Tejido Gucci",
+    category: "Collares",
+    style: "Marina",
+    price: 1999,
+    material: "Plata 925 · 3 mm de ancho",
+    description:
+      "Eslabón marina con barra central en tejido Gucci: fino, flexible y con brillo continuo de eslabón a eslabón.",
+    pieces: "1 collar · 55 cm",
+    image: "/images/amani/cadena-tejido-gucci.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "unisex",
+  },
+  {
     id: "tennis-brazalete",
     name: "Pulsera Tenis Ajustable",
     category: "Brazaletes",
