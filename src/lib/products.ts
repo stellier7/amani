@@ -481,7 +481,7 @@ export const products: Product[] = [
     name: "Brazalete Tejido Cartier",
     category: "Brazaletes",
     style: "Figaro / Cartier",
-    price: 2990,
+    price: 1800,
     material: "Plata 925 · 6 mm de ancho",
     description:
       "Tejido Cartier en ritmo 3+1: eslabones planos que alternan con brillo continuo y cierre de langosta 925.",
