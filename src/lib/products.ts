@@ -102,6 +102,20 @@ export const products: Product[] = [
     audience: "unisex",
   },
   {
+    id: "set-rolo-collar-brazalete",
+    name: "Set Collar y Brazalete Rolo",
+    category: "Para dos",
+    style: "Barbada",
+    price: 7770,
+    material: "Plata 925 · 5 mm de ancho",
+    description:
+      "Mismo eslabón redondo pulido en cuello y muñeca, con cierre toggle en T que cierra el look con línea limpia.",
+    pieces: "1 collar · 40 cm · 1 brazalete · 20 cm",
+    image: "/images/amani/set-rolo-collar-brazalete.jpg",
+    shot: "packshot",
+    featured: true,
+  },
+  {
     id: "tennis-brazalete",
     name: "Pulsera Tenis Ajustable",
     category: "Brazaletes",
