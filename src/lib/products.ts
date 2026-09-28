@@ -121,7 +121,7 @@ export const products: Product[] = [
     name: "Set Collar y Brazalete Rolo",
     category: "Para dos",
     style: "Barbada",
-    price: 7770,
+    price: 5725,
     material: "Plata 925 · 5 mm de ancho",
     description:
       "Mismo eslabón redondo pulido en cuello y muñeca, con cierre toggle en T que cierra el look con línea limpia.",
