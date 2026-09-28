@@ -88,7 +88,7 @@ export const products: Product[] = [
   },
   {
     id: "cadena-tejido-gucci",
-    name: "Cadena Tejido Gucci",
+    name: "Cadena Tejido Gucci 3 mm",
     category: "Collares",
     style: "Marina",
     price: 1999,
@@ -100,6 +100,21 @@ export const products: Product[] = [
     shot: "packshot",
     featured: true,
     audience: "unisex",
+  },
+  {
+    id: "cadena-tejido-gucci-5mm",
+    name: "Cadena Tejido Gucci 5 mm",
+    category: "Collares",
+    style: "Marina",
+    price: 7490,
+    material: "Plata 925 · 5 mm de ancho",
+    description:
+      "Tejido Gucci en escala media: eslabón marina con barra central, más presencia en el cuello sin perder caída.",
+    pieces: "1 collar · 55 cm",
+    image: "/images/amani/cadena-tejido-gucci-5mm.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "hombre",
   },
   {
     id: "set-rolo-collar-brazalete",
