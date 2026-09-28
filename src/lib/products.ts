@@ -206,6 +206,21 @@ export const products: Product[] = [
     audience: "mujer",
   },
   {
+    id: "anillo-ribera-goteo",
+    name: "Anillo Ribera Goteo",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 1490,
+    material: "Plata 925 · Calado artesanal",
+    description:
+      "Banda ancha con dos rieles pulidos que enmarcan un calado vertical, como plata fundida que cae en gotas congeladas.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-ribera-goteo.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "marina-brazalete",
     name: "Pulsera Gucci Inflada",
     category: "Brazaletes",
