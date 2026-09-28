@@ -195,7 +195,7 @@ export const products: Product[] = [
     name: "Anillo Cúpula Espejo",
     category: "Anillos",
     style: "Zirconias",
-    price: 1525,
+    price: 1350,
     material: "Plata 925 · Acabado espejo",
     description:
       "Media esfera pulida en plata maciza, elevada sobre una shank partida que deja un arco de aire y volumen escultórico.",
@@ -210,7 +210,7 @@ export const products: Product[] = [
     name: "Anillo Ribera Goteo",
     category: "Anillos",
     style: "Zirconias",
-    price: 1490,
+    price: 1050,
     material: "Plata 925 · Calado artesanal",
     description:
       "Banda ancha con dos rieles pulidos que enmarcan un calado vertical, como plata fundida que cae en gotas congeladas.",
@@ -225,7 +225,7 @@ export const products: Product[] = [
     name: "Anillo Llama Calada",
     category: "Anillos",
     style: "Zirconias",
-    price: 1490,
+    price: 990,
     material: "Plata 925 · Calado pulido",
     description:
       "Frente ancho con cinco lenguas de plata en calado ondulado: brillo espejo y silueta de llama congelada en la mano.",
@@ -240,7 +240,7 @@ export const products: Product[] = [
     name: "Anillo Bombé Espejo",
     category: "Anillos",
     style: "Zirconias",
-    price: 1690,
+    price: 1150,
     material: "Plata 925 · Diseño abombado",
     description:
       "Cúpula maciza de perfil redondo que crece sobre la banda: volumen suave, brillo espejo y presencia sin piedras.",
