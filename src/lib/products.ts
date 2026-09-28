@@ -403,14 +403,14 @@ export const products: Product[] = [
   },
   {
     id: "figaro-collar",
-    name: "Collar Figaro Esencia",
+    name: "Collar Tejido Cartier",
     category: "Collares",
     style: "Figaro / Cartier",
     price: 3750,
-    material: "Plata 925 · Eslabón Figaro",
+    material: "Plata 925 · 5 mm de ancho",
     description:
-      "Cadena Figaro en plata 925 con ritmo 3+1 y acabado pulido para el día a día.",
-    pieces: "1 collar",
+      "Tejido Cartier en ritmo 3+1 a cincuenta centímetros: eslabones planos pulidos y cierre de langosta para el día a día.",
+    pieces: "1 collar · 50 cm",
     image: "/images/amani/figaro-collar.jpg",
     shot: "packshot",
     featured: true,
