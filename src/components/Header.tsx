@@ -5,16 +5,20 @@ import Link from "next/link";
 import { useCart } from "@/components/CartContext";
 import { formatPrice } from "@/lib/products";
 
+const IAGO_DIGITAL_URL = "https://www.iagodigital.com/";
+
 export function Header() {
   const { count, total } = useCart();
 
   return (
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:py-4">
-        <Link
-          href="/"
+        <a
+          href={IAGO_DIGITAL_URL}
+          rel="noopener noreferrer"
           className="flex items-center gap-2.5 sm:gap-3"
-          aria-label="Amani Joyería — inicio"
+          aria-label="Amani Joyería — IAGO Digital"
+          data-testid="header-brand-link"
         >
           <Image
             src="/images/amani/logo.png"
@@ -27,7 +31,7 @@ export function Header() {
           <span className="hidden text-xs uppercase tracking-[0.3em] text-black/40 sm:inline">
             · Honduras
           </span>
-        </Link>
+        </a>
 
         <Link
           href="/bolsa"
