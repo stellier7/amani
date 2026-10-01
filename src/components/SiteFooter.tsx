@@ -1,4 +1,4 @@
-const IAGO_DIGITAL_URL = "https://iagodigital.vercel.app";
+const IAGO_DIGITAL_URL = "https://www.iagodigital.com/";
 
 export function SiteFooter() {
   return (
