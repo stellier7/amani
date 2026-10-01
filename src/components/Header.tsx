@@ -12,9 +12,9 @@ export function Header() {
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:py-4">
         <Link
-          href="/"
+          href="https://www.iagodigital.com/"
           className="flex items-center gap-2.5 sm:gap-3"
-          aria-label="Amani Joyería — inicio"
+          aria-label="Iago Digital"
         >
           <Image
             src="/images/amani/logo.png"
