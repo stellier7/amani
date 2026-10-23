@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 import { formatPrice } from "@/lib/products";
 
 export function Header() {
   const { count, total } = useCart();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-20 border-b border-black/5 bg-[#faf7f2]/80 backdrop-blur">
@@ -15,6 +17,12 @@ export function Header() {
           href="/"
           className="flex items-center gap-2.5 sm:gap-3"
           aria-label="Amani Joyería — inicio"
+          onClick={(event) => {
+            if (pathname === "/") {
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
         >
           <Image
             src="/images/amani/logo.png"
