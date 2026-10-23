@@ -1,24 +1,47 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { CartProvider } from "@/components/CartContext";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const geistSans = Geist({
+// Self-host fonts so production builds do not download from Google Fonts.
+// next/font/google intermittently fails on Vercel/Turbopack when Google returns
+// extensionless /l/font?kit=…&skey=… URLs (vercel/next.js#99114).
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+const cormorant = localFont({
+  src: [
+    {
+      path: "./fonts/cormorant-garamond-latin-400.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/cormorant-garamond-latin-500.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/cormorant-garamond-latin-600.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
   variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 const siteUrl =
