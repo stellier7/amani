@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { CartProvider } from "@/components/CartContext";
-import { Header } from "@/components/Header";
-import { SiteFooter } from "@/components/SiteFooter";
 
 // Self-host fonts so production builds do not download from Google Fonts.
 // next/font/google intermittently fails on Vercel/Turbopack when Google returns
@@ -67,11 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-[#faf7f2] text-[#2a2520]">
-        <CartProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </CartProvider>
+        {children}
       </body>
     </html>
   );

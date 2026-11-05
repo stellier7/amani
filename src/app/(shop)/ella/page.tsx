@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { AudienceCatalog } from "@/components/AudienceCatalog";
+import { loadPublicCatalog } from "@/lib/catalog/store";
 import { categoryFromShopQuery } from "@/lib/shop-categories";
 import { getAudienceProducts } from "@/lib/products";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Ella",
@@ -14,7 +17,7 @@ export default async function EllaPage({
 }: PageProps<"/ella">) {
   const { categoria } = await searchParams;
   const initialCategory = categoryFromShopQuery(categoria);
-  const products = getAudienceProducts("mujer");
+  const products = getAudienceProducts("mujer", await loadPublicCatalog());
 
   return (
     <AudienceCatalog

@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { getProducts } from "@/lib/products";
+import { loadPublicCatalog } from "@/lib/catalog/store";
 
-export function GET() {
-  const products = getProducts();
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const products = await loadPublicCatalog();
   return NextResponse.json({
     count: products.length,
     products,

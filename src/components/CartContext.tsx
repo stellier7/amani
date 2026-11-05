@@ -48,7 +48,7 @@ function parse(raw: string | null): StoredItem[] {
 
     const entries = parsed.flatMap((entry): StoredItem[] => {
       const { id, quantity } = (entry ?? {}) as Partial<StoredItem>;
-      if (typeof id !== "string" || !getProduct(id)) return [];
+      if (typeof id !== "string") return [];
       if (typeof quantity !== "number" || !Number.isFinite(quantity)) return [];
       const clamped = Math.min(Math.round(quantity), MAX_QUANTITY);
       return clamped < 1 ? [] : [{ id, quantity: clamped }];
@@ -96,7 +96,13 @@ function subscribe(listener: () => void) {
 const getSnapshot = () => snapshot;
 const getServerSnapshot = () => EMPTY;
 
-export function CartProvider({ children }: { children: ReactNode }) {
+export function CartProvider({
+  products,
+  children,
+}: {
+  products: Product[];
+  children: ReactNode;
+}) {
   const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const addItem = useCallback((product: Product) => {
@@ -113,20 +119,26 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
-  const setQuantity = useCallback((productId: string, quantity: number) => {
-    const product = getProduct(productId);
-    const next = Math.min(Math.round(quantity), MAX_QUANTITY);
-    // Sold-out pieces can only be reduced or removed from an old bag.
-    if (product?.soldOut && next > (snapshot.find((i) => i.id === productId)?.quantity ?? 0)) {
-      return;
-    }
-    write(
-      snapshot.flatMap((item) => {
-        if (item.id !== productId) return [item];
-        return next < 1 ? [] : [{ ...item, quantity: next }];
-      }),
-    );
-  }, []);
+  const setQuantity = useCallback(
+    (productId: string, quantity: number) => {
+      const product = getProduct(productId, products);
+      const next = Math.min(Math.round(quantity), MAX_QUANTITY);
+      // Sold-out pieces can only be reduced or removed from an old bag.
+      if (
+        product?.soldOut &&
+        next > (snapshot.find((i) => i.id === productId)?.quantity ?? 0)
+      ) {
+        return;
+      }
+      write(
+        snapshot.flatMap((item) => {
+          if (item.id !== productId) return [item];
+          return next < 1 ? [] : [{ ...item, quantity: next }];
+        }),
+      );
+    },
+    [products],
+  );
 
   const removeItem = useCallback((productId: string) => {
     write(snapshot.filter((item) => item.id !== productId));
@@ -136,7 +148,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<CartContextValue>(() => {
     const items = stored.flatMap((item): CartItem[] => {
-      const product = getProduct(item.id);
+      const product = getProduct(item.id, products);
       return product ? [{ product, quantity: item.quantity }] : [];
     });
 
@@ -152,7 +164,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       removeItem,
       clear,
     };
-  }, [stored, addItem, setQuantity, removeItem, clear]);
+  }, [stored, products, addItem, setQuantity, removeItem, clear]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

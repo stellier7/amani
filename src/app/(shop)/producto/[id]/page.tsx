@@ -4,23 +4,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToBagButton } from "@/components/AddToBagButton";
 import { ProductCard } from "@/components/ProductCard";
+import { loadPublicCatalog } from "@/lib/catalog/store";
 import {
   formatPrice,
   getProduct,
-  getProducts,
   getRelatedProducts,
   tileBackground,
 } from "@/lib/products";
 
-export function generateStaticParams() {
-  return getProducts().map((product) => ({ id: product.id }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/producto/[id]">): Promise<Metadata> {
   const { id } = await params;
-  const product = getProduct(id);
+  const product = getProduct(id, await loadPublicCatalog());
   if (!product) return { title: "Pieza no encontrada" };
 
   return {
@@ -38,10 +36,11 @@ export default async function ProductPage({
   params,
 }: PageProps<"/producto/[id]">) {
   const { id } = await params;
-  const product = getProduct(id);
+  const catalog = await loadPublicCatalog();
+  const product = getProduct(id, catalog);
   if (!product) notFound();
 
-  const related = getRelatedProducts(product);
+  const related = getRelatedProducts(product, catalog);
   const isPackshot = product.shot === "packshot";
   const specs = [
     { label: "Tipo", value: product.category },

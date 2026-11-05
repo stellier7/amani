@@ -19,22 +19,29 @@ Then open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Create a production build                |
 | `npm start`     | Serve the production build               |
 | `npm run lint`  | Run ESLint                               |
+| `npm test`      | Run Vitest unit tests                    |
 
 ## Routes
 
-| Route            | Contents                                                            |
-| ---------------- | ------------------------------------------------------------------- |
-| `/`              | Hero, the "Recién llegados" carousel, and the combination guide      |
-| `/ella-y-el`     | The full collection with set and style filters                       |
-| `/producto/[id]` | One prerendered page per product, built from `generateStaticParams`  |
-| `/bolsa`         | The bag: quantities, subtotal, and checkout hand-off                 |
-| `/api/products`  | JSON catalog                                                         |
+| Route                     | Contents                                                                 |
+| ------------------------- | ------------------------------------------------------------------------ |
+| `/`                       | Hero, destacados, shop-by-category, and the collection                   |
+| `/ella` `/el`             | Audience catalogs                                                        |
+| `/producto/[id]`          | Product page (from the database catalog)                                 |
+| `/bolsa`                  | The bag: quantities, subtotal, and WhatsApp checkout                     |
+| `/admin`                  | Catalog admin (login required)                                           |
+| `/api/products`           | Public JSON catalog (no stock, weight, cost, or notes)                   |
 
 ## Project structure
 
-- `src/app/layout.tsx` — root layout with the header, footer, and cart provider
-- `src/lib/products.ts` — product catalog and helpers
+- `src/app/layout.tsx` — root html/fonts
+- `src/app/(shop)/layout.tsx` — store header, footer, and cart
+- `src/lib/products.ts` — public product type and helpers
+- `src/lib/catalog/` — database-backed catalog
+- `src/app/admin/` — Spanish product admin
 - `src/components/` — cart context, header, carousel, bag, and product card UI
+
+Copy `.env.example` to `.env.local` and set `AUTH_SECRET` plus seed admin emails/passwords. Production also needs `DATABASE_URL` (Neon or any Postgres). WhatsApp checkout is unchanged.
 
 The bag is kept in `localStorage` under `amani-bolsa` (product ids and quantities only, so
 prices always come from the catalog) and read through `useSyncExternalStore`, which keeps the
@@ -45,7 +52,7 @@ first client render in step with the empty server render.
 `GET /api/products` returns the catalog:
 
 ```json
-{ "count": 26, "products": [ { "id": "cubana-italiana", "name": "Cubana Italiana", ... } ] }
+{ "count": 29, "products": [ { "id": "cubana-italiana", "name": "Cubana Italiana", ... } ] }
 ```
 
 ## Cloud Agent environment
