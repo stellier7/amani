@@ -10,7 +10,6 @@ import {
 
 const categories: Array<"Todos" | ProductCategory> = [
   "Todos",
-  "Para dos",
   "Collares",
   "Brazaletes",
   "Aretes",
