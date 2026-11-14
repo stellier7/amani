@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-princesa",
+    name: "Aretes Princesa",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 450,
+    material: "Plata 925 · Talla princesa y halo",
+    description:
+      "Topos con una zirconia cuadrada al centro y un halo de piedras alrededor.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-princesa.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e6d8", "#e7d5c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-argolla-chica",
     name: "Aretes Argolla Chica",
     category: "Aretes",
