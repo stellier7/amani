@@ -45,7 +45,7 @@ first client render in step with the empty server render.
 `GET /api/products` returns the catalog:
 
 ```json
-{ "count": 63, "products": [ { "id": "pulsera-bolitas", "name": "Pulsera de Bolitas", ... } ] }
+{ "count": 58, "products": [ { "id": "pulsera-bolitas", "name": "Pulsera de Bolitas", ... } ] }
 ```
 
 ## Cloud Agent environment
