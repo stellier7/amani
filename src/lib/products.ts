@@ -60,6 +60,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-ovalo-pave",
+    name: "Aretes Óvalo Pavé",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 1290,
+    material: "Plata 925 · Óvalo de pavé",
+    description:
+      "Aro ovalado cubierto de pavé, hueco al centro y colgado de un poste liso.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-ovalo-pave.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4e7da", "#e7d5c6"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "cadena-clip",
     name: "Cadena Clip",
     category: "Collares",
