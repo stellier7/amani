@@ -1,5 +1,4 @@
 export type ProductCategory =
-  | "Para dos"
   | "Collares"
   | "Brazaletes"
   | "Aretes"
@@ -709,22 +708,6 @@ export const products: Product[] = [
     audience: "mujer",
   },
   {
-    id: "cubana-italiana",
-    name: "Cubana Italiana",
-    category: "Collares",
-    style: "Cubana",
-    price: 7500,
-    material: "Plata 925 · Hecha en Italia",
-    description:
-      "Cadena de eslabón cubano ancho con cierre de mosquetón y sello italiano.",
-    pieces: "1 collar",
-    image: "/images/amani/cubana-italiana.jpg",
-    shot: "packshot",
-    featured: true,
-    audience: "hombre",
-    soldOut: true,
-  },
-  {
     id: "cadena-cubana-6mm",
     name: "Cadena Cubana",
     category: "Collares",
@@ -740,50 +723,6 @@ export const products: Product[] = [
     audience: "hombre",
   },
   {
-    id: "cadena-tejido-gucci",
-    name: "Cadena Tejido Gucci 3 mm",
-    category: "Collares",
-    style: "Marina",
-    price: 1999,
-    material: "Plata 925 · 3 mm de ancho",
-    description:
-      "Eslabón marina con barra central en tejido Gucci: fino, flexible y con brillo continuo de eslabón a eslabón.",
-    pieces: "1 collar · 55 cm",
-    image: "/images/amani/cadena-tejido-gucci.jpg",
-    shot: "packshot",
-    featured: true,
-    audience: "unisex",
-  },
-  {
-    id: "cadena-tejido-gucci-5mm",
-    name: "Cadena Tejido Gucci 5 mm",
-    category: "Collares",
-    style: "Marina",
-    price: 7490,
-    material: "Plata 925 · 5 mm de ancho",
-    description:
-      "Tejido Gucci en escala media: eslabón marina con barra central, más presencia en el cuello sin perder caída.",
-    pieces: "1 collar · 55 cm",
-    image: "/images/amani/cadena-tejido-gucci-5mm.jpg",
-    shot: "packshot",
-    featured: true,
-    audience: "hombre",
-  },
-  {
-    id: "set-rolo-collar-brazalete",
-    name: "Set Collar y Brazalete Rolo",
-    category: "Para dos",
-    style: "Barbada",
-    price: 5725,
-    material: "Plata 925 · 5 mm de ancho",
-    description:
-      "Mismo eslabón redondo pulido en cuello y muñeca, con cierre toggle en T que cierra el look con línea limpia.",
-    pieces: "1 collar · 40 cm · 1 brazalete · 20 cm",
-    image: "/images/amani/set-rolo-collar-brazalete.jpg",
-    shot: "packshot",
-    featured: true,
-  },
-  {
     id: "tennis-brazalete",
     name: "Pulsera Tenis Ajustable",
     category: "Brazaletes",
@@ -794,36 +733,6 @@ export const products: Product[] = [
       "Zirconias redondas en línea continua con cierre deslizante que se ajusta a cualquier muñeca.",
     pieces: "1 brazalete",
     image: "/images/amani/tennis-brazalete.jpg",
-    shot: "packshot",
-    featured: true,
-    audience: "mujer",
-  },
-  {
-    id: "anillo-pave",
-    name: "Anillo Pavé Destello",
-    category: "Anillos",
-    style: "Zirconias",
-    price: 750,
-    material: "Plata 925 · Tres hileras de zirconias",
-    description:
-      "Una banda de perfil bajo con tres hileras engastadas al pavé para llevar sola o apilada.",
-    pieces: "1 anillo",
-    image: "/images/amani/anillo-pave.jpg",
-    shot: "packshot",
-    featured: true,
-    audience: "mujer",
-  },
-  {
-    id: "anillo-domo",
-    name: "Anillo de Lunares de Zirconia",
-    category: "Anillos",
-    style: "Zirconias",
-    price: 995,
-    material: "Plata 925 · Zirconias al ras",
-    description:
-      "Un domo pulido salpicado de zirconias engastadas al ras, como un cielo despejado.",
-    pieces: "1 anillo",
-    image: "/images/amani/anillo-domo.jpg",
     shot: "packshot",
     featured: true,
     audience: "mujer",

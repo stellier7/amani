@@ -326,8 +326,8 @@ export function FeaturedScroller({ products }: { products: Product[] }) {
           Recién llegados
         </h2>
         <p className="mt-4 max-w-lg leading-relaxed text-black/55">
-          Nuestras piezas más nuevas en plata 925: aretes de amuletos, anillos
-          de zirconias, brazaletes de perlas y cordón, y el set cubano italiano.
+          Nuestras piezas más nuevas en plata 925: aretes, anillos, collares
+          y brazaletes.
         </p>
       </div>
 
