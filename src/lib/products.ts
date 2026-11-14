@@ -60,6 +60,23 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "pulsera-bolitas",
+    name: "Pulsera de Bolitas",
+    category: "Brazaletes",
+    style: "Barbada",
+    price: 490,
+    material: "Plata 925 · Cadena y bolitas",
+    description:
+      "Cadena fina con bolitas pulidas, broche de langosta y cadena de extensión.",
+    pieces: "1 pulsera",
+    image: "/images/amani/pulsera-bolitas.jpg",
+    gallery: ["/images/amani/pulsera-bolitas-aro.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f3e6d6", "#e6d4c2"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "anillo-doble-cruz",
     name: "Anillo Doble Cruz",
     category: "Anillos",
