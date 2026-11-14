@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-argolla-chica",
+    name: "Aretes Argolla Chica",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 540,
+    material: "Plata 925 · Argolla chica",
+    description:
+      "La misma argolla lisa, en un aro más chico, de plata pulida y sin piedras.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-argolla-chica.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e6d8", "#e7d5c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-argolla-lisa",
     name: "Aretes Argolla Lisa",
     category: "Aretes",
