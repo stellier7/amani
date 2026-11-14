@@ -59,7 +59,7 @@ function FeaturedTile({
         className="flex flex-1 flex-col"
       >
         <div
-          className="relative aspect-[5/4] w-full overflow-hidden"
+          className="relative aspect-[4/5] w-full overflow-hidden"
           style={{ background: tileBackground(product) }}
         >
           <Image
