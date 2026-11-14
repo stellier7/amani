@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-argolla-trenzada",
+    name: "Aretes Argolla Trenzada",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 590,
+    material: "Plata 925 · Argolla trenzada",
+    description:
+      "Argollas de plata con el aro trenzado, un detalle de cuerda que se nota de cerca.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-argolla-trenzada.jpg",
+    shot: "lifestyle",
+    gradient: ["#ead8c8", "#d8c4b2"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-princesa",
     name: "Aretes Princesa",
     category: "Aretes",
