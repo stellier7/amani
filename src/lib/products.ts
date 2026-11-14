@@ -60,6 +60,23 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "pulsera-tenis-morada",
+    name: "Pulsera Tipo Tenis Morada",
+    category: "Brazaletes",
+    style: "Zirconias",
+    price: 1200,
+    material: "Plata 925 · Piedras moradas",
+    description:
+      "Línea de piedras moradas en engaste cuadrado, con broche de langosta y cadena de extensión.",
+    pieces: "1 pulsera",
+    image: "/images/amani/pulsera-tenis-morada.jpg",
+    gallery: ["/images/amani/pulsera-tenis-morada-broche.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f6efe4", "#eadcc8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-ovalo-nudo",
     name: "Aretes Óvalo Nudo",
     category: "Aretes",
