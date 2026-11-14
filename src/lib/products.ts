@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-argolla-lisa",
+    name: "Aretes Argolla Lisa",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 740,
+    material: "Plata 925 · Argolla lisa",
+    description:
+      "Argollas redondas de plata pulida, lisas y sin piedras, para llevar todos los días.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-argolla-lisa.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e6d8", "#e7d5c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "brazalete-cubano",
     name: "Brazalete Cubano",
     category: "Brazaletes",
