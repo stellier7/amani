@@ -60,6 +60,23 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-cruz-pave",
+    name: "Anillo Cruz Pavé",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 640,
+    material: "Plata 925 · Cruz de pavé",
+    description:
+      "Cruz de pavé al frente de una banda fina, con zirconias a los lados del aro.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-cruz-pave.jpg",
+    gallery: ["/images/amani/anillo-cruz-pave-aro.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f6eee4", "#e8d9c8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "anillo-cintillo",
     name: "Anillo Cintillo",
     category: "Anillos",
