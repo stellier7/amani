@@ -60,6 +60,23 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-ovalo-nudo",
+    name: "Aretes Óvalo Nudo",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 1390,
+    material: "Plata 925 · Óvalo de pavé y nudo",
+    description:
+      "Óvalo de pavé colgado de un nudo de plata lisa, en poste.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-ovalo-nudo.jpg",
+    gallery: ["/images/amani/aretes-ovalo-nudo-par.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f3e6d8", "#e6d4c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-ovalo-pave",
     name: "Aretes Óvalo Pavé",
     category: "Aretes",
