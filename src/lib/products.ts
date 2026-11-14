@@ -10,6 +10,7 @@ export type ProductStyle =
   | "Barbada"
   | "Figaro / Cartier"
   | "Marina"
+  | "Clip"
   | "Zirconias"
   | "Perlas"
   | "Amuletos"
@@ -58,6 +59,22 @@ export function tileBackground(product: Product): string {
 }
 
 export const products: Product[] = [
+  {
+    id: "cadena-clip",
+    name: "Cadena Clip",
+    category: "Collares",
+    style: "Clip",
+    price: 890,
+    material: "Plata 925 · Eslabón clip",
+    description:
+      "Eslabón alargado tipo clip, liviano y sin dije, para llevar solo.",
+    pieces: "1 collar",
+    image: "/images/amani/cadena-clip.jpg",
+    shot: "lifestyle",
+    gradient: ["#f6efe6", "#e7ddd2"],
+    featured: true,
+    audience: "mujer",
+  },
   {
     id: "anillo-corazon-entrelazado",
     name: "Anillo Corazón Entrelazado",
