@@ -70,6 +70,10 @@ export const products: Product[] = [
       "Hilera continua de zirconias redondas, del mismo tamaño en toda la vuelta.",
     pieces: "1 anillo",
     image: "/images/amani/anillo-cintillo.jpg",
+    gallery: [
+      "/images/amani/anillo-cintillo-satin.jpg",
+      "/images/amani/anillo-cintillo-mano.jpg",
+    ],
     shot: "lifestyle",
     gradient: ["#f4e7d6", "#e7d4bc"],
     featured: true,
