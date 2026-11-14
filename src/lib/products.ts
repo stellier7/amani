@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-esfera",
+    name: "Anillo Esfera",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 1080,
+    material: "Plata 925 · Domo pulido",
+    description:
+      "Domo liso de plata pulida, alto y redondo, con brillo de espejo y sin piedras.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-esfera.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4eadf", "#e6d8cc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-infinito",
     name: "Aretes Infinito",
     category: "Aretes",
