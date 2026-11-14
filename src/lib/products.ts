@@ -59,6 +59,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-corazon-entrelazado",
+    name: "Anillo Corazón Entrelazado",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 570,
+    material: "Plata 925 · Corazón y pavé",
+    description:
+      "Dos bandas que se cruzan en un corazón, con una hilera de zirconias en un lado.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-corazon-entrelazado.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e6d6", "#e6d6c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "set-perla",
     name: "Set Perla",
     category: "Collares",
