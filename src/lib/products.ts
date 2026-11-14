@@ -59,6 +59,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "collar-corazon",
+    name: "Collar Corazón",
+    category: "Collares",
+    style: "Zirconias",
+    price: 1250,
+    material: "Plata 925 · Corazón y estaciones",
+    description:
+      "Cadena fina con un corazón de zirconia y una hilera de piedras que baja hacia el dije.",
+    pieces: "1 collar",
+    image: "/images/amani/collar-corazon.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4e6d8", "#e7d5c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "collar-osito",
     name: "Collar Osito",
     category: "Collares",
