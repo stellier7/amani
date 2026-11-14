@@ -59,6 +59,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "collar-osito",
+    name: "Collar Osito",
+    category: "Collares",
+    style: "Zirconias",
+    price: 720,
+    material: "Plata 925 · Osito de pavé",
+    description:
+      "Cadena fina con un osito cubierto de pavé, chico y brillante.",
+    pieces: "1 collar",
+    image: "/images/amani/collar-osito.jpg",
+    shot: "lifestyle",
+    gradient: ["#f0e2d4", "#e4d2c2"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "collar-gota",
     name: "Collar Gota",
     category: "Collares",
