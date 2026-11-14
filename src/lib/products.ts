@@ -60,6 +60,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-doble-cruz",
+    name: "Anillo Doble Cruz",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 580,
+    material: "Plata 925 · Dos cruces",
+    description:
+      "Dos cruces en una banda lisa: una lisa arriba y otra de pavé que baja por el dedo.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-doble-cruz.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4e8dc", "#e7d6c6"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "anillo-cruz-pave",
     name: "Anillo Cruz Pavé",
     category: "Anillos",
