@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/CartContext";
 import {
-  formatPrice,
+  canAddToBag,
+  formatProductPrice,
+  isPriced,
   productPath,
   tileBackground,
   type Product,
@@ -40,7 +42,7 @@ function FeaturedTile({
   const isPackshot = product.shot === "packshot";
 
   function handleAdd() {
-    if (product.soldOut) return;
+    if (!canAddToBag(product)) return;
     addItem(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1200);
@@ -94,15 +96,21 @@ function FeaturedTile({
       </Link>
 
       <div className="flex items-center justify-between gap-3 p-4 pt-3">
-        <span className="text-base font-semibold tabular-nums">
-          {formatPrice(product.price)}
+        <span
+          className={
+            isPriced(product)
+              ? "text-base font-semibold tabular-nums"
+              : "text-sm font-medium leading-tight text-black/45"
+          }
+        >
+          {formatProductPrice(product)}
         </span>
         <button
           type="button"
           onClick={handleAdd}
-          disabled={product.soldOut || added}
+          disabled={!canAddToBag(product) || added}
           data-testid={`featured-add-${product.id}-${instance}`}
-          className="rounded-full bg-[#2a2520] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25"
+          className="shrink-0 rounded-full bg-[#2a2520] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25"
         >
           {product.soldOut ? "Agotado" : added ? "Agregado ✓" : "Agregar"}
         </button>

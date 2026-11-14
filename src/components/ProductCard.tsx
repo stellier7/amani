@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 import {
-  formatPrice,
+  canAddToBag,
+  formatProductPrice,
+  isPriced,
   productPath,
   tileBackground,
   type Product,
@@ -17,7 +19,7 @@ export function ProductCard({ product }: { product: Product }) {
   const isPackshot = product.shot === "packshot";
 
   function handleAdd() {
-    if (product.soldOut) return;
+    if (!canAddToBag(product)) return;
     addItem(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1200);
@@ -75,13 +77,19 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
 
       <div className="flex items-center justify-between p-5 pt-3">
-        <span className="text-lg font-semibold tabular-nums">
-          {formatPrice(product.price)}
+        <span
+          className={
+            isPriced(product)
+              ? "text-lg font-semibold tabular-nums"
+              : "text-sm font-medium text-black/45"
+          }
+        >
+          {formatProductPrice(product)}
         </span>
         <button
           type="button"
           onClick={handleAdd}
-          disabled={product.soldOut || added}
+          disabled={!canAddToBag(product) || added}
           data-testid={`add-${product.id}`}
           className="rounded-full bg-[#2a2520] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-black/25 disabled:opacity-100"
         >

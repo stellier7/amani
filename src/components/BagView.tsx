@@ -3,7 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/components/CartContext";
-import { formatPrice, productPath, tileBackground } from "@/lib/products";
+import {
+  formatPrice,
+  formatProductPrice,
+  isPriced,
+  productPath,
+  tileBackground,
+} from "@/lib/products";
 import { buildWhatsAppOrderUrl } from "@/lib/whatsapp";
 
 function QuantityButton({
@@ -105,7 +111,9 @@ export function BagView() {
                   data-testid={`bag-line-${product.id}`}
                   className="shrink-0 text-base font-semibold tabular-nums"
                 >
-                  {formatPrice(product.price * quantity)}
+                  {isPriced(product)
+                    ? formatPrice(product.price * quantity)
+                    : formatProductPrice(product)}
                 </p>
               </div>
 
@@ -126,7 +134,7 @@ export function BagView() {
                   <QuantityButton
                     label={`Agregar una unidad de ${product.name}`}
                     onClick={() => setQuantity(product.id, quantity + 1)}
-                    disabled={product.soldOut || quantity >= 99}
+                    disabled={!isPriced(product) || product.soldOut || quantity >= 99}
                   >
                     <span aria-hidden>+</span>
                   </QuantityButton>

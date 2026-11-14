@@ -8,7 +8,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { getProduct, type Product } from "@/lib/products";
+import { canAddToBag, getProduct, type Product } from "@/lib/products";
 
 type CartItem = { product: Product; quantity: number };
 
@@ -100,7 +100,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const addItem = useCallback((product: Product) => {
-    if (product.soldOut) return;
+    if (!canAddToBag(product)) return;
     const existing = snapshot.find((item) => item.id === product.id);
     write(
       existing
@@ -116,8 +116,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const setQuantity = useCallback((productId: string, quantity: number) => {
     const product = getProduct(productId);
     const next = Math.min(Math.round(quantity), MAX_QUANTITY);
-    // Sold-out pieces can only be reduced or removed from an old bag.
-    if (product?.soldOut && next > (snapshot.find((i) => i.id === productId)?.quantity ?? 0)) {
+    // Pieces that cannot be sold can only be reduced or removed from an old bag.
+    if (
+      product &&
+      !canAddToBag(product) &&
+      next > (snapshot.find((i) => i.id === productId)?.quantity ?? 0)
+    ) {
       return;
     }
     write(
@@ -143,10 +147,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return {
       items,
       count: items.reduce((sum, item) => sum + item.quantity, 0),
-      total: items.reduce(
-        (sum, item) => sum + item.quantity * item.product.price,
-        0,
-      ),
+      total: items.reduce((sum, item) => {
+        if (item.product.price == null) return sum;
+        return sum + item.quantity * item.product.price;
+      }, 0),
       addItem,
       setQuantity,
       removeItem,

@@ -26,7 +26,8 @@ export type Product = {
   name: string;
   category: ProductCategory;
   style: ProductStyle;
-  price: number;
+  /** Null until a price is set. The piece stays listed and cannot be added to the bag. */
+  price: number | null;
   material: string;
   description: string;
   pieces: string;
@@ -491,6 +492,261 @@ export const products: Product[] = [
     featured: true,
     audience: "hombre",
   },
+  {
+    id: "anillo-corazon-nube",
+    name: "Anillo Corazón Nube",
+    category: "Anillos",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Piedra central y pavé",
+    description:
+      "Corazón calado con una piedra en tono gris perla al centro y pavé en los hombros.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-corazon-nube.jpg",
+    shot: "lifestyle",
+    gradient: ["#ebe6e0", "#cfc8c0"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "anillo-zigzag-rosa",
+    name: "Anillo Zigzag Rosa",
+    category: "Anillos",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Tono rosa · Zirconias",
+    description:
+      "Banda de zirconias en zigzag sobre metal rosa: cada pico marca un destello seguido.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-zigzag-rosa.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3ece8", "#e4d5cf"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "anillo-corazon-bolitas",
+    name: "Anillo Corazón de Bolitas",
+    category: "Anillos",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Corazón liso",
+    description:
+      "Corazón pulido, sin piedras, montado sobre una banda de bolitas que sube al centro.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-corazon-bolitas.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4efe9", "#e3dbd3"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "anillo-dos-mariposas",
+    name: "Anillo Dos Mariposas",
+    category: "Anillos",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Pavé y negro",
+    description:
+      "Aro abierto con dos mariposas enfrentadas: una cubierta de pavé y otra en negro.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-dos-mariposas.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3eee8", "#e6dfd6"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "anillo-corte-esmeralda",
+    name: "Anillo Corte Esmeralda",
+    category: "Anillos",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Piedra verde y halo",
+    description:
+      "Piedra verde en corte esmeralda, halo cuadrado y banda de pavé a ambos lados.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-corte-esmeralda.jpg",
+    shot: "packshot",
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "anillo-princesa",
+    name: "Anillo Princesa",
+    category: "Anillos",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Talla princesa y halo",
+    description:
+      "Zirconia cuadrada en talla princesa, halo de pavé y una hilera de piedras en cada hombro.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-princesa.jpg",
+    shot: "lifestyle",
+    gradient: ["#1a1a1a", "#3a3a3a"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "aretes-gota-roja",
+    name: "Aretes Gota Roja",
+    category: "Aretes",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Piedras rojas y halo",
+    description:
+      "Un círculo rojo con halo abre la caída; debajo, una gota roja enmarcada en pavé.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-gota-roja.jpg",
+    shot: "lifestyle",
+    gradient: ["#e6e7e6", "#c8cbcb"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "aretes-cuadrado-azul",
+    name: "Aretes Cuadrado Azul",
+    category: "Aretes",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Huggie de pavé y piedra azul",
+    description:
+      "Aro corto de pavé del que cuelga una piedra azul en talla cuadrada.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-cuadrado-azul.jpg",
+    shot: "lifestyle",
+    gradient: ["#e4e6e6", "#c5c8c8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "aretes-ovalo-azul",
+    name: "Aretes Óvalo Azul",
+    category: "Aretes",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Piedra azul oval y halo",
+    description:
+      "Piedra azul en talla oval, rodeada de un halo de zirconias, en un tope cerca del lóbulo.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-ovalo-azul.jpg",
+    shot: "lifestyle",
+    gradient: ["#e7e8ea", "#c9ccd0"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "aretes-cruz-larga",
+    name: "Aretes Cruz Larga",
+    category: "Aretes",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Barra con cruz",
+    description:
+      "Barra fina y larga con una cruz pequeña a media caída.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-cruz-larga.jpg",
+    shot: "lifestyle",
+    gradient: ["#e6e7e8", "#c7c9cc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "collar-lluvia-estrellas",
+    name: "Collar Lluvia de Estrellas",
+    category: "Collares",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Disco de pavé y tres estrellas",
+    description:
+      "Cadena fina que baja a un disco de pavé y tres hilos con estrellas en descenso.",
+    pieces: "1 collar",
+    image: "/images/amani/collar-lluvia-estrellas.jpg",
+    shot: "lifestyle",
+    gradient: ["#f6f3ef", "#e7e2dc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "set-tulipan",
+    name: "Set Tulipán",
+    category: "Collares",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Piedra roja y hojas verdes",
+    description:
+      "Tulipán de piedra roja con tallo y hojas verdes, en collar y en aretes a juego.",
+    pieces: "1 collar · 1 par de aretes",
+    image: "/images/amani/set-tulipan.jpg",
+    shot: "lifestyle",
+    gradient: ["#f7f4f1", "#e6e0dc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "set-atrapasuenos",
+    name: "Set Atrapasueños",
+    category: "Collares",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Atrapasueños y plumas",
+    description:
+      "Atrapasueños calado con tres plumas, repetido en el collar y en los aretes.",
+    pieces: "1 collar · 1 par de aretes",
+    image: "/images/amani/set-atrapasuenos.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3eee8", "#ddd6ce"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "set-corazon-rojo",
+    name: "Set Corazón Rojo",
+    category: "Collares",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Corazón rojo con halo",
+    description:
+      "Corazón con piedra roja y halo de zirconias, en el collar y en los aretes.",
+    pieces: "1 collar · 1 par de aretes",
+    image: "/images/amani/set-corazon-rojo.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4efe9", "#e4dcd4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "set-halo-oval",
+    name: "Set Halo Oval",
+    category: "Collares",
+    style: "Zirconias",
+    price: null,
+    material: "Plata 925 · Piedra oval y halo",
+    description:
+      "La misma piedra oval con halo de zirconias, en aretes, anillo y collar.",
+    pieces: "1 collar · 1 anillo · 1 par de aretes",
+    image: "/images/amani/set-halo-oval.jpg",
+    shot: "lifestyle",
+    gradient: ["#f5f1ec", "#e5dfd8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
+    id: "brazalete-mandala",
+    name: "Brazalete Mandala",
+    category: "Brazaletes",
+    style: "Amuletos",
+    price: null,
+    material: "Plata 925 · Medallón calado",
+    description:
+      "Cadena fina con un medallón circular: flor calada al centro y orilla de zirconias.",
+    pieces: "1 brazalete",
+    image: "/images/amani/brazalete-mandala.jpg",
+    shot: "lifestyle",
+    gradient: ["#f6f2ee", "#e8e2db"],
+    featured: true,
+    audience: "mujer",
+  },
 ];
 
 export function getProducts(): Product[] {
@@ -542,4 +798,24 @@ export function formatPrice(price: number): string {
     currency: "HNL",
     maximumFractionDigits: 0,
   }).format(price);
+}
+
+export const PRICE_PENDING_LABEL = "Por confirmar";
+
+export function isPriced(
+  product: Pick<Product, "price">,
+): product is Pick<Product, "price"> & { price: number } {
+  return product.price != null;
+}
+
+/** Price for the card, or a placeholder until one is set. */
+export function formatProductPrice(product: Pick<Product, "price">): string {
+  if (!isPriced(product)) return PRICE_PENDING_LABEL;
+  return formatPrice(product.price);
+}
+
+export function canAddToBag(
+  product: Pick<Product, "price" | "soldOut">,
+): boolean {
+  return product.price != null && !product.soldOut;
 }

@@ -5,10 +5,11 @@ import { notFound } from "next/navigation";
 import { AddToBagButton } from "@/components/AddToBagButton";
 import { ProductCard } from "@/components/ProductCard";
 import {
-  formatPrice,
+  formatProductPrice,
   getProduct,
   getProducts,
   getRelatedProducts,
+  isPriced,
   tileBackground,
 } from "@/lib/products";
 
@@ -107,8 +108,14 @@ export default async function ProductPage({
           <h1 className="mt-5 text-balance text-4xl font-medium tracking-[-0.03em] sm:text-5xl">
             {product.name}
           </h1>
-          <p className="mt-4 text-2xl font-semibold tabular-nums">
-            {formatPrice(product.price)}
+          <p
+            className={
+              isPriced(product)
+                ? "mt-4 text-2xl font-semibold tabular-nums"
+                : "mt-4 text-lg font-medium text-black/50"
+            }
+          >
+            {formatProductPrice(product)}
           </p>
           <p className="mt-5 max-w-md text-balance leading-relaxed text-black/60">
             {product.description}
