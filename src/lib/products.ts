@@ -59,6 +59,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "collar-gota",
+    name: "Collar Gota",
+    category: "Collares",
+    style: "Zirconias",
+    price: 980,
+    material: "Plata 925 · Zirconia talla gota",
+    description:
+      "Cadena fina con un dije en talla gota y un halo de zirconias alrededor.",
+    pieces: "1 collar",
+    image: "/images/amani/collar-gota.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e4d6", "#e6d3c4"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "set-flor-circular",
     name: "Set Flor Circular",
     category: "Collares",
