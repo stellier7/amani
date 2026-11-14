@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "brazalete-cubano",
+    name: "Brazalete Cubano",
+    category: "Brazaletes",
+    style: "Cubana",
+    price: 2850,
+    material: "Plata 925 · Eslabón cubano",
+    description:
+      "Eslabón cubano pulido y plano, del mismo ancho en toda la vuelta, para llevar solo en la muñeca.",
+    pieces: "1 brazalete",
+    image: "/images/amani/brazalete-cubano.jpg",
+    shot: "lifestyle",
+    gradient: ["#eceae8", "#d5d3d1"],
+    featured: true,
+    audience: "hombre",
+  },
+  {
     id: "aretes-argolla-cuadrada",
     name: "Aretes Argolla Cuadrada",
     category: "Aretes",
