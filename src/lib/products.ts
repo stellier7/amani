@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-infinito",
+    name: "Aretes Infinito",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 850,
+    material: "Plata 925 · Lazo infinito y pavé",
+    description:
+      "Aritos chicos de plata, de los de niña o para un piercing, con un lazo infinito y pavé.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-infinito.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3e6dc", "#e6d5c8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "aretes-argolla-trenzada",
     name: "Aretes Argolla Trenzada",
     category: "Aretes",
