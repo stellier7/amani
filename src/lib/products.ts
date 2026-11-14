@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "aretes-argolla-cuadrada",
+    name: "Aretes Argolla Cuadrada",
+    category: "Aretes",
+    style: "Zirconias",
+    price: 485,
+    material: "Plata 925 · Aro cuadrado liso",
+    description:
+      "Argollas cuadradas de plata pulida, huecas y con cierre de presión, para un aro geométrico sin piedras.",
+    pieces: "1 par de aretes",
+    image: "/images/amani/aretes-argolla-cuadrada.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4e7da", "#e6d3c2"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "anillo-sello-crucifijo",
     name: "Anillo Sello Crucifijo",
     category: "Anillos",
