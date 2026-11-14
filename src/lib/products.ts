@@ -57,6 +57,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-sello-crucifijo",
+    name: "Anillo Sello Crucifijo",
+    category: "Anillos",
+    style: "Amuletos",
+    price: 1090,
+    material: "Plata 925 · Crucifijo y pavé",
+    description:
+      "Sello ancho con un crucifijo al centro, columnas de pavé a los lados y una cruz en cada hombro.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-sello-crucifijo.jpg",
+    shot: "lifestyle",
+    gradient: ["#d9d5d2", "#b7b3b0"],
+    featured: true,
+    audience: "hombre",
+  },
+  {
     id: "anillo-corazon-nube",
     name: "Anillo Corazón Nube",
     category: "Anillos",
