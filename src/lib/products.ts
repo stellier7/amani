@@ -32,6 +32,8 @@ export type Product = {
   description: string;
   pieces: string;
   image: string;
+  /** Extra photos shown on the product page. The card keeps using `image`. */
+  gallery?: string[];
   shot?: ShotType;
   /** Highlighted in the "Destacados" marquee. */
   featured?: boolean;
@@ -56,6 +58,23 @@ export function tileBackground(product: Product): string {
 }
 
 export const products: Product[] = [
+  {
+    id: "set-flor-circular",
+    name: "Set Flor Circular",
+    category: "Collares",
+    style: "Zirconias",
+    price: 1380,
+    material: "Plata 925 · Flor de zirconias",
+    description:
+      "Medallón redondo con una flor de zirconias y borde labrado, en collar de cadena torcida y aretes a juego.",
+    pieces: "1 collar · 1 par de aretes",
+    image: "/images/amani/set-flor-circular.jpg",
+    gallery: ["/images/amani/set-flor-circular-conjunto.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f4eadf", "#e7d8cc"],
+    featured: true,
+    audience: "mujer",
+  },
   {
     id: "anillo-esfera",
     name: "Anillo Esfera",
