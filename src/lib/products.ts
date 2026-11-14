@@ -60,6 +60,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "pulsera-clip-fatima",
+    name: "Pulsera Clip Mano de Fátima",
+    category: "Brazaletes",
+    style: "Clip",
+    price: 750,
+    material: "Plata 925 · Eslabón clip",
+    description:
+      "Eslabón tipo clip con un dije de mano de Fátima y un ojo al centro.",
+    pieces: "1 pulsera",
+    image: "/images/amani/pulsera-clip-fatima.jpg",
+    shot: "lifestyle",
+    gradient: ["#f3ebe3", "#e4d8cc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "pulsera-tenis-morada",
     name: "Pulsera Tipo Tenis Morada",
     category: "Brazaletes",
