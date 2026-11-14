@@ -59,6 +59,23 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "set-perla",
+    name: "Set Perla",
+    category: "Collares",
+    style: "Perlas",
+    price: 1480,
+    material: "Plata 925 · Perla y zirconias",
+    description:
+      "Perla con un triángulo de zirconias, repetido en el collar, los aretes y un anillo abierto.",
+    pieces: "1 collar · 1 anillo · 1 par de aretes",
+    image: "/images/amani/set-perla.jpg",
+    gallery: ["/images/amani/set-perla-conjunto.jpg"],
+    shot: "lifestyle",
+    gradient: ["#f4eadc", "#e6d8c8"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "collar-corazon",
     name: "Collar Corazón",
     category: "Collares",
