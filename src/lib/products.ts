@@ -60,6 +60,22 @@ export function tileBackground(product: Product): string {
 
 export const products: Product[] = [
   {
+    id: "anillo-cintillo",
+    name: "Anillo Cintillo",
+    category: "Anillos",
+    style: "Zirconias",
+    price: 750,
+    material: "Plata 925 · Zirconias redondas",
+    description:
+      "Hilera continua de zirconias redondas, del mismo tamaño en toda la vuelta.",
+    pieces: "1 anillo",
+    image: "/images/amani/anillo-cintillo.jpg",
+    shot: "lifestyle",
+    gradient: ["#f4e7d6", "#e7d4bc"],
+    featured: true,
+    audience: "mujer",
+  },
+  {
     id: "pulsera-clip-fatima",
     name: "Pulsera Clip Mano de Fátima",
     category: "Brazaletes",
