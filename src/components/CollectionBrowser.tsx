@@ -23,6 +23,7 @@ const styles: Array<"Todos" | ProductStyle> = [
   "Barbada",
   "Figaro / Cartier",
   "Marina",
+  "Clip",
   "Zirconias",
   "Perlas",
   "Amuletos",

@@ -2,20 +2,20 @@
 
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
-import type { Product } from "@/lib/products";
+import { canAddToBag, type Product } from "@/lib/products";
 
 export function AddToBagButton({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
 
   function handleAdd() {
-    if (product.soldOut) return;
+    if (!canAddToBag(product)) return;
     addItem(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1600);
   }
 
-  if (product.soldOut) {
+  if (!canAddToBag(product)) {
     return (
       <button
         type="button"
@@ -23,7 +23,7 @@ export function AddToBagButton({ product }: { product: Product }) {
         data-testid={`detail-add-${product.id}`}
         className="w-full cursor-not-allowed rounded-full bg-black/25 px-7 py-4 text-sm font-medium text-white sm:w-auto sm:px-12"
       >
-        Agotado
+        {product.soldOut ? "Agotado" : "Por confirmar"}
       </button>
     );
   }

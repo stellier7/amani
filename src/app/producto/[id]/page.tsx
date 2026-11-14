@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToBagButton } from "@/components/AddToBagButton";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
 import {
-  formatPrice,
+  formatProductPrice,
   getProduct,
   getProducts,
   getRelatedProducts,
-  tileBackground,
+  isPriced,
 } from "@/lib/products";
 
 export function generateStaticParams() {
@@ -42,7 +42,6 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const related = getRelatedProducts(product);
-  const isPackshot = product.shot === "packshot";
   const specs = [
     { label: "Tipo", value: product.category },
     { label: "Estilo", value: product.style },
@@ -73,26 +72,7 @@ export default async function ProductPage({
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-10 lg:grid-cols-2 lg:gap-16 lg:py-16">
-        <div
-          className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-black/5"
-          style={{ background: tileBackground(product) }}
-        >
-          <Image
-            src={product.image}
-            alt={`${product.name}: ${product.pieces} de plata 925`}
-            fill
-            priority
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className={isPackshot ? "object-contain" : "object-cover"}
-          />
-          {product.soldOut && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/35">
-              <span className="rounded-full bg-white/95 px-6 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-[#2a2520]">
-                Agotado
-              </span>
-            </div>
-          )}
-        </div>
+        <ProductGallery product={product} />
 
         <div className="flex flex-col justify-center">
           <div className="flex flex-wrap gap-2">
@@ -107,8 +87,14 @@ export default async function ProductPage({
           <h1 className="mt-5 text-balance text-4xl font-medium tracking-[-0.03em] sm:text-5xl">
             {product.name}
           </h1>
-          <p className="mt-4 text-2xl font-semibold tabular-nums">
-            {formatPrice(product.price)}
+          <p
+            className={
+              isPriced(product)
+                ? "mt-4 text-2xl font-semibold tabular-nums"
+                : "mt-4 text-lg font-medium text-black/50"
+            }
+          >
+            {formatProductPrice(product)}
           </p>
           <p className="mt-5 max-w-md text-balance leading-relaxed text-black/60">
             {product.description}

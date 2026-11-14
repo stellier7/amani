@@ -21,8 +21,8 @@ export default async function EllaPage({
       title="Ella"
       eyebrow="Colección para ella"
       description="Anillos, aretes y brazaletes con brillo suave — zirconias, perlas y amuletos en plata 925."
-      image="/images/amani/tennis-brazalete.jpg"
-      imageAlt="Pulsera Tenis Ajustable de plata 925 con zirconias"
+      image="/images/amani/anillo-cruz-pave.jpg"
+      imageAlt="Anillo Cruz Pavé de plata 925"
       products={products}
       initialCategory={initialCategory}
     />

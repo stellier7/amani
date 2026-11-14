@@ -54,7 +54,7 @@ export function AudienceCatalog({
               fill
               priority
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain p-10 sm:p-14"
+              className="object-cover"
             />
           </div>
         </div>
