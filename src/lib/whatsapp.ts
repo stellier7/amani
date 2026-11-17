@@ -7,9 +7,22 @@ export type WhatsAppOrderItem = {
 
 const DEFAULT_SITE_ORIGIN = "https://amanijoyeria.com";
 
-/** Digits only, with country code. Set in Vercel as NEXT_PUBLIC_WHATSAPP_NUMBER. */
+/** Digits only, with country code (+504 8744-1656). Override with NEXT_PUBLIC_WHATSAPP_NUMBER. */
+const DEFAULT_WHATSAPP_NUMBER = "50487441656";
+
 export function getWhatsAppNumber(): string {
-  return (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+  const raw =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || DEFAULT_WHATSAPP_NUMBER;
+  return raw.replace(/\D/g, "");
+}
+
+/** Direct chat link (optional prefilled greeting). */
+export function buildWhatsAppChatUrl(
+  text = "Hola! Me gustaría más información.",
+): string {
+  const phone = getWhatsAppNumber();
+  const base = phone ? `https://wa.me/${phone}` : "https://wa.me/";
+  return `${base}?text=${encodeURIComponent(text)}`;
 }
 
 /** Always use the public store domain for order links (not a Vercel preview). */

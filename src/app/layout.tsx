@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/CartContext";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
+import { WhatsAppFloatButton } from "@/components/WhatsAppFloatButton";
 
 // Self-host fonts so production builds do not download from Google Fonts.
 // next/font/google intermittently fails on Vercel/Turbopack when Google returns
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           <main className="flex-1">{children}</main>
           <SiteFooter />
+          <WhatsAppFloatButton />
         </CartProvider>
       </body>
     </html>
